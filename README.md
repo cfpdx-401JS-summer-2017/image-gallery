@@ -52,9 +52,10 @@ Include PropTypes for all components (that take props)
 ## Testing
 
 You also need to snapshot test:
-* your individual three image list components
-* your individual three image view components
+* your imaging viewing components
 * the wrapper component (in each view state)
+Unit test:
+* Data edit actions
 
 ## Rubric *10pts*
 - "list" component *2pt*
