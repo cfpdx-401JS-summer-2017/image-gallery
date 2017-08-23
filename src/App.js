@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { bunnyBuild } from './services/bunnies';
 import { List } from './Components/List';
+import { Thumbs } from './Components/Thumbs';
+import { Gallery } from './Components/Gallery';
 
 class App extends Component {
 
@@ -18,8 +20,8 @@ class App extends Component {
     return (
       <div className="App">
         <List listArray={bunnies} />
-
-
+        <Thumbs thumbArray={bunnies} />
+        <Gallery galleryArray={bunnies} />
       </div>
     );
   }
