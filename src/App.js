@@ -34,7 +34,9 @@ class App extends Component {
           <button value="Gallery" onClick={(event) => this.handleClick(event.target.value)}>
             Gallery
           </button>
-          <List bunnies={this.state.bunnies}/>
+          <div className="Viewer">
+            <List bunnies={this.state.bunnies}/>
+          </div>
         </div>
       );
     }
@@ -47,8 +49,10 @@ class App extends Component {
           <button value="Gallery" onClick={(event) => this.handleClick(event.target.value)}>
             Gallery
           </button>
+          <div className="Viewer">
             <Thumbnail bunnies={this.state.bunnies}/>
           </div>
+        </div>
         );
     }
     if( view === 'Gallery' ) {
@@ -60,8 +64,10 @@ class App extends Component {
           <button value="Thumbnail" onClick={(event) => this.handleClick(event.target.value)}>
             Thumbnail
           </button>
+          <div className="Viewer">
             <Gallery bunnies={this.state.bunnies}/>
           </div>
+        </div>
         );
     }
   }

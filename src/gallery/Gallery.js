@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 export default class Gallery extends Component {
+
+    static propTypes = {
+        bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
+    }
 
     constructor(props) {
         super(props);
