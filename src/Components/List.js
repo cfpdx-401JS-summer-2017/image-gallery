@@ -12,7 +12,7 @@ export function ListItem({ title, description, url }) {
         <ul>
             <li>{title}</li>
             <li>{description}</li>
-            <li><a target="_blank" href="{url}">{url}</a></li>
+            <li><a target="_blank" href={url}>{url}</a></li>
         </ul>
     );
 }
@@ -20,18 +20,17 @@ export function ListItem({ title, description, url }) {
 export class List extends Component {
 
     static propTypes = {
-        listArray: PropTypes.arrayOf(PropTypes.string).isRequired
+        listArray: PropTypes.arrayOf(PropTypes.object).isRequired
     }
 
     render() {
-        const { title, description, url, ListArray } = this.props;
+        const { listArray } = this.props;
         return (
             <div>
-                {ListArray.map((item, i) => (
-                    <ListItem key={i} title={title} description={description} url={url} />
+                {listArray.map((item, i) => (
+                    <ListItem key={i} title={item.title} description={item.description} url={item.url} />
                 ))}
             </div>
         );
-        
     }
 }

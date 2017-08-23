@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
+import { bunnyBuild } from './services/bunnies';
+import { List } from './Components/List';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      bunnies: bunnyBuild()
+    };
+  }
+
   render() {
+    const { bunnies } = this.state;
+
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Cute Bunnies Image Gallery</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <List listArray={bunnies} />
+
+
       </div>
     );
   }
