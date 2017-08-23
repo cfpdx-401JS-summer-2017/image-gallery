@@ -43,6 +43,7 @@ class BunnyApp extends Component {
                             {v}
                         </button>
                     ))}
+                    <BunnyList />
                 </section>
 
             </main>
