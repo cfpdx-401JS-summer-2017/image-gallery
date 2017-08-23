@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { bootstrapBunnies } from './services/bunnies'
+import BunnyApp from './BunnyApp'
 
 export default class Bunnies extends Component {
   constructor(props) {
