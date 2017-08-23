@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { DetailView, ThumbnailView, GalleryView, Options } from './emoji/views.js';
+import EmojiList from './emoji/list'
+import { DetailView, ThumbnailView, GalleryView, Options } from './emoji/views';
 
 
 const views = {
@@ -56,6 +57,7 @@ class App extends Component {
 
         <Options onClick={this.handleViewChange}/>
         <CurrentView />
+        <EmojiList emojis={this.state.emojis} />
 
       </div>
     );

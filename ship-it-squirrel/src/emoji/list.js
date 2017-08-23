@@ -7,13 +7,13 @@ export default class EmojiList extends Component {
 
     return (
       <div>
-        {emojis.map((emoji, index) => {
+        {emojis.map((emoji, index) => (
           <div key={index} >
             <h2>{emoji.title}</h2>
             <p>{emoji.description}</p>
             <img src={emoji.url} />
           </div>
-        })}
+        ))}
       </div>
     );
 
