@@ -1,50 +1,34 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-ChooseView.propTypes = {
-  view: PropTypes.string,
-  onChangeView: PropTypes.func
-}
+export default class ChooseView extends PureComponent {
 
-export default function ChooseView({onChangeView}) {
-  return (
-    <div className="viewChooser">
-      <div className="view">
-        <label>
-          list
-          <input
-            type="radio"
-            className="viewChooser"
-            name="viewChooser"
-            value="listRadio"
-            onChange={target => onChangeView(target)}
-          />
-        </label>
+  static propTypes = {
+    view: PropTypes.string,
+    onChangeView: PropTypes.func,
+    views: PropTypes.arrayOf(PropTypes.string)
+  };
+
+  render() {
+    const viewsBuilder = ['list', 'thumb', 'gallery'];
+    const { onChangeView, view } = this.props;
+    return (
+      <div className="viewChooser">
+        {viewsBuilder.map((currentView, i) =>
+          <div key={i} className="view">
+            <label>
+              {currentView}
+              <input
+                type="radio"
+                className="viewChooser"
+                name={currentView}
+                checked={currentView === view}
+                onChange={target => onChangeView({currentView})}
+              />
+            </label>
+          </div>
+        )}
       </div>
-      <div className="view">
-        <label>
-          gallery
-          <input
-            type="radio"
-            className="viewChooser"
-            name="viewChooser"
-            value="galleryRadio"
-            onChange={target => onChangeView(target)}
-          />
-        </label>
-      </div>
-      <div className="view">
-        <label>
-          thumb
-          <input
-            type="radio"
-            className="viewChooser"
-            name="viewChooser"
-            value="thumbRadio"
-            onChange={target => onChangeView(target)}
-          />
-        </label>
-      </div>
-    </div>
-  );
+    );
+  }
 }

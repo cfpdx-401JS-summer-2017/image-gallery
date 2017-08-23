@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-Thumb.propTypes = {
-  hondas: PropTypes.arrayOf(PropTypes.object).isRequired
-}
+export default class Thumb extends PureComponent {
 
-export default function Thumb({hondas}) {
-  return (
-    <div className="thumbView">
-      {hondas.map((honda, i) => <img className="thumb" alt={honda.alt} key={i} src={honda.url}/>)}
+  static propTypes = {
+    hondas: PropTypes.arrayOf(PropTypes.object).isRequired
+  };
 
+  render() {
+    const { hondas } = this.props;
+    return (
+      <div className="thumbView">
+      {hondas.map((honda, i) =>
+        <img className="thumb" alt={honda.alt} key={i} src={honda.url} />
+      )}
       </div>
-
-
-
-  );
+    );
+  }
 
 }

@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-// import hondas from '../data/hondas'
 
-Gallery.propTypes = {
-  hondas: PropTypes.arrayOf(PropTypes.object).isRequired
+export default class Gallery extends PureComponent {
 
-}
+  static propTypes = {
+    hondas: PropTypes.arrayOf(PropTypes.object).isRequired,
+    deleteImage: PropTypes.func
+  };
 
-export default function Gallery({hondas}) {
-  return (
-    <div className="galleryView">
-      {hondas.map((honda, i) => <img className="gallery" alt={honda.alt} key={i} src={honda.url}/>)}
+  render () {
+    const {deleteImage, hondas} = this.props;
+    return (
+      <div className="galleryView">
+      {hondas.map((honda, i) =>
+        <div key={i}>
+        <input type="checkbox" onChange={target => deleteImage(i)} />
+        <img className="gallery" alt={honda.alt} src={honda.url} />
+        </div>
+      )}
       </div>
-
-
-
-  );
-
+    );
+  }
 }
