@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { bootstrap } from './image';
+// import { bootstrap } from './image';
+// import ImageList from './ImageList';
+// import ImageThumbnail from './ImageThumbnail';
+// import ImageGallery from './ImageGallery';
 
 let id = 0;
 const images = [
@@ -73,7 +76,7 @@ class ImageGallery extends Component {
     return (
       <div>
         <button disabled={this.state.index === 0} onClick={() => this.setState({index: --this.state.index, current: images[this.state.index]})}>Previous</button>
-        <img key={currentImg.id} src={currentImg.url} width="200" />
+        <img key={currentImg.id} src={currentImg.url} width="400" />
         <p>{currentImg.title}</p>
         <p>{currentImg.id}</p>
         <p>{currentImg.description}</p>
@@ -83,7 +86,6 @@ class ImageGallery extends Component {
     )
   }
 }
-
 
 const View = {
   list: ImageList,
@@ -98,10 +100,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      // search: 'bunny',
       view: views[1],
       views: views,
-      images: bootstrap()
     }
   }
 
@@ -116,7 +116,6 @@ class App extends Component {
           {views.map(v => (
             <button key={v} onClick={() => this.setState({ view: v })}>
               {v}</button>))}
-          {/* <div><p>{this.state.images}</p></div> */}
           <ImageView />
         </div>
       </div>
