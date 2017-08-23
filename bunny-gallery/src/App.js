@@ -3,10 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import { bootstrap } from './image';
 
+let id = 0;
 const images = [
-  { title: 'cute bunny', description: 'very cute bunny', url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg' },
-  { title: 'another cute bunny', description: 'very, very cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg' },
-  { title: 'fairly cute bunny', description: 'pretty much a cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg' },
+  { id: ++id, title: 'cute bunny', description: 'very cute bunny', url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg' },
+  { id: ++id, title: 'another cute bunny', description: 'very, very cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg' },
+  { id: ++id, title: 'fairly cute bunny', description: 'pretty much a cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg' },
 ];
 
 class ImageList extends Component {
@@ -36,7 +37,7 @@ class ImageThumbnail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: views[1]
+      view: views[1],
     }
   }
 
@@ -45,8 +46,8 @@ class ImageThumbnail extends Component {
       <div>
         {images.map((image, index) => {
           return (
-            <div>
-              <img key={index} src={image.url} width ="200"/>
+            <div key={index}>
+              <img src={image.url} width="200" />
               <p>{image.title}</p>
               <p>{image.description}</p>
             </div>
@@ -61,24 +62,23 @@ class ImageGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: views[2]
+      index: 0,
+      view: views[2],
+      current: images[0]
     }
   }
 
   render() {
+    let currentImg = this.state.current;
     return (
       <div>
-        {images.map((image, index) => {
-          return (
-            <div>
-              <button>Previous</button>
-              <img key={index} src={image.url} width ="200"/>
-              <p>{image.title}</p>
-              <p>{image.description}</p>
-              <button>Next</button>
-            </div>
-          )
-        })};
+        <button disabled={this.state.index === 0} onClick={() => this.setState({index: --this.state.index, current: images[this.state.index]})}>Previous</button>
+        <img key={currentImg.id} src={currentImg.url} width="200" />
+        <p>{currentImg.title}</p>
+        <p>{currentImg.id}</p>
+        <p>{currentImg.description}</p>
+        <button disabled={this.state.index === images.length - 1} onClick={() => this.setState({index: ++this.state.index, current: images[this.state.index]})}>Next</button>
+
       </div>
     )
   }
