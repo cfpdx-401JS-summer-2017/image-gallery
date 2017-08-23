@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Bunnies from './images/bunnies';
+import List from './list/List';
+import Thumbnail from './thumbnail/Thumbnail';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      view: 'List',
+      bunnies: Bunnies
+    }
+  }
+
   render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+    const view = this.state.view;
+
+    if( view === 'List' ) {
+      return (
+        <div className="App">
+          <List bunnies={this.state.bunnies}/>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      );
+    }
+    if( view === 'Thumbnail' ) {
+      return (
+        <div className="App">
+            <Thumbnail bunnies={this.state.bunnies}/>
+          </div>
+        );
+    }
   }
 }
 
