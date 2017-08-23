@@ -24,7 +24,6 @@ class App extends Component {
   render() {
     const view = this.state.view;
 
-    {
       if( view === 'List' ) {
       return (
         <div className="App">
@@ -70,7 +69,6 @@ class App extends Component {
         </div>
         );
     }
-  }
   }
 }
 
