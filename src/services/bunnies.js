@@ -18,7 +18,7 @@ export function bunnyBuild() {
         {
             title: 'Cute Bunny 4',
             description: 'Hey, that\'s not a bunny!',
-            url: 'https://i.pinimg.com/736x/08/49/55/084955f110a7696779f30a7bfad2dcdb--hoppy-easter-easter-eggs.jpg'
+            url: 'https://i.pinimg.com/originals/52/79/ec/5279ec99c74876b17224e0e033224222.jpg'
         }
     ];
 }
