@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 
-export default class EmojiList extends Component {
+export default class EmojiThumbnails extends Component {
   
   render() {
     const { emojis } = this.props;
 
     return (
-      <div>
+      <div className="thumbnail-view">
         {emojis.map((emoji, index) => (
           <div key={index} >
-            <h2>{emoji.title}</h2>
-            <p>{emoji.description}</p>
-            <img src={emoji.url} />
+            <img src={emoji.url} width="100px" height="100px"/>
+            <p>{emoji.title}</p>
           </div>
         ))}
       </div>
