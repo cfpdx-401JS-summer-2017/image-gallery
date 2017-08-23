@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import BunnyList from './BunnyList';
+import { thumbnail } from './components/thumbnail'
+import { list } from './components/list'
+
 
 function BunnyDetail({ sort }) {
     return <div>Bunny Detail { sort }</div>
@@ -46,7 +49,8 @@ class BunnyApp extends Component {
                     <BunnyView />
                 </section>
                 <section>
-                    <BunnyList style={view}/>
+                    <BunnyList view={thumbnail}/>
+                    <BunnyList view={list}/>
                 </section>
 
             </main>

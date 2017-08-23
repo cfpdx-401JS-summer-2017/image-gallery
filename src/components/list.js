@@ -1,4 +1,5 @@
-export function list({ bunny }) {
+import React, { Component } from 'react';
+export default function list({ bunny }) {
     return (
         <div style={{
       padding: '10px',
