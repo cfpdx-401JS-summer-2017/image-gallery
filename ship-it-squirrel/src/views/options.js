@@ -6,7 +6,7 @@ export default function ViewOptions({ onClick }) {
     <form>
       <label>
         list 
-        <input type="radio" name="view-picker" value="list" onClick={() => onClick("list")} />
+        <input type="radio" name="view-picker" value="list" default onClick={() => onClick("list")} />
       </label>
       <label>
         thumbnail 

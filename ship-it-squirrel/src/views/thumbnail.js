@@ -9,7 +9,7 @@ export default class EmojiThumbnails extends Component {
       <div className="thumbnail-view">
         {emojis.map((emoji, index) => (
           <div key={index} >
-            <img src={emoji.url} width="100px" height="100px"/>
+            <img src={emoji.url} width="50px" height="50px" alt={emoji.title}/>
             <p>{emoji.title}</p>
           </div>
         ))}

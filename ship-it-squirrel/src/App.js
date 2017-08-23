@@ -3,12 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import EmojiList from './views/list'
 import EmojiThumbnail from './views/thumbnail'
+import EmojiGallery from './views/gallery'
 import ViewOptions from './views/options'
 
 const views = {
   list: EmojiList,
   thumbnail: EmojiThumbnail,
-  // gallery: GalleryView
+  gallery: EmojiGallery,
 };
 
 class App extends Component {
@@ -21,8 +22,8 @@ class App extends Component {
       emojis: [
         {
           title: 'ship it squirrel',
-          description: ':shipit: emoji on github of a mobster squirrel used in PR\'s to communicate the code is finished and ready for production.',
-          url: 'https://github.com/github/gemoji/blob/master/images/shipit.png?raw=true'
+          description: 'GitHub\'s :shipit: emoji is a mobster squirrel used, typically in PR\'s, to communicate the code is finished and ready for production. Ship it!',
+          url: 'https://qph.ec.quoracdn.net/main-qimg-c8781a4bb1f17e330b50cb35f851da05-c'
         },{
           title: 'hamburger',
           description: 'A hamburger or burger is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, barbecued, or flame broiled. Hamburgers are often served with cheese, lettuce, tomato, bacon, onion, pickles, or chiles; condiments such as mustard, mayonnaise, ketchup, relish, or "special sauce"; and are frequently placed on sesame seed buns. A hamburger topped with cheese is called a cheeseburger.',
@@ -47,19 +48,13 @@ class App extends Component {
     let CurrentView = views[this.state.view];
 
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="main">
+        <div>
+          <h1>Christy's Image Gallery</h1>
+          <ViewOptions onClick={this.handleViewChange}/>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <ViewOptions onClick={this.handleViewChange}/>
 
         <CurrentView emojis={this.state.emojis}/>
-        
 
       </div>
     );
