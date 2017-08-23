@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import EmojiList from './views/list'
-import EmojiThumbnail from './views/thumbnail'
-import EmojiGallery from './views/gallery'
-import ViewOptions from './views/options'
+import EmojiList from './views/list';
+import EmojiThumbnail from './views/thumbnail';
+import EmojiGallery from './views/gallery';
+import ViewOptions from './views/options';
+import CreateEmoji from './services/create';
 
+// dictionary
 const views = {
   list: EmojiList,
   thumbnail: EmojiThumbnail,
@@ -18,7 +19,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      view: 'list',
+      view: 'list', // key of the views dictionary obj
       emojis: [
         {
           title: 'ship it squirrel',
@@ -30,17 +31,45 @@ class App extends Component {
           url: 'https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/hamburger_1f354.png',
         },{
           title: 'unicorn',
-          description: 'The unicorn is a legendary creature that has been described since antiquity as a beast with a single large, pointed, spiraling horn projecting from its forehead. The unicorn was depicted in ancient seals of the Indus Valley Civilization and was mentioned by the ancient Greeks in accounts of natural history by various writers, including Ctesias, Strabo, Pliny the Younger, and Aelian.[1] The Bible also describes an animal, the re\'em, which some versions translate as unicorn.',
+          description: 'The unicorn is a legendary creature that has been described since antiquity as a beast with a single large, pointed, spiraling horn projecting from its forehead. The unicorn was depicted in ancient seals of the Indus Valley Civilization and was mentioned by the ancient Greeks in accounts of natural history by various writers, including Ctesias, Strabo, Pliny the Younger, and Aelian. The Bible also describes an animal, the re\'em, which some versions translate as unicorn.',
           url: 'https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/unicorn-face_1f984.png',
+        },{
+          title: 'fire',
+          description: 'Fire is the rapid oxidation of a material in the exothermic chemical process of combustion, releasing heat, light, and various reaction products. Slower oxidative processes like rusting or digestion are not included by this definition.',
+          url: 'https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/fire_1f525.png'
+        },{
+          title: 'alien',
+          description: 'Extraterrestrial life, also called alien life (or, if it is a sentient or relatively complex individual, an "extraterrestrial" or "alien"), is life that does not originate from Earth. These hypothetical life forms may range from simple single-celled organisms to beings with civilizations far more advanced than humanity. Although many scientists expect extraterrestrial life to exist in some form, there is no evidence for its existence to date. The Drake equation speculates about the existence of intelligent life elsewhere in the universe. The science of extraterrestrial life in all its forms is known as exobiology.',
+          url: 'https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/alien-monster_1f47e.png'
+        },{
+          title: 'nerd',
+          description: 'A nerd is a person seen as overly intellectual, obsessive, or lacking social skills. Such a person may spend inordinate amounts of time on unpopular, little known, or non-mainstream activities, which are generally either highly technical, abstract, or relating to topics of fiction or fantasy, to the exclusion of more mainstream activities. Additionally, many so-called nerds are described as being shy, quirky, pedantic, and unattractive, and may have difficulty participating in, or even following, sports.',
+          url: 'https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/nerd-face_1f913.png'
+        },{
+          title: 'floppy disk',
+          description: 'A floppy disk, also called a floppy, diskette, or just disk, is a type of disk storage composed of a disk of thin and flexible magnetic storage medium, sealed in a rectangular plastic enclosure lined with fabric that removes dust particles. Floppy disks are read and written by a floppy disk drive (FDD).',
+          url: 'https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/floppy-disk_1f4be.png'
         }
       ]
     }
 
     this.handleViewChange = this.handleViewChange.bind(this);
+    this.handleOnSubmitCreateEmoji = this.handleOnSubmitCreateEmoji.bind(this);
   }
 
   handleViewChange(view) {
     this.setState({ view });
+  }
+
+  handleOnSubmitCreateEmoji(title, description, url) {
+    const newEmoji = { title, description, url };
+    const existingEmojis = this.state.emojis;
+  
+    this.setState({
+      emojis: [...existingEmojis, newEmoji]
+    })
+
+    console.log('emojis', this.state.emojis);
   }
 
   render() {
@@ -50,12 +79,15 @@ class App extends Component {
     return (
       <div className="main">
         <div>
-          <h1>Christy's Image Gallery</h1>
-          <ViewOptions onClick={this.handleViewChange}/>
+          <h1>emoji-wiki-pedia</h1>
+          <p>a mashup of <a href="https://emojipedia.org/" target="_blank">emojipedia</a> and <a href="https://en.wikipedia.org/" target="_blank">Wikipedia</a>.</p>
+          
+          <ViewOptions onClick={this.handleViewChange} />
         </div>
-
-        <CurrentView emojis={this.state.emojis}/>
-
+        <div>
+          <CurrentView emojis={this.state.emojis} />
+          <CreateEmoji handleOnSubmit={this.handleOnSubmitCreateEmoji} />
+        </div>
       </div>
     );
   }

@@ -29,8 +29,8 @@ export default class EmojiGallery extends Component {
 
     let emojiArray = emojis.map((emoji, index) => (
       <div key={index} >
-        <h2>{emoji.title}</h2>
         <img src={emoji.url} alt={emoji.title} />
+        <h2>{emoji.title}</h2>
         <p>{emoji.description}</p>
       </div>
     ));

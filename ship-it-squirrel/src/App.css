@@ -1,15 +1,17 @@
+
 .main {
   margin: 0 auto;
   max-width: 940px;
-}
-
-input[type=radio] {
-  margin-right: 1rem;
+  padding: 1rem;
 }
 
 .list-view {
   display: block;
   text-align: left;
+}
+
+.list-view div {
+  border-bottom: 1px solid grey;
 }
 
 .list-view img {
@@ -19,6 +21,11 @@ input[type=radio] {
 .thumbnail-view div {
   display: inline-block;
   text-align: center;
+  margin: 1rem;
+}
+
+.thumbnail-view img {
+  width: 40px;
 }
 
 .gallery-view {
