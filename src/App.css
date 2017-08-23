@@ -1,0 +1,50 @@
+header {
+  background: #232;
+  border: 1px solid #232;
+}
+header h1 {
+  text-align: center;
+  color: #fff;
+}
+nav {
+  background: #252;
+  padding: 1em 0;
+  text-align: center;
+}
+nav button {
+  padding: .5em 1em;
+  background: #cfc;
+  border: none;
+  font-size: 1em;
+  margin-right: 1em;
+}
+nav button:last-child {margin-right: 0;}
+
+section {margin: 2em;}
+section ul {
+  list-style: none;
+  margin-bottom: 2em;
+}
+.thumbView {
+  float: left;
+  height: 150px;
+  width: 125px;
+  border: 1px solid #999;
+  text-align: center;
+  padding: 10px;
+  margin-right: 10px;
+}
+.thumbView img {
+  max-width: 100px;
+  max-height: 100px;
+}
+.thumbView p { font-size: .8em; }
+.clear:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.galleryView img {
+  max-width: 600px;
+}
