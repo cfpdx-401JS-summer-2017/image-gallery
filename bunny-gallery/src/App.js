@@ -4,9 +4,9 @@ import './App.css';
 import { bootstrap } from './image';
 
 const images = [
-      { title: 'cute bunny', description: 'very cute bunny', url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'},
-      { title: 'another cute bunny', description: 'very, very cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg'},
-      { title: 'fairly cute bunny', description: 'pretty much a cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg'},
+  { title: 'cute bunny', description: 'very cute bunny', url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg' },
+  { title: 'another cute bunny', description: 'very, very cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg' },
+  { title: 'fairly cute bunny', description: 'pretty much a cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg' },
 ];
 
 class ImageList extends Component {
@@ -14,40 +14,76 @@ class ImageList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      view: views[0]
     }
   }
 
-    render() {
-      return(
-        <ul>
-          {images.map((image, index)=> {
-            return(<li key = {index}> <a href={image.url}> {image.title}</a>
+  render() {
+    return (
+      <ul>
+        {images.map((image, index) => {
+          return (<li key={index}> <a href={image.url}> {image.title}</a>
+            <p>{image.description}</p>
+          </li>
+          )
+        })}
+      </ul>
+    )
+  }
+}
+class ImageThumbnail extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: views[1]
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        {images.map((image, index) => {
+          return (
+            <div>
+              <img key={index} src={image.url} width ="200"/>
+              <p>{image.title}</p>
               <p>{image.description}</p>
-              </li>
-          )})}
-          </ul>
-      )
+            </div>
+          )
+        })};
+        </div>
+    )
+  }
+}
+class ImageGallery extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: views[2]
     }
   }
 
-//   console.log("images", images);
-//   const { title, description, url } = images;
-
-//   console.log('Image List');
-//   return (
-//     <div>
-//       <h3>{title}</h3>
-//     </div>
-//   );
-// }
-
-function ImageThumbnail({ images }) {
-  console.log('ImageThumbnail');
+  render() {
+    return (
+      <div>
+        {images.map((image, index) => {
+          return (
+            <div>
+              <button>Previous</button>
+              <img key={index} src={image.url} width ="200"/>
+              <p>{image.title}</p>
+              <p>{image.description}</p>
+              <button>Next</button>
+            </div>
+          )
+        })};
+      </div>
+    )
+  }
 }
 
-function ImageGallery({ images }) {
-  console.log('Image Gallery');
-}
 
 const View = {
   list: ImageList,
@@ -62,8 +98,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      search: 'bunny',
-      view: views[0],
+      // search: 'bunny',
+      view: views[1],
       views: views,
       images: bootstrap()
     }
