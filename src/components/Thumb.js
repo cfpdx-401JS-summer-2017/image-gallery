@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import motos from '../data/motos'
 
 Thumb.propTypes = {
-  motos: PropTypes.array,
-  viewChoice: PropTypes.string
+  hondas: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
-export default function Thumb({viewChoice}) {
+export default function Thumb({hondas}) {
   return (
     <div className="thumbView">
+      {hondas.map((honda, i) => <img className="thumb" alt={honda.alt} key={i} src={honda.url}/>)}
 
       </div>
 

@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import motos from '../data/motos'
 
 List.propTypes = {
-  motos: PropTypes.array,
-  viewChoice: PropTypes.string
-
+  hondas: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
-export default function List({viewChoice}) {
+export default function List({hondas}) {
   return (
     <div className="listView">
+      {hondas.map((honda, i) => <img className="gallery" alt={honda.alt} key={i} src={honda.url}/>)}
 
       </div>
 

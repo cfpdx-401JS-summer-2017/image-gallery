@@ -3,3 +3,29 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+label {
+  margin: 0 10px 0 0;
+}
+
+img.gallery {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+img.thumb {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.viewChooser {
+  margin: 10px;
+}
+
+.view {
+display: inline-block;
+margin: 10px;
+
+}
+
+

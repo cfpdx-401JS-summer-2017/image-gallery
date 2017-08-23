@@ -1,12 +1,18 @@
-// import motos from '../data/motos';
+// import hondas from '../data/hondas';
 
-
-export function AddImage(motos, moto) {
+export function DefaultImages(hondas, moto) {
 
 
 
 }
 
-export function DeleteImage(motos, moto) {
+export function AddImage(hondas, moto) {
+  //paste a url?
+
+
+
+}
+
+export function DeleteImage(hondas, moto) {
 
 }

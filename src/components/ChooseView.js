@@ -14,30 +14,33 @@ export default function ChooseView({onChangeView}) {
           list
           <input
             type="radio"
+            className="viewChooser"
             name="viewChooser"
-            value="list"
+            value="listRadio"
             onChange={target => onChangeView(target)}
           />
         </label>
       </div>
-      <div className="choices">
+      <div className="view">
         <label>
           gallery
           <input
             type="radio"
+            className="viewChooser"
             name="viewChooser"
-            value="gallery"
+            value="galleryRadio"
             onChange={target => onChangeView(target)}
           />
         </label>
       </div>
-      <div className="choices">
+      <div className="view">
         <label>
           thumb
           <input
             type="radio"
+            className="viewChooser"
             name="viewChooser"
-            value="thumb"
+            value="thumbRadio"
             onChange={target => onChangeView(target)}
           />
         </label>
