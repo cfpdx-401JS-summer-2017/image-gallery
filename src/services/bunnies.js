@@ -22,3 +22,21 @@ export function bunnyBuild() {
         }
     ];
 }
+
+export function addBunny(bunnies, title, description, url) {
+    const bunny = { title, description, url };
+    return [
+        ...bunnies,
+        bunny
+    ];
+}
+
+export function removeBunny(bunnies, bunny) {
+    const index = bunnies.indexOf(bunny);
+    if (index === -1) return bunnies;
+    
+    return [
+        ...bunnies.slice(0, index),
+        ...bunnies.slice(index + 1)
+    ];
+}

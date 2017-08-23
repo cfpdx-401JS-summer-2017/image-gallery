@@ -34,6 +34,9 @@ class App extends Component {
     };
   }
 
+  // addBunny = 
+
+
   render() {
     const { bunnies, views, view } = this.state;
     const ViewWrapper = viewDict[view];
