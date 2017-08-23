@@ -1,22 +1,12 @@
 import React from 'react';
 
-export default function ViewOptions({ onClick }) {
+export default function ViewOptions({ checked, onClick }) {
 
   return (
-    <form>
-      <label>
-        list 
-        <input type="radio" name="view-picker" value="list" default onClick={() => onClick("list")} />
-      </label>
-      <label>
-        thumbnail 
-        <input type="radio" name="view-picker" value="thumbnail" onClick={() => onClick("thumbnail")} />
-      </label>
-      <label>
-        gallery 
-        <input type="radio" name="view-picker" value="gallery" onClick={() => onClick("gallery")} />
-      </label>
-    </form>
+    <div>
+      <button onClick={() => onClick("list")}>list</button>
+      <button onClick={() => onClick("thumbnail")}>thumbnail</button>
+      <button onClick={() => onClick("gallery")}>gallery</button>
+    </div>
   );
-  
 }
