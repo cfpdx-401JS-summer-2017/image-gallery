@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { bunnyBuild } from './services/bunnies';
+import { bunnyBuild, addBunny, removeBunny } from './services/bunnies';
 import { List } from './Components/List';
 import { Thumbs } from './Components/Thumbs';
 import { Gallery } from './Components/Gallery';
+import AddBunny from './Components/AddBunny';
 
 function listView({ bunnies }) {
   return <div><h2>List View</h2> <List listArray={ bunnies } /> </div>;
@@ -34,8 +35,19 @@ class App extends Component {
     };
   }
 
-  // addBunny = 
+  addBunny = (title, description, url) => {
+    const oldBunnies = this.state.bunnies;
+    this.setState({
+      bunnies: addBunny(oldBunnies, title, description, url)
+    });
+  }
 
+  removeBunny = bunny => {
+    const oldBunnies = this.state.bunnies;
+    this.setState({
+      bunnies: removeBunny(oldBunnies, bunny)
+    });
+  }
 
   render() {
     const { bunnies, views, view } = this.state;
@@ -55,6 +67,9 @@ class App extends Component {
         </nav>
         <section>
           <ViewWrapper bunnies={ bunnies } />
+        </section>
+        <section>
+          <AddBunny onAdd={this.addBunny} />
         </section>
       </main>
     );
