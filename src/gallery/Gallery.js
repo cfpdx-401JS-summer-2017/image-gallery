@@ -4,17 +4,46 @@ export default class Gallery extends Component {
 
     constructor(props) {
         super(props);
-        state = {
+        this.state = {
             bunnies: props.bunnies,
             current: 0
         }
     }
 
+    handleClick(value) {
+        const thisImgIndex = this.state.current;
+        
+        if( value === "Previous" ) {
+            if( thisImgIndex > 0) {
+                this.setState({
+                    current: thisImgIndex - 1
+                })
+            } else {
+                this.setState({
+                    current: this.state.bunnies.length - 1
+                })
+            }
+        } else {
+            if( thisImgIndex === (this.state.bunnies.length - 1)) {
+                this.setState({
+                    current: 0
+                })
+            } else {
+                this.setState({
+                    current: thisImgIndex + 1
+                })
+            }
+        }
+    }
+
     render() {
+        const bunny = this.state.bunnies[this.state.current];
         return (
             <div>
-                
-                <button 
+                <img src={bunny.url} alt={bunny.title}/>
+                <h5>{bunny.title}</h5>
+                <button value="Previous" onClick={(event) => this.handleClick(event.target.value)}>Previous</button>
+                <button value="Next" onClick={(event) => this.handleClick(event.target.value)}>Next</button>
             </div>
         )
     }
