@@ -33,6 +33,8 @@ class App extends Component {
       view: viewArray[0],
       views: viewArray
     };
+    this.addBunny = this.addBunny.bind(this);
+    this.removeBunny = this.removeBunny.bind(this);
   }
 
   addBunny = (title, description, url) => {

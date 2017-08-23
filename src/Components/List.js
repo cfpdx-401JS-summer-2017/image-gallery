@@ -13,6 +13,7 @@ export function ListItem({ title, description, url }) {
             <li><h3>{title}</h3></li>
             <li>{description}</li>
             <li><a target="_blank" href={url}>{url}</a></li>
+            {/* <button onClick={() => onRemove(bunny)} >X</button> */}
         </ul>
     );
 }
@@ -24,11 +25,11 @@ export class List extends Component {
     }
 
     render() {
-        const { listArray } = this.props;
+        const { listArray} = this.props;
         return (
             <div>
-                {listArray.map((item, i) => (
-                    <ListItem key={i} title={item.title} description={item.description} url={item.url} />
+                {listArray.map((bunny, i) => (
+                    <ListItem key={i} title={bunny.title} description={bunny.description} url={bunny.url} />
                 ))}
             </div>
         );
