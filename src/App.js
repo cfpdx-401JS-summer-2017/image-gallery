@@ -41,7 +41,7 @@ class App extends Component {
     return (
       <main>
         <header>
-          <h1>Cute Bunnies App</h1>
+          <h1>Cute Bunnies: The App</h1>
         </header>
         <nav>
           {views.map(v => (
