@@ -15,7 +15,8 @@ export default class Bunnies extends Component {
       <ul>
         {bunnies && bunnies.map(bunny => (
           <li key={bunny.id}>
-            <Bunny bunny={bunny}/>
+            {/* <Thumbnail bunny={bunny}/> */}
+             <Bunny bunny={bunny}/> 
           </li>
         ))}
       </ul>
@@ -28,6 +29,7 @@ Bunnies.propTypes = {
   url: React.PropTypes.string
 
 }
+//TODO: kill this function!
 export function Bunny({ bunny }) {
   return(
     <div style={{

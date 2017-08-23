@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-export default function thumbnail({ bunny }) {
+export default function Thumbnail({ bunny }) {
     return (
         <div style={{
       padding: '10px',

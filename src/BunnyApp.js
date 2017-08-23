@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import BunnyList from './BunnyList';
-import { thumbnail } from './components/thumbnail'
-import { list } from './components/list'
+// import Thumbnail from './components/thumbnail'
+// import list from './components/list'
+//TODO: find how to combine Thumbnail.js with rest of code
 
 
 function BunnyDetail({ sort }) {
@@ -49,8 +50,7 @@ class BunnyApp extends Component {
                     <BunnyView />
                 </section>
                 <section>
-                    <BunnyList view={thumbnail}/>
-                    <BunnyList view={list}/>
+                    <BunnyList />
                 </section>
 
             </main>
