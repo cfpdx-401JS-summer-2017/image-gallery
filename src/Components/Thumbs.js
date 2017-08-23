@@ -9,8 +9,8 @@ ThumbItem.propTypes = {
 
 export function ThumbItem({ title, description, url }) {
     return (
-        <div>
-            <img src={url} alt={description} />
+        <div className="thumbView">
+            <a href={url} target="_blank"><img src={url} alt={description} /></a>
             <p>{description}</p>
         </div>
     );
@@ -25,7 +25,7 @@ export class Thumbs extends Component {
     render() {
         const { thumbArray } = this.props;
         return (
-            <div>
+            <div className="clear">
                 {thumbArray.map((item, i) => (
                     <ThumbItem key={i} title={item.title} description={item.description} url={item.url} />
                 ))}

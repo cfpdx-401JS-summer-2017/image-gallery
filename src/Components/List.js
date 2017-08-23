@@ -10,7 +10,7 @@ ListItem.propTypes = {
 export function ListItem({ title, description, url }) {
     return (
         <ul>
-            <li>{title}</li>
+            <li><h3>{title}</h3></li>
             <li>{description}</li>
             <li><a target="_blank" href={url}>{url}</a></li>
         </ul>

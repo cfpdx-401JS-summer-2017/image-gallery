@@ -43,13 +43,13 @@ class App extends Component {
         <header>
           <h1>Cute Bunnies App</h1>
         </header>
-        <section>
+        <nav>
           {views.map(v => (
             <button key={v} onClick={() => this.setState({ view: v })}>
               {v}
             </button>
           ))}
-        </section>
+        </nav>
         <section>
           <ViewWrapper bunnies={ bunnies } />
         </section>

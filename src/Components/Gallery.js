@@ -9,9 +9,9 @@ GalleryItem.propTypes = {
 
 export function GalleryItem({ title, description, url }) {
     return (
-        <div>
+        <div className="galleryView">
             <img src={url} alt={description} />
-            <p>{title}</p>
+            <h3>{title}</h3>
             <p>{description}</p>
         </div>  
     );
