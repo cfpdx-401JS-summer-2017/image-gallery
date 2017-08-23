@@ -23,14 +23,14 @@ class BunnyApp extends Component {
     constructor() {
         super();
         this.state = {
-            view: views[0],
+            view: views[1],
             views: views
         };
     }
 
     render() {
         const { views, view } = this.state;
-        const MovieView = View[view];
+        const BunnyView = View[view];
 
         return (
             <main>
@@ -43,7 +43,10 @@ class BunnyApp extends Component {
                             {v}
                         </button>
                     ))}
-                    <BunnyList />
+                    <BunnyView />
+                </section>
+                <section>
+                    <BunnyList style={view}/>
                 </section>
 
             </main>
