@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import stevens from './images/Stevens';
+import {stevens} from './images/Stevens';
 import StevenList from './StevenList';
 import './App.css';
 
@@ -26,7 +26,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      steven: stevens,
+      stevens: stevens,
       view: views[0],
       views: views
     }

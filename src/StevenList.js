@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import stevens from './images/Stevens';
+import {stevens} from './images/Stevens';
 
 export default class Stevens extends Component {
 

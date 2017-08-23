@@ -1,4 +1,4 @@
-const stevens = [{
+export const stevens = [{
     title: 'Steven Tyler',
     description: 'No-frills-all-thrills Steven.',
     url: 'www.societyofrock.com/wp-content/uploads/2016/10/Steven-Tyler-Wallpapers-HD.jpg'
@@ -12,4 +12,4 @@ const stevens = [{
     url: 'www.i.dailymail.co.uk/i/pix/2013/03/11/article-0-188ED1B1000005DC-718_634x319.jpg'
 }];
 
-export default stevens;
+// export default stevens;
