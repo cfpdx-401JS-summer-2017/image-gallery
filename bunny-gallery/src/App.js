@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import images from './services/images';
+import { images, addImage, removeImage } from './services/images';
 import ViewSelector from './services/ViewSelector';
 import AddImage from './services/AddImage';
 
