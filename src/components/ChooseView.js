@@ -10,11 +10,10 @@ export default class ChooseView extends PureComponent {
   };
 
   render() {
-    const viewsBuilder = ['list', 'thumb', 'gallery'];
     const { onChangeView, view } = this.props;
     return (
       <div className="viewChooser">
-        {viewsBuilder.map((currentView, i) =>
+        {['list', 'thumb', 'gallery'].map((currentView, i) =>
           <div key={i} className="view">
             <label>
               {currentView}

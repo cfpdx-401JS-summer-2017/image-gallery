@@ -1,48 +1,68 @@
 import React, { PureComponent } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import List  from './components/List';
+import List from './components/List';
 import Gallery from './components/Gallery';
 import Thumb from './components/Thumb';
 import ChooseView from './components/ChooseView';
-import hondas from './data/hondas'
-import { DefaultImages, AddImages, DeleteImage } from './services/imageService';
+import AddImage from './components/AddImage';
+import hondas from './data/hondas';
+import { DefaultImages, AddNewImage, DeleteImage } from './services/imageService';
 
 class App extends PureComponent {
   constructor() {
     super();
     this.state = {
-      view: 'thumb',
-      motoArray: hondas
-        };
+      motoArray: hondas,
+      view: 'gallery'
+    };
+  }
+
+  componentDidMount() {
+    const { motoArray, view } = this.state;
+    DefaultImages(motoArray);
+    this.setState({ view: view });
   }
 
   handleChangeView(target) {
-    this.setState({view: target.currentView})
+    console.log('changeView: ', target.currentView);
+    this.setState({ view: target.currentView });
+  }
+
+  addImage(target) {
+    console.log('addImage: ', typeof target, target);
+    const { motoArray } = this.state;
+    AddNewImage(motoArray, target);
   }
 
   deleteImage(target) {
     console.log('in delete: ', target);
-    DeleteImage(this.state.motoArray, target)
+    const { motoArray } = this.state;
+    DeleteImage(motoArray, target);
   }
 
   render() {
-    const {view, motoArray} = this.state;
-    const View = view === 'list' ? List : view === 'gallery' ? Gallery : Thumb
+    const { motoArray, view } = this.state;
+    const View = view === 'list' ? List : view === 'gallery' ? Gallery : Thumb;
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-        </p>
+        <p className="App-intro" />
         <div>
-          <ChooseView view={view} onChangeView={target => this.handleChangeView(target)}/>
-        <View hondas={motoArray} deleteImage={target => this.deleteImage(target)}/>
+          <AddImage hondas={motoArray} onAddImage={({target}) => this.addImage(target)} />
+          <ChooseView
+            view={view}
+            onChangeView={target => this.handleChangeView(target)}
+          />
+          <View
+            hondas={motoArray}
+            deleteImage={target => this.deleteImage(target)}
+          />
         </div>
       </div>
-
     );
   }
 }
