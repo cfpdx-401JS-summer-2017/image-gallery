@@ -1,41 +1,27 @@
 
-import React from 'react';
-
 export function addImage(images, title, url, description) {
-    const image = { id: ++id, title, url, description}
+    const image = { id: ++id, title, url, description }
     return [
-      ...images,
-      image
+        ...images,
+        image
     ]
-  }
+}
 
-  export function removeImages(images, image) {
+export function removeImages(images, image) {
     const index = images.indexOf(image);
     if (index === -1) return images;
-  
-    return [
-      ...images.slice(0, index),
-      ...images.slice(index + 1)
-    ]
-  }
 
-  
-  
-  export default function AddTodo({ onAdd }) {
-      console.log('render of AddTodo')
-      return (
-          <section>
-              <h4>Add a new todo</h4>
-              <form onSubmit={event => {
-                  event.preventDefault();
-                  const form = event.target;
-                  const { title } = form.elements;
-                  onAdd(title.value);
-                  form.reset();
-              }}>
-                  <input name="title"/>
-                  <button type="submit">Add</button>
-              </form>
-          </section>
-      );
-  }
+    return [
+        ...images.slice(0, index),
+        ...images.slice(index + 1)
+    ]
+}
+
+let id = 0;
+const images = [
+    { id: ++id, title: 'cute bunny', description: 'very cute bunny', url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg' },
+    { id: ++id, title: 'another cute bunny', description: 'very, very cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg' },
+    { id: ++id, title: 'fairly cute bunny', description: 'pretty much a cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg' },
+];
+
+export default images;
