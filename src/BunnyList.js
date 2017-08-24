@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import { bootstrapBunnies } from './services/bunnies'
 import BunnyApp from './BunnyApp'
+import {Thumbnail, List, Gallery} from './components/viewFormats'
 
-export default class Bunnies extends Component {
+ class Bunnies extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bunnies: bootstrapBunnies()
+      bunnies: bootstrapBunnies(),
     }
   }
   render() {
     const { bunnies } = this.state;
+    const mode = this.props;
+    console.log(mode);
     return (
       <ul>
         {bunnies && bunnies.map(bunny => (
           <li key={bunny.id}>
-            {/* <Thumbnail bunny={bunny}/> */}
-             <Bunny bunny={bunny}/> 
+             <Thumbnail bunny={bunny}/> 
           </li>
         ))}
       </ul>
@@ -27,24 +29,8 @@ Bunnies.propTypes = {
   title: React.PropTypes.string,
   description: React.PropTypes.string,
   url: React.PropTypes.string
-
+  
 }
-//TODO: kill this function!
-export function Bunny({ bunny }) {
-  return(
-    <div style={{
-      padding: '10px',
-      clear: 'both'
-    }}>
-      <img src={bunny.url}
-          alt={bunny.title}
-          style={{
-    float: 'left',
-    width: 100
-  }}
-          />
-      <span>{bunny.title}!</span>
-      <section>{bunny.description}</section>
-    </div>
-  );
+function changeView(handelChangeView) {
+
 }

@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
 import BunnyList from './BunnyList';
-// import Thumbnail from './components/thumbnail'
-// import list from './components/list'
-//TODO: find how to combine Thumbnail.js with rest of code
+import { bootstrapBunnies } from './services/bunnies'
+import {Thumbnail, List, Gallery} from './components/viewFormats'
 
 
-function BunnyDetail({ sort }) {
-    return <div>Bunny Detail { sort }</div>
+function genBunnyList (viewtype, Component) {
+    return function bunnyView({ bunnies }) {
+        return <div> 
+            <div>Bunny {viewtype} </div> 
+        <ul>
+        {bunnies && bunnies.map(bunny => (
+          <li key={bunny.id}>
+             <Component bunny={bunny}/> 
+          </li>
+        ))}
+      </ul>
+      </div>
+    }
+
 }
-function BunnyThumbnail({ sort }) {
-    return <div>Bunny Thumbnail { sort }</div>
-}
-function BunnyGallery({ sort }) {
-    return <div>Bunny Gallery { sort }</div>
-}
+
+const bunnyDetail = genBunnyList('Detail',List)
+const bunnyThumbnail = genBunnyList('Thumbnail',Thumbnail)
+const bunnyGallery = genBunnyList('Gallery',Gallery)
 
 const View = {
-    detail: BunnyDetail,
-    thumbnail: BunnyThumbnail,
-    gallery: BunnyGallery
+    detail: bunnyDetail,
+    thumbnail: bunnyThumbnail,
+    gallery: bunnyGallery
 }
 
 const views = Object.keys(View);
@@ -27,14 +36,18 @@ class BunnyApp extends Component {
     constructor() {
         super();
         this.state = {
+            bunnies: bootstrapBunnies(),
             view: views[1],
             views: views
         };
     }
+    
 
     render() {
         const { views, view } = this.state;
         const BunnyView = View[view];
+        const { bunnies } = this.state;
+        
 
         return (
             <main>
@@ -47,11 +60,11 @@ class BunnyApp extends Component {
                             {v}
                         </button>
                     ))}
-                    <BunnyView />
+                    <BunnyView bunnies={bunnies}/>
                 </section>
-                <section>
-                    <BunnyList />
-                </section>
+                {/* <section>
+                    <BunnyList view={BunnyView} />
+                </section> */}
 
             </main>
         );
