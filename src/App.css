@@ -28,6 +28,10 @@
   width: 40px;
 }
 
+.thumbnail-view img:hover {
+  width: 45px;
+}
+
 .gallery-view {
   display: block;
   text-align: center;

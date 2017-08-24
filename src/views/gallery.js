@@ -29,7 +29,7 @@ export default class EmojiGallery extends Component {
     const { emojis } = this.props;
 
     let emojiArray = emojis.map((emoji, index) => (
-      <div key={index} >
+      <div key={emoji.id} >
         <img src={emoji.url} alt={emoji.title} />
         <h2>{emoji.title}</h2>
         <p>{emoji.description}</p>

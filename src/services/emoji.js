@@ -1,9 +1,8 @@
-// starter id
-let id = 0;
+import nextId from './nextId';
 
 export function createEmoji(emojis, title, description, url) {
-  const newEmoji = { id: ++id, title, description, url };
-
+  const newEmoji = { id: nextId(), title, description, url };
+  
   return [...emojis, newEmoji];
 }
 

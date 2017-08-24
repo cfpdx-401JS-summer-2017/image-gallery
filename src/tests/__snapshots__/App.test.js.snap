@@ -183,37 +183,37 @@ exports[`app renders a snapshot 1`] = `
             --- pick one ---
           </option>
           <option
-            value={7}
+            value={8}
           >
             ship it squirrel
           </option>
           <option
-            value={8}
+            value={9}
           >
             hamburger
           </option>
           <option
-            value={9}
+            value={10}
           >
             unicorn
           </option>
           <option
-            value={10}
+            value={11}
           >
             fire
           </option>
           <option
-            value={11}
+            value={12}
           >
             alien
           </option>
           <option
-            value={12}
+            value={13}
           >
             nerd
           </option>
           <option
-            value={13}
+            value={14}
           >
             floppy disk
           </option>
