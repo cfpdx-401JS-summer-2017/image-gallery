@@ -4,8 +4,9 @@ import EmojiList from './views/list';
 import EmojiThumbnail from './views/thumbnail';
 import EmojiGallery from './views/gallery';
 import ViewOptions from './views/options';
-import CreateEmoji from './services/create';
-import DeleteEmoji from './services/delete';
+import CreateEmoji from './forms/create';
+import DeleteEmoji from './forms/delete';
+import { create } from './services/emoji';
 
 // dictionary
 const views = {
@@ -55,22 +56,31 @@ class App extends Component {
     }
 
     this.handleViewChange = this.handleViewChange.bind(this);
-    this.handleOnSubmitCreateEmoji = this.handleOnSubmitCreateEmoji.bind(this);
-    this.handleOnSubmitDeleteEmoji = this.handleOnSubmitDeleteEmoji.bind(this);
+    // this.handleOnSubmitCreateEmoji = this.handleOnSubmitCreateEmoji.bind(this);
+    // this.handleOnSubmitDeleteEmoji = this.handleOnSubmitDeleteEmoji.bind(this);
   }
 
   handleViewChange(view) {
     this.setState({ view });
   }
 
-  handleOnSubmitCreateEmoji(title, description, url) {
-    const newEmoji = { title, description, url };
-    this.setState({ emojis: [this.state.emojis, newEmoji] });
+  create = (title, description, url) => {
+    this.setState({ emojis: create(this.state.emojis, {title, description, url}) });
   }
   
   handleOnSubmitDeleteEmoji(index) {
+    // const index = todos.indexOf(todo);
+    // if (index === -1) return todos;
+  
+    // return [
+    //   ...todos.slice(0, index),
+    //   ...todos.slice(index + 1)
+    // ]
+  
+
     if (index !== 'none') {
-      this.setState({ emojis: this.state.emojis.splice(index, 1) });
+      // this.setState({ emojis: this.state.emojis.splice(index, 1) });
+      this.setState({ ...this.state.emojis });
     }
   }
 
@@ -88,7 +98,7 @@ class App extends Component {
         </div>
         <div>
           <CurrentView emojis={this.state.emojis} />
-          <CreateEmoji handleOnSubmit={this.handleOnSubmitCreateEmoji} />
+          <CreateEmoji handleOnSubmit={this.create} />
           <DeleteEmoji emojis={this.state.emojis} handleOnSubmit={this.handleOnSubmitDeleteEmoji} />
         </div>
       </div>

@@ -37,12 +37,9 @@ export default class EmojiGallery extends Component {
 
     return (
       <div className="gallery-view">
-
-        <button onClick={() => this.scroll(-1)}> Left </button>
-        
         {emojiArray[this.state.emojiIndex]}
-
-        <button onClick={() => this.scroll(1)}> Right </button>
+        <button className="gallery-nav-button" onClick={() => this.scroll(-1)}> Back </button>
+        <button className="gallery-nav-button" onClick={() => this.scroll(1)}> Next </button>
       </div>
     );
 
