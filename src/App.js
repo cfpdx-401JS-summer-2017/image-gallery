@@ -43,7 +43,6 @@ class App extends Component {
   }
 
   removeBunny = bunny => {
-    console.log('in removeBunny', bunny);
     const oldBunnies = this.state.bunnies;
     this.setState({
       bunnies: minusBunny(oldBunnies, bunny)

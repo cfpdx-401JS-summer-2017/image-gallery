@@ -7,12 +7,13 @@ GalleryItem.propTypes = {
     url: PropTypes.string.isRequired
 }
 
-export function GalleryItem({ title, description, url }) {
+export function GalleryItem({ title, description, url, bunny, onRemove }) {
     return (
         <div className="galleryView">
             <img src={url} alt={description} />
             <h3>{title}</h3>
             <p>{description}</p>
+            <button onClick={() => onRemove(bunny)} >X</button>
         </div>  
     );
 }
@@ -24,11 +25,11 @@ export class Gallery extends Component {
     }
 
     render() {
-        const { galleryArray } = this.props;
+        const { galleryArray, onRemove } = this.props;
         return (
             <div>
-                {galleryArray.map((item, i) => (
-                    <GalleryItem key={i} title={item.title} description={item.description} url={item.url} />
+                {galleryArray.map((bunny, i) => (
+                    <GalleryItem key={i} bunny={bunny} title={bunny.title} description={bunny.description} url={bunny.url} onRemove={onRemove} />
                 ))}
             </div>
         );
