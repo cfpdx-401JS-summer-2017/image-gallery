@@ -22,12 +22,6 @@ export function Steven({steven}) {
             padding: '10px',
             clear: 'both'
         }}>
-            {/* <img src={steven.url}
-                alt={steven.title}
-                style={{
-                    float: 'left',
-                    width: 100
-            }}/> */}
             <span><a href={steven.url}>{steven.title}</a></span>
             <span>{steven.description}</span>
         </div>
