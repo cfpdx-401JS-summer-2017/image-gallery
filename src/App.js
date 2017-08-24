@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import StevePics from './images/Stevens';
 import StevenList from './StevenList';
-import StevenThumbnail from './StevenThumbnail'
+import StevenThumbnail from './StevenThumbnail';
+import StevenGallery from './StevenGallery';
 import './App.css';
 
 function Detail({stevens}) {
@@ -10,8 +11,8 @@ function Detail({stevens}) {
 function Thumbnail({stevens}) {
   return <div>Steven Thumbnail {stevens.length}</div>
 }
-function StevenGallery({stevens}) {
-  return <div>Steven Gallery {stevens.length}</div>;
+function Gallery({stevens}) {
+  return <div>Steven Gallery {stevens}</div>;
 }
 
 const View = {
@@ -44,7 +45,7 @@ class App extends Component {
           <header className="App-header">
             <h1>Steve Pics Dot Com</h1>
           </header>
-          <section>
+          <section class={view}>
             <StevenView stevens={stevens}/>
           </section>
           <section>
