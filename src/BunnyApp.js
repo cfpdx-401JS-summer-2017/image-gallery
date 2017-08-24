@@ -19,10 +19,7 @@ function genBunnyList (viewtype, Component) {
       </ul>
       </div>
     }
-
 }
-
-
 const bunnyDetail = genBunnyList('Detail',List)
 const bunnyThumbnail = genBunnyList('Thumbnail',Thumbnail)
 
@@ -55,17 +52,17 @@ class BunnyApp extends Component {
             bunny: bunnies[0],
             view: views[1],
             views: views,
-            i: 0
+            i: 0,
+            visible:false
 
         };
     }
-    
-
-    render() {
+        render() {
         const { views, view } = this.state;
         const BunnyView = View[view];
         const { bunnies } = this.state;
         let { i } = this.state;
+        let { visible } = this.state;
         const bunny = bunnies[i];
         return (
             <main>
@@ -74,12 +71,20 @@ class BunnyApp extends Component {
                 </header>
                 <section>
                     {views.map(v => (
-                        <button key={v} onClick={() => this.setState({ view: v })}>
+                        <button key={v} onMouseDown={() => {
+                            this.setState({ view: v });}}
+                            onMouseUp={() => {if(BunnyView === bunnyGallery) {
+                                this.setState({ visible: true })
+                                } else {
+                                    this.setState({ visible: false })
+                                    }
+                                    }
+                                    }>
                             {v}
                         </button>
                     ))}
-                    <section>
-                    <button                      
+                        {visible && <section>
+                    <button
                     onClick={() => this.setState({i:this.state.i-1})}
                         style={{padding: '10px'}}
                         disabled={this.state.i === 0}
@@ -88,10 +93,11 @@ class BunnyApp extends Component {
                     <button 
                     onClick={() =>  this.setState({i:this.state.i+1})}
                         style={{padding: '10px'}}
-                        disabled={this.state.i==bunnies.length-1}
+                        disabled={this.state.i===bunnies.length-1}
                         >next
                     </button>
                     </section>
+                        }
                     <BunnyView bunnies={bunnies} bunny={bunny}/>
                     
                 </section>
