@@ -90,7 +90,7 @@ const hondas = [{
 },
 {
   title: 'Honda',
-  description: 'Not sure where I took this.',
+  description: 'Taken in Melbourne, Australia.',
   url: './images/16-honda.jpg',
   alt: 'honda!'
 },

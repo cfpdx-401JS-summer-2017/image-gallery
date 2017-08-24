@@ -14,7 +14,7 @@ export default class Gallery extends PureComponent {
       {hondas.map((honda, i) =>
         <div key={i}>
         <input type="checkbox" onChange={target => deleteImage(i)} />
-        <img className="gallery" alt={honda.alt} src={honda.url} />
+        <img className="galleryImg" alt={honda.alt} src={honda.url} />
         </div>
       )}
       </div>

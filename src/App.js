@@ -48,11 +48,9 @@ class App extends PureComponent {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <span>I like to take photos of motorcycles I see, especially classic Hondas.</span>
         </div>
-        <p className="App-intro" />
         <div>
-          <AddImage hondas={motoArray} onAddImage={({target}) => this.addImage(target)} />
           <ChooseView
             view={view}
             onChangeView={target => this.handleChangeView(target)}

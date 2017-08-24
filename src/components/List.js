@@ -11,12 +11,14 @@ export default class List extends PureComponent {
     const { deleteImage, hondas } = this.props;
     return (
       <div className="listView">
-        {hondas.map((honda, i) =>
-          <div key={i}>
-            <input type="checkbox" onChange={target => deleteImage(i)} />
-            <div className="list">{honda.description}</div>
-          </div>
-        )}
+        <ul>
+          {hondas.map((honda, i) =>
+            <li key={i}>
+            <span className="title">{honda.title}</span> {honda.description}
+
+            </li>
+          )}
+        </ul>
       </div>
     );
   }
