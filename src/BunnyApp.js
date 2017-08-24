@@ -31,13 +31,8 @@ const bunnyThumbnail = genBunnyList('Thumbnail',Thumbnail)
  function bunnyGallery({ bunny } ) {
     return <div>
     <div>Bunny Gallery </div>
-    <ul style={{
-    listStyleType: 'none',
-    margin: 0,
-    padding: 0,
-    overflow: 'hidden'
-    }}>
-
+    <ul>
+        
     <Gallery bunny={bunny}/>
     </ul>
     </div>
@@ -60,7 +55,7 @@ class BunnyApp extends Component {
             bunny: bunnies[0],
             view: views[1],
             views: views,
-            i: 1
+            i: 0
 
         };
     }
@@ -72,9 +67,6 @@ class BunnyApp extends Component {
         const { bunnies } = this.state;
         let { i } = this.state;
         const bunny = bunnies[i];
-        console.log(bunny)
-        
-
         return (
             <main>
                 <header>
@@ -88,12 +80,16 @@ class BunnyApp extends Component {
                     ))}
                     <section>
                     <button                      
-                    onClick={() => this.setState({i:this.state.i--})}
-                        style={{padding: '10px'}}>previous
+                    onClick={() => this.setState({i:this.state.i-1})}
+                        style={{padding: '10px'}}
+                        disabled={this.state.i === 0}
+                        >previous
                     </button>
                     <button 
-                    onClick={() =>  this.setState({i:this.state.i++})}
-                        style={{padding: '10px'}}>next
+                    onClick={() =>  this.setState({i:this.state.i+1})}
+                        style={{padding: '10px'}}
+                        disabled={this.state.i==bunnies.length-1}
+                        >next
                     </button>
                     </section>
                     <BunnyView bunnies={bunnies} bunny={bunny}/>
