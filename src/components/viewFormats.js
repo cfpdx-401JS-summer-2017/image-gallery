@@ -39,7 +39,7 @@ export function Gallery({ bunny }) {
                 float: 'center',
                 width: 300
                 }}/>
-      <span>{bunny.title}!</span>
+      <section>{bunny.title}!</section>
       <section>{bunny.description}</section>
 
     </div>
