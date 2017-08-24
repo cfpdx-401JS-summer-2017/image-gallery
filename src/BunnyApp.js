@@ -6,7 +6,6 @@ import {Thumbnail, List, Gallery} from './components/viewFormats'
 
 //import Thumbnail from './components/thumbnail'
 // import list from './components/list'
-//TODO: find how to combine Thumbnail.js with rest of code
 function genBunnyList (viewtype, Component) {
     return function bunnyView({ bunnies }) {
         return <div> 
