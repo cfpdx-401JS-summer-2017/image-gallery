@@ -5,6 +5,7 @@ import EmojiThumbnail from './views/thumbnail';
 import EmojiGallery from './views/gallery';
 import ViewOptions from './views/options';
 import CreateEmoji from './services/create';
+import DeleteEmoji from './services/delete';
 
 // dictionary
 const views = {
@@ -55,6 +56,7 @@ class App extends Component {
 
     this.handleViewChange = this.handleViewChange.bind(this);
     this.handleOnSubmitCreateEmoji = this.handleOnSubmitCreateEmoji.bind(this);
+    this.handleOnSubmitDeleteEmoji = this.handleOnSubmitDeleteEmoji.bind(this);
   }
 
   handleViewChange(view) {
@@ -63,13 +65,13 @@ class App extends Component {
 
   handleOnSubmitCreateEmoji(title, description, url) {
     const newEmoji = { title, description, url };
-    const existingEmojis = this.state.emojis;
+    this.setState({ emojis: [this.state.emojis, newEmoji] });
+  }
   
-    this.setState({
-      emojis: [...existingEmojis, newEmoji]
-    })
-
-    console.log('emojis', this.state.emojis);
+  handleOnSubmitDeleteEmoji(index) {
+    if (index !== 'none') {
+      this.setState({ emojis: this.state.emojis.splice(index, 1) });
+    }
   }
 
   render() {
@@ -80,13 +82,14 @@ class App extends Component {
       <div className="main">
         <div>
           <h1>emoji-wiki-pedia</h1>
-          <p>a mashup of <a href="https://emojipedia.org/" target="_blank">emojipedia</a> and <a href="https://en.wikipedia.org/" target="_blank">Wikipedia</a>.</p>
+          <p>a mashup of <a href="https://emojipedia.org/">emojipedia</a> and <a href="https://en.wikipedia.org/">Wikipedia</a>.</p>
           
           <ViewOptions onClick={this.handleViewChange} />
         </div>
         <div>
           <CurrentView emojis={this.state.emojis} />
           <CreateEmoji handleOnSubmit={this.handleOnSubmitCreateEmoji} />
+          <DeleteEmoji emojis={this.state.emojis} handleOnSubmit={this.handleOnSubmitDeleteEmoji} />
         </div>
       </div>
     );
