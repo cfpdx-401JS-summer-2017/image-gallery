@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import StevePics from './images/Stevens';
 import StevenList from './StevenList';
+import StevenThumbnail from './StevenThumbnail'
 import './App.css';
 
-function StevenDetail({stevens}) {
+function Detail({stevens}) {
   return <div>Steven Detail {stevens.length}</div>;
 }
-function StevenThumbnail({stevens}) {
+function Thumbnail({stevens}) {
   return <div>Steven Thumbnail {stevens.length}</div>
 }
 function StevenGallery({stevens}) {
