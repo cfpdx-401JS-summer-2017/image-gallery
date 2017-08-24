@@ -1,882 +1,948 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders a snapshot in gallery view 1`] = `
-<div
-  className="App"
+<Gallery
+  hondas={
+    Array [
+      Object {
+        "alt": "honda!",
+        "description": "My first motorcycle. I still regret selling it.",
+        "title": "CB450 1986",
+        "url": "./images/01-honda-CB450-1986.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Photo taken in San Francisco.",
+        "title": "CB1100F",
+        "url": "./images/02-honda-CB1100F.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Photo taken in San Francisco.",
+        "title": "Avocado green Honda",
+        "url": "./images/03-honda.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Photo possibly taken in Portland.",
+        "title": "CB350",
+        "url": "./images/04-honda-CB350.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Photo possibly taken in Portland.",
+        "title": "CBX550F",
+        "url": "./images/05-honda-CBX550F.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Photo taken on Valencia Street in San Francsico.",
+        "title": "CB750F",
+        "url": "./images/06-honda-CB750F.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "This is my cousin Lucas' bike. I keep asking him if he'll sell it to me but he hasn't so far. :(",
+        "title": "CX500",
+        "url": "./images/07-honda-CX500.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Orange Honda of unknown engine size and my finger.",
+        "title": "Honda",
+        "url": "./images/08-honda.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "This is my current bike. I was out riding around and turned to sharply too slowly and dropped it in someone's driveway. On a side street on a weekday afternoon in the suburbs. I waited for about 45 minutes for someone to come along and help me pick it up. On the plus side I got to learn how to replace a clutch lever after this broke mine off.",
+        "title": "CB750 2000",
+        "url": "./images/09-honda-CB750-2000.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Photo taken in Portland.",
+        "title": "CB450",
+        "url": "./images/10-honda-CB450.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "I found the same bike a second time.",
+        "title": "CB450",
+        "url": "./images/11-honda-CB450.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Photo taken in Portland.",
+        "title": "Hawk",
+        "url": "./images/12-honda-hawk.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "An earlier model of my bike.",
+        "title": "CB750",
+        "url": "./images/13-honda-CB750.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "This is the 1978 model of the bike I have now. It's in near-perfect shape.",
+        "title": "1978 CB750",
+        "url": "./images/14-honda-CB750-1978.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Lovely orange bike.",
+        "title": "CB350",
+        "url": "./images/15-honda-CB350.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Taken in Melbourne, Australia.",
+        "title": "Honda",
+        "url": "./images/16-honda.jpg",
+      },
+      Object {
+        "alt": "honda!",
+        "description": "Photo probably taken in San Francisco.",
+        "title": "A different avocado green Honda",
+        "url": "./images/17-honda.jpg",
+      },
+    ]
+  }
 >
   <div
-    className="App-header"
+    className="galleryView"
   >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
-    />
-    <span>
-      I like to take photos of motorcycles I see, especially classic Hondas.
-    </span>
-  </div>
-  <div>
-    <div
-      className="functionsHeader"
-    >
-      <div
-        className="addImageForm"
-      >
-        <form
-          onSubmit={[Function]}
-        >
-          <button
-            name="add image"
-            type="submit"
-          >
-            add image
-          </button>
-          <input
-            className="addImageTextInput"
-            name="title"
-            placeholder="enter a title for your image"
-            type="text"
-          />
-          <input
-            className="addImageTextInput"
-            name="desc"
-            placeholder="enter a description for your image"
-            type="textarea"
-          />
-          <input
-            className="addImageTextInput"
-            name="url"
-            placeholder="paste in a new url to add an image"
-            type="text"
-          />
-        </form>
-      </div>
-      <div
-        className="viewChooserWrap"
-      >
-        <div
-          className="view"
-        >
-          <span>
-            list
-          </span>
-          <input
-            checked={false}
-            className="viewChooser"
-            name="list"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-        <div
-          className="view"
-        >
-          <span>
-            thumb
-          </span>
-          <input
-            checked={false}
-            className="viewChooser"
-            name="thumb"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-        <div
-          className="view"
-        >
-          <span>
-            gallery
-          </span>
-          <input
-            checked={true}
-            className="viewChooser"
-            name="gallery"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-      </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/01-honda-CB450-1986.jpg"
+      />
     </div>
-    <div
-      className="galleryView"
-    >
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/01-honda-CB450-1986.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/02-honda-CB1100F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/03-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/04-honda-CB350.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/05-honda-CBX550F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/06-honda-CB750F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/07-honda-CX500.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/08-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/09-honda-CB750-2000.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/10-honda-CB450.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/11-honda-CB450.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/12-honda-hawk.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/13-honda-CB750.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/14-honda-CB750-1978.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/15-honda-CB350.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/16-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/17-honda.jpg"
-        />
-      </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/02-honda-CB1100F.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/03-honda.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/04-honda-CB350.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/05-honda-CBX550F.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/06-honda-CB750F.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/07-honda-CX500.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/08-honda.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/09-honda-CB750-2000.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/10-honda-CB450.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/11-honda-CB450.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/12-honda-hawk.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/13-honda-CB750.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/14-honda-CB750-1978.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/15-honda-CB350.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/16-honda.jpg"
+      />
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <img
+        alt="honda!"
+        className="galleryImg"
+        src="./images/17-honda.jpg"
+      />
     </div>
   </div>
-</div>
+</Gallery>
 `;
 
 exports[`renders a snapshot in list view 1`] = `
 <div
-  className="App"
+  className="listView"
 >
-  <div
-    className="App-header"
-  >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
-    />
-    <span>
-      I like to take photos of motorcycles I see, especially classic Hondas.
-    </span>
-  </div>
-  <div>
-    <div
-      className="functionsHeader"
-    >
-      <div
-        className="addImageForm"
+  <ul>
+    <li>
+      <span
+        className="title"
       >
-        <form
-          onSubmit={[Function]}
-        >
-          <button
-            name="add image"
-            type="submit"
-          >
-            add image
-          </button>
-          <input
-            className="addImageTextInput"
-            name="title"
-            placeholder="enter a title for your image"
-            type="text"
-          />
-          <input
-            className="addImageTextInput"
-            name="desc"
-            placeholder="enter a description for your image"
-            type="textarea"
-          />
-          <input
-            className="addImageTextInput"
-            name="url"
-            placeholder="paste in a new url to add an image"
-            type="text"
-          />
-        </form>
-      </div>
-      <div
-        className="viewChooserWrap"
+        CB450 1986
+      </span>
+       
+      <span>
+        My first motorcycle. I still regret selling it.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
       >
-        <div
-          className="view"
+        <a
+          href={0}
         >
-          <span>
-            list
-          </span>
-          <input
-            checked={false}
-            className="viewChooser"
-            name="list"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-        <div
-          className="view"
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB1100F
+      </span>
+       
+      <span>
+        Photo taken in San Francisco.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={1}
         >
-          <span>
-            thumb
-          </span>
-          <input
-            checked={false}
-            className="viewChooser"
-            name="thumb"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-        <div
-          className="view"
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        Avocado green Honda
+      </span>
+       
+      <span>
+        Photo taken in San Francisco.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={2}
         >
-          <span>
-            gallery
-          </span>
-          <input
-            checked={true}
-            className="viewChooser"
-            name="gallery"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      className="galleryView"
-    >
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/01-honda-CB450-1986.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/02-honda-CB1100F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/03-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/04-honda-CB350.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/05-honda-CBX550F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/06-honda-CB750F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/07-honda-CX500.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/08-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/09-honda-CB750-2000.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/10-honda-CB450.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/11-honda-CB450.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/12-honda-hawk.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/13-honda-CB750.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/14-honda-CB750-1978.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/15-honda-CB350.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/16-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/17-honda.jpg"
-        />
-      </div>
-    </div>
-  </div>
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB350
+      </span>
+       
+      <span>
+        Photo possibly taken in Portland.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={3}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CBX550F
+      </span>
+       
+      <span>
+        Photo possibly taken in Portland.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={4}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB750F
+      </span>
+       
+      <span>
+        Photo taken on Valencia Street in San Francsico.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={5}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CX500
+      </span>
+       
+      <span>
+        This is my cousin Lucas' bike. I keep asking him if he'll sell it to me but he hasn't so far. :(
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={6}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        Honda
+      </span>
+       
+      <span>
+        Orange Honda of unknown engine size and my finger.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={7}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB750 2000
+      </span>
+       
+      <span>
+        This is my current bike. I was out riding around and turned to sharply too slowly and dropped it in someone's driveway. On a side street on a weekday afternoon in the suburbs. I waited for about 45 minutes for someone to come along and help me pick it up. On the plus side I got to learn how to replace a clutch lever after this broke mine off.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={8}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB450
+      </span>
+       
+      <span>
+        Photo taken in Portland.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={9}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB450
+      </span>
+       
+      <span>
+        I found the same bike a second time.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={10}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        Hawk
+      </span>
+       
+      <span>
+        Photo taken in Portland.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={11}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB750
+      </span>
+       
+      <span>
+        An earlier model of my bike.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={12}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        1978 CB750
+      </span>
+       
+      <span>
+        This is the 1978 model of the bike I have now. It's in near-perfect shape.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={13}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB350
+      </span>
+       
+      <span>
+        Lovely orange bike.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={14}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        Honda
+      </span>
+       
+      <span>
+        Taken in Melbourne, Australia.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={15}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        A different avocado green Honda
+      </span>
+       
+      <span>
+        Photo probably taken in San Francisco.
+      </span>
+       
+      <span
+        aria-label=""
+        role="img"
+      >
+        <a
+          href={16}
+        >
+          🔗
+        </a>
+      </span>
+    </li>
+  </ul>
 </div>
 `;
 
 exports[`renders a snapshot in thumb view 1`] = `
 <div
-  className="App"
+  class="thumbView"
 >
-  <div
-    className="App-header"
-  >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
+  <div>
+    <input
+      type="checkbox"
     />
-    <span>
-      I like to take photos of motorcycles I see, especially classic Hondas.
-    </span>
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/01-honda-CB450-1986.jpg"
+    />
+    <div
+      class="title"
+    >
+      CB450 1986
+    </div>
   </div>
   <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/02-honda-CB1100F.jpg"
+    />
     <div
-      className="functionsHeader"
+      class="title"
     >
-      <div
-        className="addImageForm"
-      >
-        <form
-          onSubmit={[Function]}
-        >
-          <button
-            name="add image"
-            type="submit"
-          >
-            add image
-          </button>
-          <input
-            className="addImageTextInput"
-            name="title"
-            placeholder="enter a title for your image"
-            type="text"
-          />
-          <input
-            className="addImageTextInput"
-            name="desc"
-            placeholder="enter a description for your image"
-            type="textarea"
-          />
-          <input
-            className="addImageTextInput"
-            name="url"
-            placeholder="paste in a new url to add an image"
-            type="text"
-          />
-        </form>
-      </div>
-      <div
-        className="viewChooserWrap"
-      >
-        <div
-          className="view"
-        >
-          <span>
-            list
-          </span>
-          <input
-            checked={false}
-            className="viewChooser"
-            name="list"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-        <div
-          className="view"
-        >
-          <span>
-            thumb
-          </span>
-          <input
-            checked={false}
-            className="viewChooser"
-            name="thumb"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-        <div
-          className="view"
-        >
-          <span>
-            gallery
-          </span>
-          <input
-            checked={true}
-            className="viewChooser"
-            name="gallery"
-            onChange={[Function]}
-            type="radio"
-          />
-        </div>
-      </div>
+      CB1100F
     </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/03-honda.jpg"
+    />
     <div
-      className="galleryView"
+      class="title"
     >
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/01-honda-CB450-1986.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/02-honda-CB1100F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/03-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/04-honda-CB350.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/05-honda-CBX550F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/06-honda-CB750F.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/07-honda-CX500.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/08-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/09-honda-CB750-2000.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/10-honda-CB450.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/11-honda-CB450.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/12-honda-hawk.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/13-honda-CB750.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/14-honda-CB750-1978.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/15-honda-CB350.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/16-honda.jpg"
-        />
-      </div>
-      <div>
-        <input
-          onChange={[Function]}
-          type="checkbox"
-        />
-        <img
-          alt="honda!"
-          className="galleryImg"
-          src="./images/17-honda.jpg"
-        />
-      </div>
+      Avocado green Honda
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/04-honda-CB350.jpg"
+    />
+    <div
+      class="title"
+    >
+      CB350
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/05-honda-CBX550F.jpg"
+    />
+    <div
+      class="title"
+    >
+      CBX550F
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/06-honda-CB750F.jpg"
+    />
+    <div
+      class="title"
+    >
+      CB750F
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/07-honda-CX500.jpg"
+    />
+    <div
+      class="title"
+    >
+      CX500
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/08-honda.jpg"
+    />
+    <div
+      class="title"
+    >
+      Honda
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/09-honda-CB750-2000.jpg"
+    />
+    <div
+      class="title"
+    >
+      CB750 2000
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/10-honda-CB450.jpg"
+    />
+    <div
+      class="title"
+    >
+      CB450
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/11-honda-CB450.jpg"
+    />
+    <div
+      class="title"
+    >
+      CB450
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/12-honda-hawk.jpg"
+    />
+    <div
+      class="title"
+    >
+      Hawk
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/13-honda-CB750.jpg"
+    />
+    <div
+      class="title"
+    >
+      CB750
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/14-honda-CB750-1978.jpg"
+    />
+    <div
+      class="title"
+    >
+      1978 CB750
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/15-honda-CB350.jpg"
+    />
+    <div
+      class="title"
+    >
+      CB350
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/16-honda.jpg"
+    />
+    <div
+      class="title"
+    >
+      Honda
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/17-honda.jpg"
+    />
+    <div
+      class="title"
+    >
+      A different avocado green Honda
     </div>
   </div>
 </div>
