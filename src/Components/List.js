@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 ListItem.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
+    bunny: PropTypes.object.isRequired,
+    onRemove: PropTypes.func.isRequired
 }
 
 export function ListItem({ title, description, url, bunny, onRemove }) {
@@ -21,7 +23,8 @@ export function ListItem({ title, description, url, bunny, onRemove }) {
 export class List extends Component {
 
     static propTypes = {
-        listArray: PropTypes.arrayOf(PropTypes.object).isRequired
+        listArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+        onRemove: PropTypes.func.isRequired
     }
 
     render() {

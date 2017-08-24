@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 ThumbItem.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
+    bunny: PropTypes.object.isRequired,
+    onRemove: PropTypes.func.isRequired
 }
 
 export function ThumbItem({ title, description, url, bunny, onRemove }) {
@@ -20,7 +22,8 @@ export function ThumbItem({ title, description, url, bunny, onRemove }) {
 export class Thumbs extends Component {
 
     static propTypes = {
-        thumbArray: PropTypes.arrayOf(PropTypes.object).isRequired
+        thumbArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+        onRemove: PropTypes.func.isRequired
     }
 
     render() {

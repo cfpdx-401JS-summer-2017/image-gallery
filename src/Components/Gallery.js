@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 GalleryItem.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
+    bunny: PropTypes.object.isRequired,
+    onRemove: PropTypes.func.isRequired
 }
 
 export function GalleryItem({ title, description, url, bunny, onRemove, onUpdate, bunnyNum }) {
@@ -21,7 +23,8 @@ export function GalleryItem({ title, description, url, bunny, onRemove, onUpdate
 export class Gallery extends Component {
     
     static propTypes = {
-        galleryArray: PropTypes.arrayOf(PropTypes.object).isRequired
+        galleryArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+        onRemove: PropTypes.func.isRequired
     }
     
     render() {
