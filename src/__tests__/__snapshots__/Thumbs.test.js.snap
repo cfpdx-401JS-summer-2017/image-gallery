@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThumbItem tests displays correct properties 1`] = `
+<div
+  className="thumbView"
+>
+  <a
+    href="http://google.com/"
+    target="_blank"
+  >
+    <img
+      alt="Test description"
+      src="http://google.com/"
+    />
+  </a>
+  <p>
+    Test description
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    X
+  </button>
+</div>
+`;

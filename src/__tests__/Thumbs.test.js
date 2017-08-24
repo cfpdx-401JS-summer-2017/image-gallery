@@ -2,27 +2,27 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 
-import { List, ListItem } from '../Components/List';
+import { Thumbs, ThumbItem } from '../Components/Thumbs';
 
 const testFunc = function () { }
 
-describe('ListItem tests', () => {
+describe('ThumbItem tests', () => {
 
     it('displays correct properties', () => {
         const bunny = {};
-        const wrapper = shallow(<ListItem title="Test Title" description="Test description" url="http://google.com/" bunny={bunny} onRemove={testFunc} />);
+        const wrapper = shallow(<ThumbItem title="Test Title" description="Test description" url="http://google.com/" bunny={bunny} onRemove={testFunc} />);
         expect(toJSON(wrapper)).toMatchSnapshot();
     });
 
 });
 
-describe('List tests', () => {
+describe('Thumb tests', () => {
 
     it('can render 3 bunnies', () => {
 
         const wrapper = shallow(
 
-            <List onRemove={testFunc} listArray={[
+            <Thumbs onRemove={testFunc} thumbArray={[
                 {
                     title: 'Cute Bunny 1',
                     description: 'Who\'s a cute bunny??',
@@ -48,8 +48,8 @@ describe('List tests', () => {
 
         )
 
-        let listArray = wrapper.unrendered.props.listArray;
-        expect(listArray.length).toEqual(3);
+        let thumbArray = wrapper.unrendered.props.thumbArray;
+        expect(thumbArray.length).toEqual(3);
 
     });
 
