@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function AddBunny({ onAdd }) {
     return (
-        <section>
+        <div>
             <h2>Add a new bunny</h2>
             <form onSubmit={event => {
                 event.preventDefault();
@@ -11,14 +11,14 @@ export default function AddBunny({ onAdd }) {
                 onAdd(title.value, description.value, url.value);
                 form.reset();
             }}>
-                <label for="title">Title:</label>
+                <label htmlFor="title">Title:</label>
                 <input id="title" name="title" required /> 
-                <label for="description">Description:</label>
+                <label htmlFor="description">Description:</label>
                 <input id="description" name="description" required /> 
-                <label for="url">url:</label>
+                <label htmlFor="url">url:</label>
                 <input id="url" name="url" required /> 
                 <button type="submit">Add Bunny</button>
             </form>
-        </section>
+        </div>
     );
 }
