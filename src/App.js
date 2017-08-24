@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { bunnyBuild, addBunny, removeBunny } from './services/bunnies';
+import { bunnyBuild, plusBunny, minusBunny } from './services/bunnies';
 import { List } from './Components/List';
 import { Thumbs } from './Components/Thumbs';
 import { Gallery } from './Components/Gallery';
@@ -38,14 +38,14 @@ class App extends Component {
   addBunny = (title, description, url) => {
     const oldBunnies = this.state.bunnies;
     this.setState({
-      bunnies: addBunny(oldBunnies, title, description, url)
+      bunnies: plusBunny(oldBunnies, title, description, url)
     });
   }
 
   removeBunny = bunny => {
     const oldBunnies = this.state.bunnies;
     this.setState({
-      bunnies: removeBunny(oldBunnies, bunny)
+      bunnies: minusBunny(oldBunnies, bunny)
     });
   }
 

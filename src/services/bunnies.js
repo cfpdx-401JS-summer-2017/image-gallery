@@ -23,7 +23,7 @@ export function bunnyBuild() {
     ];
 }
 
-export function addBunny(bunnies, title, description, url) {
+export function plusBunny(bunnies, title, description, url) {
     const bunny = { title, description, url };
     return [
         ...bunnies,
@@ -31,7 +31,7 @@ export function addBunny(bunnies, title, description, url) {
     ];
 }
 
-export function removeBunny(bunnies, bunny) {
+export function minusBunny(bunnies, bunny) {
     const index = bunnies.indexOf(bunny);
     if (index === -1) return bunnies;
     
