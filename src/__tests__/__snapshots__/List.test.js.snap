@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem tests displays correct properties 1`] = `
+<ul>
+  <li>
+    <h3>
+      Test Title
+    </h3>
+  </li>
+  <li>
+    Test description
+  </li>
+  <li>
+    <a
+      href="http://google.com/"
+      target="_blank"
+    >
+      http://google.com/
+    </a>
+  </li>
+  <button
+    onClick={[Function]}
+  >
+    X
+  </button>
+</ul>
+`;
