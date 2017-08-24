@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`views components gallery renders a snapshot 1`] = `
+<div
+  className="gallery-view"
+>
+  <div>
+    <img
+      alt="syringe"
+      src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/syringe_1f489.png"
+    />
+    <h2>
+      syringe
+    </h2>
+    <p>
+      nurses poke you with it
+    </p>
+  </div>
+  <button
+    className="gallery-nav-button"
+    onClick={[Function]}
+  >
+     Back 
+  </button>
+  <button
+    className="gallery-nav-button"
+    onClick={[Function]}
+  >
+     Next 
+  </button>
+</div>
+`;
+
+exports[`views components list renders a snapshot 1`] = `
+<div
+  className="list-view"
+>
+  <div>
+    <h2>
+      syringe
+    </h2>
+    <img
+      alt="syringe"
+      src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/syringe_1f489.png"
+    />
+    <p>
+      nurses poke you with it
+    </p>
+  </div>
+  <div>
+    <h2>
+      sushi
+    </h2>
+    <img
+      alt="sushi"
+      src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/sushi_1f363.png"
+    />
+    <p>
+      super yummy!
+    </p>
+  </div>
+  <div>
+    <h2>
+      pile of poo
+    </h2>
+    <img
+      alt="pile of poo"
+      src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/pile-of-poo_1f4a9.png"
+    />
+    <p>
+      what I look like doing snapshot testing
+    </p>
+  </div>
+</div>
+`;
+
+exports[`views components thumbnail renders a snapshot 1`] = `
+<div
+  className="thumbnail-view"
+>
+  <div>
+    <img
+      alt="syringe"
+      src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/syringe_1f489.png"
+    />
+    <p>
+      syringe
+    </p>
+  </div>
+  <div>
+    <img
+      alt="sushi"
+      src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/sushi_1f363.png"
+    />
+    <p>
+      sushi
+    </p>
+  </div>
+  <div>
+    <img
+      alt="pile of poo"
+      src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/pile-of-poo_1f4a9.png"
+    />
+    <p>
+      pile of poo
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,52 @@
+
+.main {
+  margin: 0 auto;
+  max-width: 940px;
+  padding: 1rem;
+}
+
+.list-view {
+  display: block;
+  text-align: left;
+}
+
+.list-view div {
+  border-bottom: 1px solid #7e817e;
+}
+
+.list-view img {
+  width: 80px;
+}
+
+.thumbnail-view div {
+  display: inline-block;
+  text-align: center;
+  margin: 1rem;
+}
+
+.thumbnail-view img {
+  width: 40px;
+}
+
+.gallery-view {
+  display: block;
+  text-align: center;
+}
+
+button, input, textarea, select {
+  font-size: 1rem;
+  border: 1px solid #7e817e;
+  border-radius: 2px;
+  /* min-width: 50%; */
+  margin: .1rem;
+}
+
+button:hover {
+  color: white;
+  background-color: #7e817e;
+  border: 1px solid #7e817e;
+}
+
+button:focus, input:focus, textarea:focus {
+  outline: none;
+}
