@@ -8,14 +8,13 @@ export default class List extends PureComponent {
   };
 
   render() {
-    const { deleteImage, hondas } = this.props;
+    const { hondas } = this.props;
     return (
       <div className="listView">
         <ul>
           {hondas.map((honda, i) =>
             <li key={i}>
-            <span className="title">{honda.title}</span> {honda.description}
-
+            <span className="title">{honda.title}</span> <span>{honda.description}</span> <span role="img" aria-label=""><a href="">&#128279;</a></span>
             </li>
           )}
         </ul>

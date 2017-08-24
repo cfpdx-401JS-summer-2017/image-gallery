@@ -5,7 +5,6 @@ import List from './components/List';
 import Gallery from './components/Gallery';
 import Thumb from './components/Thumb';
 import ChooseView from './components/ChooseView';
-import AddImage from './components/AddImage';
 import hondas from './data/hondas';
 import { DefaultImages, AddNewImage, DeleteImage } from './services/imageService';
 
@@ -54,6 +53,7 @@ class App extends PureComponent {
           <ChooseView
             view={view}
             onChangeView={target => this.handleChangeView(target)}
+            onAddImage={target => this.addImage(target)}
           />
           <View
             hondas={motoArray}

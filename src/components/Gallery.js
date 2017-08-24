@@ -13,7 +13,7 @@ export default class Gallery extends PureComponent {
       <div className="galleryView">
       {hondas.map((honda, i) =>
         <div key={i}>
-        <input type="checkbox" onChange={target => deleteImage(i)} />
+        <input type="checkbox" onChange={target => deleteImage({i})} />
         <img className="galleryImg" alt={honda.alt} src={honda.url} />
         </div>
       )}
