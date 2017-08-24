@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-// import { bootstrap } from './image';
-// import ImageList from './ImageList';
-// import ImageThumbnail from './ImageThumbnail';
-// import ImageGallery from './ImageGallery';
+import images from './services/images';
 
-let id = 0;
-const images = [
-  { id: ++id, title: 'cute bunny', description: 'very cute bunny', url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg' },
-  { id: ++id, title: 'another cute bunny', description: 'very, very cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg' },
-  { id: ++id, title: 'fairly cute bunny', description: 'pretty much a cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg' },
-];
+
+// let id = 0;
+// const images = [
+//   { id: ++id, title: 'cute bunny', description: 'very cute bunny', url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg' },
+//   { id: ++id, title: 'another cute bunny', description: 'very, very cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg' },
+//   { id: ++id, title: 'fairly cute bunny', description: 'pretty much a cute bunny', url: 'http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg' },
+// ];
 
 class ImageList extends Component {
 
