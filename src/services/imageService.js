@@ -18,15 +18,16 @@ export function DefaultImages(hondas) {
   }
 }
 
-export function AddNewImage(hondas, imageName) {
-  console.log('in AddImage: ', hondas, imageName);
-  // add an image from a pasted-in url
+export function AddNewImage(title, desc, url, hondas) {
+  console.log('in AddImage: ', title, desc, url, hondas);
+  const newImage = {title: title, description: desc, url: url}
+  return hondas.push(newImage);
 }
 
 export function DeleteImage(hondas, selectedIndex) {
-  console.log('in Delete: ', hondas, selectedIndex);
-  const index = hondas.indexOf(selectedIndex);
+  console.log('in Delete: ', hondas[1], selectedIndex);
+  const index = hondas.indexOf(hondas[selectedIndex]);
+  console.log(index, selectedIndex);
   if (index === -1) return hondas;
-
   return [...hondas.slice(0, index), ...hondas.slice(index + 1)];
 }

@@ -10,7 +10,7 @@ export default class Thumb extends PureComponent {
   render() {
     const { deleteImage, hondas } = this.props;
     return (
-      <div className="thumbViewWrap">
+      <div className="thumbView">
         {hondas.map((honda, i) =>
           <div key={i}>
             <input type="checkbox" onChange={target => deleteImage(i)} />

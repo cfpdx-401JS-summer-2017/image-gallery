@@ -18,77 +18,83 @@ exports[`renders a snapshot in gallery view 1`] = `
   </div>
   <div>
     <div
-      className="addImageForm"
-    >
-      <form>
-        <input
-          className="addImageTextInput"
-          placeholder="enter a title for your image"
-          type="text"
-        />
-        <input
-          className="addImageTextInput"
-          name="newImage"
-          placeholder="enter a description for your image"
-          type="textarea"
-        />
-        <input
-          className="addImageTextInput"
-          name="newImage"
-          placeholder="paste in a new url to add an image"
-          type="text"
-        />
-        <button
-          name="add image"
-          onSubmit={[Function]}
-          value="add image"
-        />
-      </form>
-    </div>
-    <div
-      className="viewChooserWrap"
+      className="functionsHeader"
     >
       <div
-        className="view"
+        className="addImageForm"
       >
-        <span>
-          list
-        </span>
-        <input
-          checked={false}
-          className="viewChooser"
-          name="list"
-          onChange={[Function]}
-          type="radio"
-        />
+        <form>
+          <button
+            name="add image"
+            onSubmit={[Function]}
+            value="add image"
+          >
+            add image
+          </button>
+          <input
+            className="addImageTextInput"
+            placeholder="enter a title for your image"
+            type="text"
+          />
+          <input
+            className="addImageTextInput"
+            name="newImage"
+            placeholder="enter a description for your image"
+            type="textarea"
+          />
+          <input
+            className="addImageTextInput"
+            name="newImage"
+            placeholder="paste in a new url to add an image"
+            type="text"
+          />
+        </form>
       </div>
       <div
-        className="view"
+        className="viewChooserWrap"
       >
-        <span>
-          thumb
-        </span>
-        <input
-          checked={false}
-          className="viewChooser"
-          name="thumb"
-          onChange={[Function]}
-          type="radio"
-        />
-      </div>
-      <div
-        className="view"
-      >
-        <span>
-          gallery
-        </span>
-        <input
-          checked={true}
-          className="viewChooser"
-          name="gallery"
-          onChange={[Function]}
-          type="radio"
-        />
+        <div
+          className="view"
+        >
+          <span>
+            list
+          </span>
+          <input
+            checked={false}
+            className="viewChooser"
+            name="list"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
+        <div
+          className="view"
+        >
+          <span>
+            thumb
+          </span>
+          <input
+            checked={false}
+            className="viewChooser"
+            name="thumb"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
+        <div
+          className="view"
+        >
+          <span>
+            gallery
+          </span>
+          <input
+            checked={true}
+            className="viewChooser"
+            name="gallery"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
       </div>
     </div>
     <div
@@ -304,77 +310,83 @@ exports[`renders a snapshot in list view 1`] = `
   </div>
   <div>
     <div
-      className="addImageForm"
-    >
-      <form>
-        <input
-          className="addImageTextInput"
-          placeholder="enter a title for your image"
-          type="text"
-        />
-        <input
-          className="addImageTextInput"
-          name="newImage"
-          placeholder="enter a description for your image"
-          type="textarea"
-        />
-        <input
-          className="addImageTextInput"
-          name="newImage"
-          placeholder="paste in a new url to add an image"
-          type="text"
-        />
-        <button
-          name="add image"
-          onSubmit={[Function]}
-          value="add image"
-        />
-      </form>
-    </div>
-    <div
-      className="viewChooserWrap"
+      className="functionsHeader"
     >
       <div
-        className="view"
+        className="addImageForm"
       >
-        <span>
-          list
-        </span>
-        <input
-          checked={false}
-          className="viewChooser"
-          name="list"
-          onChange={[Function]}
-          type="radio"
-        />
+        <form>
+          <button
+            name="add image"
+            onSubmit={[Function]}
+            value="add image"
+          >
+            add image
+          </button>
+          <input
+            className="addImageTextInput"
+            placeholder="enter a title for your image"
+            type="text"
+          />
+          <input
+            className="addImageTextInput"
+            name="newImage"
+            placeholder="enter a description for your image"
+            type="textarea"
+          />
+          <input
+            className="addImageTextInput"
+            name="newImage"
+            placeholder="paste in a new url to add an image"
+            type="text"
+          />
+        </form>
       </div>
       <div
-        className="view"
+        className="viewChooserWrap"
       >
-        <span>
-          thumb
-        </span>
-        <input
-          checked={false}
-          className="viewChooser"
-          name="thumb"
-          onChange={[Function]}
-          type="radio"
-        />
-      </div>
-      <div
-        className="view"
-      >
-        <span>
-          gallery
-        </span>
-        <input
-          checked={true}
-          className="viewChooser"
-          name="gallery"
-          onChange={[Function]}
-          type="radio"
-        />
+        <div
+          className="view"
+        >
+          <span>
+            list
+          </span>
+          <input
+            checked={false}
+            className="viewChooser"
+            name="list"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
+        <div
+          className="view"
+        >
+          <span>
+            thumb
+          </span>
+          <input
+            checked={false}
+            className="viewChooser"
+            name="thumb"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
+        <div
+          className="view"
+        >
+          <span>
+            gallery
+          </span>
+          <input
+            checked={true}
+            className="viewChooser"
+            name="gallery"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
       </div>
     </div>
     <div
@@ -590,77 +602,83 @@ exports[`renders a snapshot in thumb view 1`] = `
   </div>
   <div>
     <div
-      className="addImageForm"
-    >
-      <form>
-        <input
-          className="addImageTextInput"
-          placeholder="enter a title for your image"
-          type="text"
-        />
-        <input
-          className="addImageTextInput"
-          name="newImage"
-          placeholder="enter a description for your image"
-          type="textarea"
-        />
-        <input
-          className="addImageTextInput"
-          name="newImage"
-          placeholder="paste in a new url to add an image"
-          type="text"
-        />
-        <button
-          name="add image"
-          onSubmit={[Function]}
-          value="add image"
-        />
-      </form>
-    </div>
-    <div
-      className="viewChooserWrap"
+      className="functionsHeader"
     >
       <div
-        className="view"
+        className="addImageForm"
       >
-        <span>
-          list
-        </span>
-        <input
-          checked={false}
-          className="viewChooser"
-          name="list"
-          onChange={[Function]}
-          type="radio"
-        />
+        <form>
+          <button
+            name="add image"
+            onSubmit={[Function]}
+            value="add image"
+          >
+            add image
+          </button>
+          <input
+            className="addImageTextInput"
+            placeholder="enter a title for your image"
+            type="text"
+          />
+          <input
+            className="addImageTextInput"
+            name="newImage"
+            placeholder="enter a description for your image"
+            type="textarea"
+          />
+          <input
+            className="addImageTextInput"
+            name="newImage"
+            placeholder="paste in a new url to add an image"
+            type="text"
+          />
+        </form>
       </div>
       <div
-        className="view"
+        className="viewChooserWrap"
       >
-        <span>
-          thumb
-        </span>
-        <input
-          checked={false}
-          className="viewChooser"
-          name="thumb"
-          onChange={[Function]}
-          type="radio"
-        />
-      </div>
-      <div
-        className="view"
-      >
-        <span>
-          gallery
-        </span>
-        <input
-          checked={true}
-          className="viewChooser"
-          name="gallery"
-          onChange={[Function]}
-          type="radio"
-        />
+        <div
+          className="view"
+        >
+          <span>
+            list
+          </span>
+          <input
+            checked={false}
+            className="viewChooser"
+            name="list"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
+        <div
+          className="view"
+        >
+          <span>
+            thumb
+          </span>
+          <input
+            checked={false}
+            className="viewChooser"
+            name="thumb"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
+        <div
+          className="view"
+        >
+          <span>
+            gallery
+          </span>
+          <input
+            checked={true}
+            className="viewChooser"
+            name="gallery"
+            onChange={[Function]}
+            type="radio"
+          />
+        </div>
       </div>
     </div>
     <div

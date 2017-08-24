@@ -29,21 +29,20 @@ class App extends PureComponent {
   }
 
   handleChangeView(target) {
-    console.log('changeView: ', target.currentView);
     this.setState({ view: target.currentView });
   }
 
-  addImage({ event }) {
-    event.preventDefault();
-    console.log('addImage: ', typeof event, event);
+  addImage = (title, desc, url) => {
     const { motoArray } = this.state;
-    AddNewImage(motoArray, event);
-  }
+    AddNewImage(title, desc, url, motoArray);
+    this.setState({ motoArray: hondas });
+  };
 
   deleteImage(target) {
     console.log('in delete: ', target);
     const { motoArray } = this.state;
     DeleteImage(motoArray, target);
+    this.setState({ motoArray: hondas });
   }
 
   render() {
@@ -59,11 +58,13 @@ class App extends PureComponent {
           </span>
         </div>
         <div>
-          <AddImage onSubmitImage={target => this.addImage({ target })} />
-          <ChooseView
-            view={view}
-            onChangeView={target => this.handleChangeView(target)}
-          />
+          <div className="functionsHeader">
+            <AddImage onSubmitImage={this.addImage} />
+            <ChooseView
+              view={view}
+              onChangeView={target => this.handleChangeView(target)}
+            />
+          </div>
           <View
             hondas={motoArray}
             deleteImage={target => this.deleteImage(target)}

@@ -12,7 +12,6 @@ export default class ChooseView extends PureComponent {
     const {  onChangeView, view } = this.props;
     return (
       <div className="viewChooserWrap">
-
         {['list', 'thumb', 'gallery'].map((currentView, i) =>
           <div key={i} className="view">
             <span>
