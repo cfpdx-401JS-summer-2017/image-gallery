@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-// const View = {
-//     list: ImageList,
-//     thumbnail: ImageThumbnail,
-
-// }
-
-// const views = Object.keys(View);
 
 export default class ImageThumbnail extends Component {
 
+    static propTypes = {
+        images: PropTypes.arrayOf(PropTypes.object)
+    }
     constructor(props) {
         super(props);
-        this.state = {
-            // view: views[1],
-        }
     }
 
 

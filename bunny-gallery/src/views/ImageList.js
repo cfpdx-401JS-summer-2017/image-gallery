@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 export default class ImageList extends Component {
 
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     view: views[0]
-        // }
+    static propTypes = {
+        images: PropTypes.arrayOf(PropTypes.object)
     }
 
     render() {
