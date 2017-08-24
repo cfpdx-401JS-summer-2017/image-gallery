@@ -1,5 +1,5 @@
 // starter id
-let id = 8;
+let id = 0;
 
 export function createEmoji(emojis, title, description, url) {
   const newEmoji = { id: ++id, title, description, url };
