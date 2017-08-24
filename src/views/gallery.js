@@ -49,6 +49,6 @@ export default class EmojiGallery extends Component {
 }
 
 EmojiGallery.propTypes = {
-  emojis: PropTypes.object,
+  emojis: PropTypes.array,
   emojiIndex: PropTypes.number,  
 }
