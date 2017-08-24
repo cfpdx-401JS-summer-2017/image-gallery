@@ -38,7 +38,7 @@ export default class Editor extends Component {
 
         return (
             <section>
-                <h4> Add new BUNNY </h4>
+                <h4> Add new bunbun </h4>
                 <form
                     onSubmit={event => {
                         event.preventDefault();
