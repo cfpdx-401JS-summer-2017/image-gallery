@@ -1,46 +1,37 @@
 import React, { Component } from 'react';
-//import BunnyList from './BunnyList';
-import { bootstrapBunnies } from './services/bunnies'
-import {Thumbnail, List, Gallery} from './components/viewFormats'
+import { bootstrapBunnies } from './services/bunnies';
+import {Thumbnail, List, Gallery} from './components/viewFormats';
 
-
-//import Thumbnail from './components/thumbnail'
-// import list from './components/list'
 function genBunnyList (viewtype, Component) {
     return function bunnyView({ bunnies }) {
         return <div> 
             <div>Bunny {viewtype} </div> 
-        <ul>
-        {bunnies && bunnies.map(bunny => (
-          <li key={bunny.id}>
-             <Component bunny={bunny}/> 
-          </li>
-        ))}
-      </ul>
-      </div>
-    }
+            <ul>
+                {bunnies && bunnies.map(bunny => (
+                    <li key={bunny.id}>
+                        <Component bunny={bunny}/> 
+                    </li>
+                ))}
+            </ul>
+        </div>;
+    };
 }
-const bunnyDetail = genBunnyList('Detail',List)
-const bunnyThumbnail = genBunnyList('Thumbnail',Thumbnail)
-
-
-
- function bunnyGallery({ bunny } ) {
+const bunnyDetail = genBunnyList('Detail',List);
+const bunnyThumbnail = genBunnyList('Thumbnail',Thumbnail);
+function bunnyGallery({ bunny } ) {
     return <div>
-    <div>Bunny Gallery </div>
-    <ul>
+        <div>Bunny Gallery </div>
+        <ul>
         
-    <Gallery bunny={bunny}/>
-    </ul>
-    </div>
+            <Gallery bunny={bunny}/>
+        </ul>
+    </div>;
 }
-
 const View = {
     detail: bunnyDetail,
     thumbnail: bunnyThumbnail,
     gallery: bunnyGallery
-}
-
+};
 const views = Object.keys(View);
 const bunnies = bootstrapBunnies();
 
@@ -57,7 +48,7 @@ class BunnyApp extends Component {
 
         };
     }
-        render() {
+    render() {
         const { views, view } = this.state;
         const BunnyView = View[view];
         const { bunnies } = this.state;
@@ -71,42 +62,36 @@ class BunnyApp extends Component {
                 </header>
                 <section>
                     {views.map(v => (
-                        <button key={v} onMouseDown={() => {
-                            this.setState({ view: v });}}
-                            onMouseUp={() => {if(BunnyView === bunnyGallery) {
-                                this.setState({ visible: true })
+                        <button key={v} onMouseDown={() => {this.setState({ view: v });}}
+                            onMouseUp={() => {
+                                if(BunnyView === bunnyGallery) {
+                                    this.setState({ visible: true });
                                 } else {
-                                    this.setState({ visible: false })
-                                    }
-                                    }
-                                    }>
+                                    this.setState({ visible: false });
+                                }
+                            }}>
                             {v}
                         </button>
                     ))}
-                        {visible && <section>
-                    <button
-                    onClick={() => this.setState({i:this.state.i-1})}
-                        style={{padding: '10px'}}
-                        disabled={this.state.i === 0}
+                    {visible && <section>
+                        <button
+                            onClick={() => this.setState({i:this.state.i-1})}
+                            style={{padding: '10px'}}
+                            disabled={this.state.i === 0}
                         >previous
-                    </button>
-                    <button 
-                    onClick={() =>  this.setState({i:this.state.i+1})}
-                        style={{padding: '10px'}}
-                        disabled={this.state.i===bunnies.length-1}
+                        </button>
+                        <button 
+                            onClick={() =>  this.setState({i:this.state.i+1})}
+                            style={{padding: '10px'}}
+                            disabled={this.state.i===bunnies.length-1}
                         >next
-                    </button>
+                        </button>
                     </section>
-                        }
-                    <BunnyView bunnies={bunnies} bunny={bunny}/>
-                    
+                    }
+                    <BunnyView bunnies={bunnies} bunny={bunny}/>                    
                 </section>
-                {/* <section>
-                    <BunnyList view={BunnyView} />
-                </section> */}
-
             </main>
         );
     }
 }
-export default BunnyApp
+export default BunnyApp;
