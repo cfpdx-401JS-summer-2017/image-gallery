@@ -27,10 +27,10 @@ class App extends Component {
       if( view === 'List' ) {
       return (
         <div className="App">
-          <button value="Thumbnail" onClick={(event) => this.handleClick(event.target.value)}>
+          <button onClick={(event) => this.handleClick("Thumbnail")}>
             Thumbnail
           </button>
-          <button value="Gallery" onClick={(event) => this.handleClick(event.target.value)}>
+          <button onClick={(event) => this.handleClick("Gallery")}>
             Gallery
           </button>
           <div className="Viewer">
@@ -42,10 +42,10 @@ class App extends Component {
     if( view === 'Thumbnail' ) {
       return (
         <div className="App">
-          <button value="List" onClick={(event) => this.handleClick(event.target.value)}>
+          <button onClick={(event) => this.handleClick("List")}>
             List
           </button>
-          <button value="Gallery" onClick={(event) => this.handleClick(event.target.value)}>
+          <button onClick={(event) => this.handleClick("Gallery")}>
             Gallery
           </button>
           <div className="Viewer">
@@ -57,10 +57,10 @@ class App extends Component {
     if( view === 'Gallery' ) {
       return (
         <div className="App">
-          <button value="List" onClick={(event) => this.handleClick(event.target.value)}>
+          <button onClick={(event) => this.handleClick("List")}>
             List
           </button>
-          <button value="Thumbnail" onClick={(event) => this.handleClick(event.target.value)}>
+          <button onClick={(event) => this.handleClick("Thumbnail")}>
             Thumbnail
           </button>
           <div className="Viewer">

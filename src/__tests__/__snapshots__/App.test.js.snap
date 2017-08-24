@@ -6,13 +6,11 @@ exports[`App loads a view 1`] = `
 >
   <button
     onClick={[Function]}
-    value="List"
   >
     List
   </button>
   <button
     onClick={[Function]}
-    value="Thumbnail"
   >
     Thumbnail
   </button>
@@ -20,6 +18,48 @@ exports[`App loads a view 1`] = `
     className="Viewer"
   >
     <Gallery
+      bunnies={
+        Array [
+          Object {
+            "description": "Speckle bunny is so cute!",
+            "title": "Cute Bunny",
+            "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+          },
+          Object {
+            "description": "Help I've fallen and need cuddles to get up.",
+            "title": "Cuter Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg",
+          },
+          Object {
+            "description": "I'm a snowball but not cold.",
+            "title": "Cutest Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`App loads a view 2`] = `
+<div
+  className="App"
+>
+  <button
+    onClick={[Function]}
+  >
+    Thumbnail
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Gallery
+  </button>
+  <div
+    className="Viewer"
+  >
+    <List
       bunnies={
         Array [
           Object {
