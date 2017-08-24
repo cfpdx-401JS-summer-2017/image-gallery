@@ -23,28 +23,30 @@ exports[`renders a snapshot in gallery view 1`] = `
       <div
         className="addImageForm"
       >
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <button
             name="add image"
-            onSubmit={[Function]}
-            value="add image"
+            type="submit"
           >
             add image
           </button>
           <input
             className="addImageTextInput"
+            name="title"
             placeholder="enter a title for your image"
             type="text"
           />
           <input
             className="addImageTextInput"
-            name="newImage"
+            name="desc"
             placeholder="enter a description for your image"
             type="textarea"
           />
           <input
             className="addImageTextInput"
-            name="newImage"
+            name="url"
             placeholder="paste in a new url to add an image"
             type="text"
           />
@@ -315,28 +317,30 @@ exports[`renders a snapshot in list view 1`] = `
       <div
         className="addImageForm"
       >
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <button
             name="add image"
-            onSubmit={[Function]}
-            value="add image"
+            type="submit"
           >
             add image
           </button>
           <input
             className="addImageTextInput"
+            name="title"
             placeholder="enter a title for your image"
             type="text"
           />
           <input
             className="addImageTextInput"
-            name="newImage"
+            name="desc"
             placeholder="enter a description for your image"
             type="textarea"
           />
           <input
             className="addImageTextInput"
-            name="newImage"
+            name="url"
             placeholder="paste in a new url to add an image"
             type="text"
           />
@@ -607,28 +611,30 @@ exports[`renders a snapshot in thumb view 1`] = `
       <div
         className="addImageForm"
       >
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <button
             name="add image"
-            onSubmit={[Function]}
-            value="add image"
+            type="submit"
           >
             add image
           </button>
           <input
             className="addImageTextInput"
+            name="title"
             placeholder="enter a title for your image"
             type="text"
           />
           <input
             className="addImageTextInput"
-            name="newImage"
+            name="desc"
             placeholder="enter a description for your image"
             type="textarea"
           />
           <input
             className="addImageTextInput"
-            name="newImage"
+            name="url"
             placeholder="paste in a new url to add an image"
             type="text"
           />
