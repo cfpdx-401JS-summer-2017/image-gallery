@@ -7,13 +7,13 @@ ListItem.propTypes = {
     url: PropTypes.string.isRequired
 }
 
-export function ListItem({ title, description, url }) {
+export function ListItem({ title, description, url, bunny, onRemove }) {
     return (
         <ul>
             <li><h3>{title}</h3></li>
             <li>{description}</li>
             <li><a target="_blank" href={url}>{url}</a></li>
-            {/* <button onClick={() => onRemove(bunny)} >X</button> */}
+            <button onClick={() => onRemove(bunny)} >X</button>
         </ul>
     );
 }
@@ -25,11 +25,11 @@ export class List extends Component {
     }
 
     render() {
-        const { listArray} = this.props;
+        const { listArray, onRemove } = this.props;
         return (
             <div>
                 {listArray.map((bunny, i) => (
-                    <ListItem key={i} title={bunny.title} description={bunny.description} url={bunny.url} />
+                    <ListItem key={i} bunny={bunny} title={bunny.title} description={bunny.description} url={bunny.url} onRemove={onRemove} />
                 ))}
             </div>
         );
