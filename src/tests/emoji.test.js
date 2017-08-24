@@ -34,7 +34,14 @@ describe('emoji services', () => {
     expect(saved.url).toEqual(url);
   });
 
-  
+  it('deletes an emoji', () => {
+    const id = 2;
+    const newList = deleteEmoji(testEmojis, id);
+
+    expect(newList).not.toBe(testEmojis);
+    expect(newList.length).toBe(1);
+    expect(newList[0]).toBe(testEmojis[0]);
+    expect(newList[1]).not.toBe(testEmojis[1]);
+  });
 
  });
-
