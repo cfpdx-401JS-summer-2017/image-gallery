@@ -16,9 +16,19 @@ describe('App', () => {
     const wrapper = shallow( <App bunnies = {Bunnies}/> )
     expect(toJSON(wrapper)).toMatchSnapshot();
 
-    const button = wrapper.find( 'button' );
-    button.at(0).simulate('click', {target: {value: 'List'}});
+    const button1 = wrapper.find( 'button' );
+    button1.at(0).simulate('click', {target: {value: 'List'}});
     expect(toJSON(wrapper)).toMatchSnapshot();
+    
+    const button2 = wrapper.find( 'button' );
+    button2.at(0).simulate('click', {target: {value: 'Gallery'}});
+    expect(toJSON(wrapper)).toMatchSnapshot();
+    
+    const button3 = wrapper.find( 'button' );
+    button3.at(0).simulate('click', {target: {value: 'Thumbnail'}});
+    expect(toJSON(wrapper)).toMatchSnapshot();
+
+    
   });
 
 });
