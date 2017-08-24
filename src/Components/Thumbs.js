@@ -7,11 +7,12 @@ ThumbItem.propTypes = {
     url: PropTypes.string.isRequired
 }
 
-export function ThumbItem({ title, description, url }) {
+export function ThumbItem({ title, description, url, bunny, onRemove }) {
     return (
         <div className="thumbView">
             <a href={url} target="_blank"><img src={url} alt={description} /></a>
             <p>{description}</p>
+            <button onClick={() => onRemove(bunny)} >X</button>
         </div>
     );
 }
@@ -23,11 +24,11 @@ export class Thumbs extends Component {
     }
 
     render() {
-        const { thumbArray } = this.props;
+        const { thumbArray, onRemove } = this.props;
         return (
             <div className="clear">
-                {thumbArray.map((item, i) => (
-                    <ThumbItem key={i} title={item.title} description={item.description} url={item.url} />
+                {thumbArray.map((bunny, i) => (
+                    <ThumbItem key={i} bunny={bunny} title={bunny.title} description={bunny.description} url={bunny.url} onRemove={onRemove} />
                 ))}
             </div>
         );

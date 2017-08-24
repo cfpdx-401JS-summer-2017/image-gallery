@@ -9,11 +9,11 @@ import AddBunny from './Components/AddBunny';
 function listView({ bunnies, onRemove }) {
   return <div><h2>List View</h2> <List listArray={ bunnies } onRemove={onRemove} /> </div>;
 }
-function thumbView({ bunnies }) {
-  return <div><h2>Thumbnail View</h2> <Thumbs thumbArray={ bunnies } /> </div>;
+function thumbView({ bunnies, onRemove }) {
+  return <div><h2>Thumbnail View</h2> <Thumbs thumbArray={ bunnies } onRemove={onRemove} /> </div>;
 }
-function galleryView({ bunnies }) {
-  return <div><h2>Gallery View</h2> <Gallery galleryArray={ bunnies } /> </div>;
+function galleryView({ bunnies, onRemove }) {
+  return <div><h2>Gallery View</h2> <Gallery galleryArray={ bunnies } onRemove={onRemove} /> </div>;
 }
 
 const viewDict = {
@@ -43,6 +43,7 @@ class App extends Component {
   }
 
   removeBunny = bunny => {
+    console.log('in removeBunny', bunny);
     const oldBunnies = this.state.bunnies;
     this.setState({
       bunnies: minusBunny(oldBunnies, bunny)

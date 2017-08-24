@@ -34,7 +34,7 @@ export function plusBunny(bunnies, title, description, url) {
 export function minusBunny(bunnies, bunny) {
     const index = bunnies.indexOf(bunny);
     if (index === -1) return bunnies;
-    
+    console.log('in minusBunny', bunnies, bunny);
     return [
         ...bunnies.slice(0, index),
         ...bunnies.slice(index + 1)
