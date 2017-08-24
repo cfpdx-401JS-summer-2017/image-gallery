@@ -6,15 +6,15 @@ export default class DeleteEmoji extends Component {
     super(props);
 
     this.state = {
-      selectedValue: 'none'
+      selectedId: '0'
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
   }
 
   handleOnChange(e) {
-    let index = e.target.value;
-    this.setState({ selectedValue: index });
+    let id = e.target.value;
+    this.setState({ selectedId: id });
   }  
   
   render() {
@@ -26,13 +26,13 @@ export default class DeleteEmoji extends Component {
         <form onSubmit={event => {
             event.preventDefault();
             const form = event.target;
-            handleOnSubmit(this.state.selectedValue);
+            handleOnSubmit(this.state.selectedId);
             form.reset();
         }}>
-          <select value={this.state.selectedValue} onChange={this.handleOnChange}>
-            <option value="none">--- pick one ---</option>
-            {emojis.map((emoji, index) => {
-              return <option key={index} value={index}>{emoji.title}</option>
+          <select value={this.state.selectedId} onChange={this.handleOnChange}>
+            <option value="0">--- pick one ---</option>
+            {emojis.map(emoji => {
+              return <option key={emoji.id} value={emoji.id}>{emoji.title}</option>
             })}
           </select>
           <br/>
