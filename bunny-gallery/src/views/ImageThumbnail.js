@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import images from './images';
 
 // const View = {
 //     list: ImageList,
@@ -14,12 +13,14 @@ export default class ImageThumbnail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            view: views[1],
+            // view: views[1],
         }
     }
 
 
     render() {
+        const { images } = this.props;
+        
         return (
             <div>
                 {images.map((image, index) => {
