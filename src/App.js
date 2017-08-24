@@ -5,6 +5,14 @@ import { List } from './Components/List';
 import { Thumbs } from './Components/Thumbs';
 import { Gallery } from './Components/Gallery';
 import AddBunny from './Components/AddBunny';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+import Home from './home/Home';
+import Images from './images/Images';
 
 function listView({ bunnies, onRemove }) {
   return <div><h2>List View</h2> <List listArray={ bunnies } onRemove={onRemove} /> </div>;
@@ -63,24 +71,15 @@ class App extends Component {
     const ViewWrapper = viewDict[view];
 
     return (
-      <main>
-        <header>
-          <h1>Cute Bunnies: The App</h1>
-        </header>
-        <nav>
-          {views.map(v => (
-            <button key={v} onClick={() => this.setState({ view: v })}>
-              {v}
-            </button>
-          ))}
-        </nav>
-        <section>
-          <ViewWrapper bunnies={ bunnies } bunnyNum={this.state.bunnyNum} onRemove={ this.removeBunny} onUpdate={this.updateBunny} />
-        </section>
-        <section>
-          <AddBunny onAdd={this.addBunny} />
-        </section>
-      </main>
+      <Router>
+        <main>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/images" component={Images} />
+            <Redirect to="/" /> 
+          </Switch>
+        </main>
+      </Router>
     );
   }
 }
