@@ -7,7 +7,7 @@ GalleryItem.propTypes = {
     url: PropTypes.string.isRequired
 }
 
-export function GalleryItem({ title, description, url, bunny, onRemove }) {
+export function GalleryItem({ title, description, url, bunny, onRemove, onUpdate, bunnyNum }) {
     return (
         <div className="galleryView">
             <img src={url} alt={description} />
@@ -19,18 +19,21 @@ export function GalleryItem({ title, description, url, bunny, onRemove }) {
 }
 
 export class Gallery extends Component {
-
+    
     static propTypes = {
         galleryArray: PropTypes.arrayOf(PropTypes.object).isRequired
     }
-
+    
     render() {
-        const { galleryArray, onRemove } = this.props;
+        const { galleryArray, onRemove, onUpdate, bunnyNum } = this.props;
+        const bunnyGallery = galleryArray.map((bunny, i) => (
+            <GalleryItem key={i} bunny={bunny} bunnyNum={bunnyNum} title={bunny.title} description={bunny.description} url={bunny.url} onRemove={onRemove} onUpdate={onUpdate} />
+        ));
         return (
             <div>
-                {galleryArray.map((bunny, i) => (
-                    <GalleryItem key={i} bunny={bunny} title={bunny.title} description={bunny.description} url={bunny.url} onRemove={onRemove} />
-                ))}
+                {bunnyGallery[bunnyNum]}
+                <button onClick={() => onUpdate(bunnyNum - 1)}>Previous Bunny</button>
+                <button onClick={() => onUpdate(bunnyNum + 1)}>Next Bunny</button>
             </div>
         );
     }

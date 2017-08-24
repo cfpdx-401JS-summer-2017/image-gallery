@@ -12,8 +12,8 @@ function listView({ bunnies, onRemove }) {
 function thumbView({ bunnies, onRemove }) {
   return <div><h2>Thumbnail View</h2> <Thumbs thumbArray={ bunnies } onRemove={onRemove} /> </div>;
 }
-function galleryView({ bunnies, onRemove }) {
-  return <div><h2>Gallery View</h2> <Gallery galleryArray={ bunnies } onRemove={onRemove} /> </div>;
+function galleryView({ bunnies, onRemove, onUpdate, bunnyNum }) {
+  return <div><h2>Gallery View</h2> <Gallery galleryArray={ bunnies } bunnyNum={bunnyNum} onRemove={onRemove} onUpdate={onUpdate} /> </div>;
 }
 
 const viewDict = {
@@ -30,6 +30,7 @@ class App extends Component {
     super();
     this.state = {
       bunnies: bunnyBuild(),
+      bunnyNum: 0,
       view: viewArray[0],
       views: viewArray
     };
@@ -49,6 +50,14 @@ class App extends Component {
     });
   }
 
+  updateBunny = newNum => {
+    if(newNum === this.state.bunnies.length) newNum = 0;
+    if(newNum === -1) newNum = this.state.bunnies.length - 1;
+    this.setState({
+      bunnyNum: newNum
+    })
+  }
+
   render() {
     const { bunnies, views, view } = this.state;
     const ViewWrapper = viewDict[view];
@@ -66,7 +75,7 @@ class App extends Component {
           ))}
         </nav>
         <section>
-          <ViewWrapper bunnies={ bunnies } onRemove={ this.removeBunny } />
+          <ViewWrapper bunnies={ bunnies } bunnyNum={this.state.bunnyNum} onRemove={ this.removeBunny} onUpdate={this.updateBunny} />
         </section>
         <section>
           <AddBunny onAdd={this.addBunny} />
