@@ -21,6 +21,12 @@ class App extends Component {
     })
   }
 
+  onAdd(bunny){
+    this.setState({
+      bunnies: this.state.bunnies.push(bunny)
+    })
+  }
+
   render() {
     const view = this.state.view;
 
