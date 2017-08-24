@@ -5,8 +5,13 @@ import List from './components/List';
 import Gallery from './components/Gallery';
 import Thumb from './components/Thumb';
 import ChooseView from './components/ChooseView';
+import AddImage from './components/AddImage';
 import hondas from './data/hondas';
-import { DefaultImages, AddNewImage, DeleteImage } from './services/imageService';
+import {
+  DefaultImages,
+  AddNewImage,
+  DeleteImage
+} from './services/imageService';
 
 class App extends PureComponent {
   constructor() {
@@ -28,10 +33,11 @@ class App extends PureComponent {
     this.setState({ view: target.currentView });
   }
 
-  addImage(target) {
-    console.log('addImage: ', typeof target, target);
+  addImage({ event }) {
+    event.preventDefault();
+    console.log('addImage: ', typeof event, event);
     const { motoArray } = this.state;
-    AddNewImage(motoArray, target);
+    AddNewImage(motoArray, event);
   }
 
   deleteImage(target) {
@@ -47,13 +53,16 @@ class App extends PureComponent {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <span>I like to take photos of motorcycles I see, especially classic Hondas.</span>
+          <span>
+            I like to take photos of motorcycles I see, especially classic
+            Hondas.
+          </span>
         </div>
         <div>
+          <AddImage onSubmitImage={target => this.addImage({ target })} />
           <ChooseView
             view={view}
             onChangeView={target => this.handleChangeView(target)}
-            onAddImage={target => this.addImage(target)}
           />
           <View
             hondas={motoArray}

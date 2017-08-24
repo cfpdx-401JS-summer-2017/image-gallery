@@ -5,20 +5,14 @@ export default class ChooseView extends PureComponent {
   static propTypes = {
     view: PropTypes.string,
     onChangeView: PropTypes.func,
-    onAddImage: PropTypes.func
+    onSubmitImage: PropTypes.func
   };
 
   render() {
-    const { onAddImage, onChangeView, view } = this.props;
+    const {  onChangeView, view } = this.props;
     return (
       <div className="viewChooserWrap">
-        <input
-          type="text"
-          className="addImageTextInput"
-          name="newImage"
-          placeholder="paste in a new url to add an image"
-          onChange={target => onAddImage(target)}
-        />
+
         {['list', 'thumb', 'gallery'].map((currentView, i) =>
           <div key={i} className="view">
             <span>

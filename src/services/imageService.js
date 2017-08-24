@@ -1,5 +1,5 @@
 export function DefaultImages(hondas) {
-  console.log('in default: ', hondas, hondas.length);
+  // console.log('in default: ', hondas, hondas.length);
   if (hondas.length < 2) {
     hondas = [
       {
@@ -20,7 +20,7 @@ export function DefaultImages(hondas) {
 
 export function AddNewImage(hondas, imageName) {
   console.log('in AddImage: ', hondas, imageName);
-  // add an image from the directory that a user has chosen from a select menu
+  // add an image from a pasted-in url
 }
 
 export function DeleteImage(hondas, selectedIndex) {
