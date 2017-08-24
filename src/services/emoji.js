@@ -3,7 +3,7 @@ let id = 8;
 
 export function createEmoji(emojis, title, description, url) {
   const newEmoji = { id: ++id, title, description, url };
-  console.log('new emoji added', newEmoji);
+
   return [...emojis, newEmoji];
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 import EmojiList from './views/list';
 import EmojiThumbnail from './views/thumbnail';
@@ -81,10 +82,7 @@ class App extends Component {
     if (id !== 0) {
       let emojis = deleteEmoji(this.state.emojis, id);
       this.setState({ emojis });
-
-      console.log('emoji removed', emojis);
     }
-    //   this.setState({ emojis: this.state.emojis.splice(index, 1) });
   }
 
   render() {
@@ -106,6 +104,11 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  view: PropTypes.string,
+  emojis: PropTypes.array,
 }
 
 export default App;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class EmojiThumbnails extends Component {
   
@@ -15,7 +16,9 @@ export default class EmojiThumbnails extends Component {
         ))}
       </div>
     );
-
   }
+}
 
+EmojiThumbnails.PropTypes = {
+  emojis: PropTypes.array,
 }

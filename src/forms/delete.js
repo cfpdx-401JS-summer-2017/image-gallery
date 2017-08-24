@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class DeleteEmoji extends Component {
 
@@ -6,7 +7,7 @@ export default class DeleteEmoji extends Component {
     super(props);
 
     this.state = {
-      selectedId: '0'
+      selectedId: 0
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -41,4 +42,8 @@ export default class DeleteEmoji extends Component {
       </div>
     );
   }
+}
+
+DeleteEmoji.PropTypes = {
+  selectedId: PropTypes.number,
 }

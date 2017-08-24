@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class EmojiGallery extends Component {
 
@@ -45,4 +46,9 @@ export default class EmojiGallery extends Component {
 
   }
 
+}
+
+EmojiGallery.propTypes = {
+  emojis: PropTypes.object,
+  emojiIndex: PropTypes.number,  
 }
