@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import {stevens} from './images/Stevens';
+import StevePics from './images/Stevens';
 import StevenList from './StevenList';
 import './App.css';
 
-function StevenDetail({steven}) {
-  return <div>Steven Detail {steven}</div>;
+function StevenDetail({stevens}) {
+  return <div>Steven Detail {stevens.length}</div>;
 }
-function StevenThumbnail({steven}) {
-  return <div>Steven Thumbnail {steven}</div>
+function StevenThumbnail({stevens}) {
+  return <div>Steven Thumbnail {stevens.length}</div>
 }
-function StevenGallery({steven}) {
-  return <div>Steven Gallery {steven}</div>;
+function StevenGallery({stevens}) {
+  return <div>Steven Gallery {stevens.length}</div>;
 }
 
 const View = {
-  Detail: StevenDetail,
+  Detail: StevenList,
   Thumbnail: StevenThumbnail,
   Gallery: StevenGallery
 }
@@ -26,15 +26,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      stevens: stevens,
+      stevens: StevePics,
       view: views[0],
       views: views
     }
   }
 
   render() {
-    const {steven, views, view} = this.state;
+    const {stevens, views, view} = this.state;
     const StevenView = View[view];
+    console.log(StevenView);
 
     return (
       <main>
@@ -43,15 +44,14 @@ class App extends Component {
             <h1>Steve Pics Dot Com</h1>
           </header>
           <section>
+            <StevenView stevens={stevens}/>
+          </section>
+          <section>
             {views.map(v => (
               <button key={v} onClick={() => this.setState({view: v})}>
                 {v}
               </button>
             ))}
-          <StevenView steven={steven}/>
-          </section>
-          <section>
-            <StevenList steven={steven}/>
           </section>
           <p className="App-intro">
             Thank you for looking at my pictures of Steven.

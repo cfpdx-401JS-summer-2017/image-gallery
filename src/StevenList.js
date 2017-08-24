@@ -1,17 +1,10 @@
 import React, {Component} from 'react';
-import {stevens} from './images/Stevens';
+// import StevePics from './images/Stevens';
 
 export default class Stevens extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            stevens: []
-        };
-    }
-
+    
     render() {
-        const {stevens} = this.state;
+        const {stevens} = this.props;
         return (
             <ul>
                 {stevens && stevens.map(steven => (
@@ -24,19 +17,19 @@ export default class Stevens extends Component {
     }
 }
 
-export function Steven({stevens}) {
+export function Steven({steven}) {
     return (
         <div style={{
             padding: '10px',
             clear: 'both'
         }}>
-            <img src={stevens.url}
-                alt={stevens.title}
+            <img src={steven.url}
+                alt={steven.title}
                 style={{
                     float: 'left',
                     width: 100
                 }}/>
-                <span>{stevens.title}</span>
+                <span>{steven.title}</span>
         </div>
     );
 }
