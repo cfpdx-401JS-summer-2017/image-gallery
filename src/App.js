@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router,
+        Switch,
+        Redirect,
+        Route,
+        Link
+} from 'react-router-dom';
+import Home from './home/Home';
+import About from './about/About';
 import './App.css';
 import { images, addImage, removeImage } from './services/images';
 import ViewSelector from './services/ViewSelector';
@@ -13,7 +21,6 @@ class App extends Component {
     }
   }
 
-  //addimage
   addImage = (title, description, url) => {
     const img = {title, description, url};
     const oldImages = this.state.images;
@@ -23,7 +30,6 @@ class App extends Component {
     })
   }
 
-  //remove image
   removeImage = image => {
     const oldImages = this.state.images;
     this.setState({
@@ -35,10 +41,24 @@ class App extends Component {
   render() {
 
     return (
+
+      <Router>
       <div className="App">
-          <ViewSelector images={this.state.images} onRemove = {this.removeImage} />
-          <AddImage onAdd={this.addImage}/>
+          <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/about" component={About}/>
+          <Route path="/images" render={({ match, location}) => {
+            return <div>
+              <Link to="/home"> <button>Home</button> </Link>
+              <Link to="/about"> <button>About</button> </Link>
+              <ViewSelector images={this.state.images} onRemove = {this.removeImage} />
+              <AddImage onAdd={this.addImage}/> 
+              </div>
+          }}/>
+          <Redirect to="/"/>
+          </Switch>
       </div>
+      </Router>
     );
   }
 }
