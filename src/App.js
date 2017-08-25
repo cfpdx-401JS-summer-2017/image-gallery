@@ -44,7 +44,6 @@ updateBunny = newNum => {
     });
 }
   render() {
-
     return (
       <Router>
         <div>
@@ -53,14 +52,7 @@ updateBunny = newNum => {
               <Nav />
           </header>
           <main>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/images" render={props => (
-                <Images {...props} bunnies={this.state.bunnies} onRemove={this.removeBunny} onAdd={this.addBunny} onUpdate={this.updateBunny} bunnyNum={this.state.bunnyNum}
-                />)} />
-              <Route path="/about" component={About} />
-              <Redirect to="/" /> 
-            </Switch>
+            <Routes/>
           </main>
         </div>
       </Router>
@@ -69,3 +61,16 @@ updateBunny = newNum => {
 }
 
 export default App;
+
+export function Routes() {
+  return (
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/images" render={props => (
+        <Images {...props} bunnies={this.state.bunnies} onRemove={this.removeBunny} onAdd={this.addBunny} onUpdate={this.updateBunny} bunnyNum={this.state.bunnyNum}
+        />)} />
+      <Route path="/about" component={About} />
+      <Redirect to="/" />
+    </Switch>
+  );
+}
