@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import { shallow, mount } from 'enzyme';
-import toJSON from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import { Routes } from '../App';
 import { MemoryRouter } from 'react-router-dom';
 
