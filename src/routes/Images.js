@@ -33,7 +33,7 @@ export class Images extends Component {
 
         return (
             <div>
-                <nav>
+                <nav id="subNav">
                     <ul>
                         {
                             viewArray.map(v =>

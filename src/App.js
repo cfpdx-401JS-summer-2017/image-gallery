@@ -17,42 +17,50 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-        bunnies: bunnyBuild(),
-        bunnyNum: 0
+      bunnies: bunnyBuild(),
+      bunnyNum: 0
     };
-}
+  }
 
-addBunny = (title, description, url) => {
+  addBunny = (title, description, url) => {
     const oldBunnies = this.state.bunnies;
     this.setState({
-        bunnies: plusBunny(oldBunnies, title, description, url)
+      bunnies: plusBunny(oldBunnies, title, description, url)
     });
-}
+  }
 
-removeBunny = bunny => {
+  removeBunny = bunny => {
     const oldBunnies = this.state.bunnies;
     this.setState({
-        bunnies: minusBunny(oldBunnies, bunny)
+      bunnies: minusBunny(oldBunnies, bunny)
     });
-}
+  }
 
-updateBunny = newNum => {
+  updateBunny = newNum => {
     if (newNum === this.state.bunnies.length) newNum = 0;
     if (newNum === -1) newNum = this.state.bunnies.length - 1;
     this.setState({
-        bunnyNum: newNum
+      bunnyNum: newNum
     });
-}
+  }
   render() {
     return (
       <Router>
         <div>
           <header>
-              <h1>Cute Bunnies: The App</h1>
-              <Nav />
+            <h1>Cute Bunnies: The App</h1>
+            <Nav />
           </header>
           <main>
-            <Routes/>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/images" render={props => (
+                <Images {...props} bunnies={this.state.bunnies} onRemove={this.removeBunny} onAdd={this.addBunny} onUpdate={this.updateBunny} bunnyNum={this.state.bunnyNum}
+                />)} />
+              <Route path="/about" component={About} />
+              <Redirect to="/" />
+            </Switch>
+            );
           </main>
         </div>
       </Router>
@@ -62,15 +70,3 @@ updateBunny = newNum => {
 
 export default App;
 
-export function Routes() {
-  return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/images" render={props => (
-        <Images {...props} bunnies={this.state.bunnies} onRemove={this.removeBunny} onAdd={this.addBunny} onUpdate={this.updateBunny} bunnyNum={this.state.bunnyNum}
-        />)} />
-      <Route path="/about" component={About} />
-      <Redirect to="/" />
-    </Switch>
-  );
-}

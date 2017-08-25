@@ -6,7 +6,9 @@ exports[`App works renders a snapshot 1`] = `
     <h1>
       Cute Bunnies: The App
     </h1>
-    <nav>
+    <nav
+      id="mainNav"
+    >
       <ul>
         <li>
           <a
@@ -37,10 +39,16 @@ exports[`App works renders a snapshot 1`] = `
   </header>
   <main>
     <div>
-      <h1>
-        Bunny App Home Placeholder
-      </h1>
+      <section>
+        <h2>
+          Welcome to Cute Bunnies.
+        </h2>
+        <p>
+          Prepare for cuteness, bunny style.
+        </p>
+      </section>
     </div>
+    );
   </main>
 </div>
 `;

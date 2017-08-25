@@ -3,7 +3,10 @@ import React from 'react';
 export default function Home({ match, location, history }) {
     return (
         <div>
-            <h1>Bunny App Home Placeholder</h1>
+            <section>
+                <h2>Welcome to Cute Bunnies.</h2>
+                <p>Prepare for cuteness, bunny style.</p>
+            </section>
         </div>
     );
 }
