@@ -25,6 +25,10 @@ class App extends Component {
 
   //remove image
   removeImage = image => {
+    const oldImages = this.state.images;
+    this.setState({
+      images: removeImage(oldImages, image)
+    })
 
   }
 
@@ -32,7 +36,7 @@ class App extends Component {
 
     return (
       <div className="App">
-          <ViewSelector images={this.state.images} />
+          <ViewSelector images={this.state.images} onRemove = {this.removeImage} />
           <AddImage onAdd={this.addImage}/>
       </div>
     );

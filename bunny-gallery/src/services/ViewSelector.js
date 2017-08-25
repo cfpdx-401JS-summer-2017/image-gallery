@@ -22,7 +22,7 @@ class ViewSelector extends Component {
     }
 
     render() {
-        const { images } = this.props;
+        const { images, onRemove } = this.props;
         const { views, view } = this.state;
         const ImageView = View[view];
 
@@ -33,7 +33,7 @@ class ViewSelector extends Component {
                     {views.map(v => (
                         <button key={v} onClick={() => this.setState({ view: v })}>
                             {v}</button>))}
-                    <ImageView images={images} views={views}/>
+                    <ImageView images={images} views={views} onRemove = {onRemove}/>
                 </div>
             </div>
         );
