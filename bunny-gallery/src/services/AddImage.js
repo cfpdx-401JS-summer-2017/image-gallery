@@ -8,7 +8,7 @@ export default function AddImage({ onAdd }) {
                 event.preventDefault();
                 const form = event.target;
                 const { title, url, description } = form.elements;
-                onAdd(title.value,description.value, url.value);
+                onAdd(title.value, description.value, url.value);
                 form.reset();
             }}>
                 <label> Title<input name="title"/></label>

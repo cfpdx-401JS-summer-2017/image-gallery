@@ -17,6 +17,7 @@ class App extends Component {
   addImage = (title, description, url) => {
     const img = {title, description, url};
     const oldImages = this.state.images;
+    console.log('img', img);
     this.setState({
       images: addImage(oldImages, img)
     })
@@ -31,7 +32,7 @@ class App extends Component {
 
     return (
       <div className="App">
-          <ViewSelector images={images} />
+          <ViewSelector images={this.state.images} />
           <AddImage onAdd={this.addImage}/>
       </div>
     );

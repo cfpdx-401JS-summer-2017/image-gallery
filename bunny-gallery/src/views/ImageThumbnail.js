@@ -25,7 +25,7 @@ export default class ImageThumbnail extends Component {
                             <p>{image.description}</p>
                         </div>
                     )
-                })};
+                })}
             </div>
         )
     }
