@@ -11,7 +11,6 @@ export default class Gallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            bunnies: props.bunnies,
             current: 0
         }
     }

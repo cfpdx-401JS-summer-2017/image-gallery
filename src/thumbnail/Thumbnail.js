@@ -7,10 +7,6 @@ export default class Thumbnail extends Component {
         bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
     }
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="thumbnails">
