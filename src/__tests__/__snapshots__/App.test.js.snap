@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<main>
+  <header>
+    <h1>
+      Cute Bunnies: The App
+    </h1>
+  </header>
+  <nav>
+    <button
+      onClick={[Function]}
+    >
+      list
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      thumbs
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      gallery
+    </button>
+  </nav>
+  <section>
+    <div>
+      <h2>
+        List View
+      </h2>
+       
+      <div>
+        <ul>
+          <li>
+            <h3>
+              Cute Bunny 1
+            </h3>
+          </li>
+          <li>
+            Who's a cute bunny??
+          </li>
+          <li>
+            <a
+              href="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+              target="_blank"
+            >
+              http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg
+            </a>
+          </li>
+          <button
+            onClick={[Function]}
+          >
+            X
+          </button>
+        </ul>
+        <ul>
+          <li>
+            <h3>
+              Cute Bunny 2
+            </h3>
+          </li>
+          <li>
+            Diabolically cute!!
+          </li>
+          <li>
+            <a
+              href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+              target="_blank"
+            >
+              http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg
+            </a>
+          </li>
+          <button
+            onClick={[Function]}
+          >
+            X
+          </button>
+        </ul>
+        <ul>
+          <li>
+            <h3>
+              Cute Bunny 3
+            </h3>
+          </li>
+          <li>
+            There are no bounds to the cuteness!
+          </li>
+          <li>
+            <a
+              href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+              target="_blank"
+            >
+              http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg
+            </a>
+          </li>
+          <button
+            onClick={[Function]}
+          >
+            X
+          </button>
+        </ul>
+        <ul>
+          <li>
+            <h3>
+              Cute Bunny 4
+            </h3>
+          </li>
+          <li>
+            Hey, that's not a bunny!
+          </li>
+          <li>
+            <a
+              href="https://i.pinimg.com/originals/52/79/ec/5279ec99c74876b17224e0e033224222.jpg"
+              target="_blank"
+            >
+              https://i.pinimg.com/originals/52/79/ec/5279ec99c74876b17224e0e033224222.jpg
+            </a>
+          </li>
+          <button
+            onClick={[Function]}
+          >
+            X
+          </button>
+        </ul>
+      </div>
+       
+    </div>
+  </section>
+  <section>
+    <div>
+      <h2>
+        Add a new bunny
+      </h2>
+      <form
+        onSubmit={[Function]}
+      >
+        <label
+          htmlFor="title"
+        >
+          Title:
+        </label>
+        <input
+          id="title"
+          name="title"
+          required={true}
+        />
+        <label
+          htmlFor="description"
+        >
+          Description:
+        </label>
+        <input
+          id="description"
+          name="description"
+          required={true}
+        />
+        <label
+          htmlFor="url"
+        >
+          url:
+        </label>
+        <input
+          id="url"
+          name="url"
+          required={true}
+        />
+        <button
+          type="submit"
+        >
+          Add Bunny
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
+`;

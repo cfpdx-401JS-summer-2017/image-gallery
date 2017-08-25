@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GalleryItem tests displays correct properties 1`] = `
+<div
+  className="galleryView"
+>
+  <img
+    alt="Test description"
+    src="http://google.com/"
+  />
+  <h3>
+    Test Title
+  </h3>
+  <p>
+    Test description
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    X
+  </button>
+</div>
+`;
