@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bootstrapBunnies } from './services/bunnies';
 import {Thumbnail, List, Gallery} from './components/viewFormats';
+import qs from 'qs';
 
 function genBunnyList (viewtype, Component) {
     return function bunnyView({ bunnies }) {
@@ -49,8 +50,9 @@ class BunnyApp extends Component {
         };
     }
     render() {
-        const { views, view } = this.state;
-        const BunnyView = View[view];
+        const { views } = this.state;
+        const queried = qs.parse(this.props.location.search.slice(1));
+        const BunnyView = View[queried.view||'thumbnail'];
         const { bunnies } = this.state;
         let { i } = this.state;
         let { visible } = this.state;
@@ -62,18 +64,12 @@ class BunnyApp extends Component {
                 </header>
                 <section>
                     {views.map(v => (
-                        <button key={v} onMouseDown={() => {this.setState({ view: v });}}
-                            onMouseUp={() => {
-                                if(BunnyView === bunnyGallery) {
-                                    this.setState({ visible: true });
-                                } else {
-                                    this.setState({ visible: false });
-                                }
-                            }}>
+                        <button key={v} 
+                            onClick={() => {this.props.history.push(`/photos?view=${v}`);}}>
                             {v}
                         </button>
                     ))}
-                    {visible && <section>
+                    {queried.view === 'gallery' && <section>
                         <button
                             onClick={() => this.setState({i:this.state.i-1})}
                             style={{padding: '10px'}}

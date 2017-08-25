@@ -37,7 +37,7 @@ export function Gallery({ bunny }) {
                 alt={bunny.title}
                 style={{
                     float: 'center',
-                    width: 300
+                    width: 500
                 }}/>
             <section>{bunny.title}!</section>
             <section>{bunny.description}</section>
