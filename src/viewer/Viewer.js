@@ -5,7 +5,7 @@ import Gallery from '../gallery/Gallery';
 import qs from 'qs';
 
 const View = {
-    gallery: Gallery, 
+    gallery: Gallery,
     thumbnail: Thumbnail,
     list: List
 }
@@ -23,14 +23,16 @@ export default class Viewer extends Component {
         }
     }
     render() {
-        const currentView = qs.parse(location.search.slice(1)).view || 'list';
+        console.log(this.state);
+
+        const currentView = qs.parse(this.state.location.slice(1)).view || 'list';
         const { views, view } = this.state;
         const BunnyView = View[view];
-        
+
         return (
             <div>
-                {views.map ( v => (
-                    <button disabled={v === currentView} key={v} onClick={() => history.push({search: `?view=${view}`})}>
+                {views.map(v => (
+                    <button disabled={v === currentView} key={v} onClick={() => this.state.history.push({ search: `?view=${view}` })}>
                         {v}
                     </button>
                 ))}

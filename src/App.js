@@ -43,7 +43,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route path = "/" component={Viewer}/>
+            <Route path = "/" render={({match, location, history, bunnies}) => {
+              return <Viewer match={match} location={location} history={history} bunnies={bunnies}/>
+            }}/>
           </Switch>
           <button name="addBunny" onClick={(event) => this.handleClick(event.target.name, true)}>
             Add bunny
