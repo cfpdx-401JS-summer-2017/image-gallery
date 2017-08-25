@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+
 export default class Gallery extends PureComponent {
   static propTypes = {
     hondas: PropTypes.arrayOf(PropTypes.object).isRequired,

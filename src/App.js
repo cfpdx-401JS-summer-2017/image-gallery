@@ -6,6 +6,8 @@ import Gallery from './components/Gallery';
 import Thumb from './components/Thumb';
 import ChooseView from './components/ChooseView';
 import AddImage from './components/AddImage';
+import ImageSlider from './components/ImageSlider';
+
 import hondas from './data/hondas';
 import {
   DefaultImages,
@@ -18,14 +20,19 @@ class App extends PureComponent {
     super();
     this.state = {
       motoArray: hondas,
-      view: 'gallery'
+      view: 'gallery',
+      imgIndex: 0
     };
+
+    // this.updateSlide = this.updateSlide.bind(this);
+
   }
 
   componentDidMount() {
     const { motoArray, view } = this.state;
     DefaultImages(motoArray);
     this.setState({ view: view });
+
   }
 
   handleChangeView(target) {
@@ -45,8 +52,16 @@ class App extends PureComponent {
     this.setState({ motoArray: hondas });
   }
 
+  updateSlide(target) {
+    // console.log('in this.updateSlide: ', target)
+    this.setState({ imgIndex: target });
+
+      // return target;
+  }
+
+
   render() {
-    const { motoArray, view } = this.state;
+    const { motoArray, view, imgIndex } = this.state;
     const View = view === 'list' ? List : view === 'gallery' ? Gallery : Thumb;
     return (
       <div className="App">
@@ -65,6 +80,7 @@ class App extends PureComponent {
               onChangeView={target => this.handleChangeView(target)}
             />
           </div>
+          <ImageSlider hondas={motoArray} onUpdateSlide={target => this.updateSlide(imgIndex)}/>
           <View
             hondas={motoArray}
             deleteImage={target => this.deleteImage(target)}
