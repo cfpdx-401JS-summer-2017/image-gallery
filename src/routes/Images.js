@@ -3,6 +3,8 @@ import AddBunny from '../Components/AddBunny';
 import { List } from '../Components/List';
 import { Thumbs } from '../Components/Thumbs';
 import { Gallery } from '../Components/Gallery';
+import { Link } from 'react-router-dom';
+import qs from 'qs';
 
 function listView({ bunnies, onRemove }) {
     return <div><h2>List View</h2> <List listArray={bunnies} onRemove={onRemove} /> </div>;
@@ -23,26 +25,23 @@ const viewDict = {
 const viewArray = Object.keys(viewDict);
 
 export class Images extends Component {
-    constructor() {
-        super();
-        this.state = {
-            view: viewArray[0],
-            views: viewArray
-        };
-    }
 
     render() {
-        const { bunnies, onRemove, onUpdate, bunnyNum, onAdd } = this.props;
-        const ViewWrapper = viewDict[this.state.view];
+        const { bunnies, onRemove, onUpdate, bunnyNum, onAdd, match, location } = this.props;
+        const view = qs.parse(location.search.slice(1)).view;
+        const ViewWrapper = viewDict[view];
 
         return (
             <div>
                 <nav>
-                    {this.state.views.map(v => (
-                        <button key={v} onClick={() => this.setState({ view: v })}>
-                            {v}
-                        </button>
-                    ))}
+                    <ul>
+                        {
+                            viewArray.map(v =>
+                                <li><Link to={`${match.url}?view=${v}`}>
+                                    {v}</Link></li>
+                            )
+                        }
+                    </ul>
                 </nav>
                 <section>
                     <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} onRemove={onRemove} onUpdate={onUpdate} />

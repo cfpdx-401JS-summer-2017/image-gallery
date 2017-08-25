@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import qs from 'qs';
 
-export default function Nav() {
+function Nav({ location }) {
+
+    const currentView = qs.parse(location.search.slice(1)).view || 'list'; 
+    
     return(
         <nav>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
-                <li><Link to="/images">Images</Link></li>
+                <li><Link to={`/images?view=${currentView}`}>Images</Link></li>
             </ul>
         </nav>
     );
 }
+
+export default withRouter(Nav);
