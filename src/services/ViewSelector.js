@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ImageList from '../views/ImageList';
 import ImageThumbnail from '../views/ImageThumbnail';
 import ImageGallery from '../views/ImageGallery';
+import { Switch, Route, Link, withRouter } from 'react-router-dom';
+import qs from 'qs';
 
 export const View = {
     list: ImageList,
@@ -11,37 +13,24 @@ export const View = {
 
 export const views = Object.keys(View);
 
-class ViewSelector extends Component {
+function ViewSelector(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            view: views[1],
-            views: views,
-        }
-    }
-
-    handleChange = view => { 
-        this.setState({ view })
-    }
-
-    render() {
-        const { images, onRemove } = this.props;
-        const { views, view } = this.state;
-        const ImageView = View[view];
+    const { images, onRemove, match, location, history } = props;
+    const view = qs.parse(location.search.slice(1)).view || 'thumbnail';
+    const ImageView = View[view];
 
 
-        return (
-            <div className="App">
-                <div>
-                    {views.map(v => (
-                        <button key={v} onClick={() => this.setState({ view: v })}>
-                            {v}</button>))}
-                    <ImageView images={images} views={views} onRemove = {onRemove}/>
-                </div>
+
+    return (
+        <div className="App">
+            <div>
+                {views.map(v => (
+                    <button key={v} disabled={v === view} onClick={() => history.push({ search: `?view=${v}` })}>
+                        {v}</button>))}
+                <ImageView images={images} onRemove={onRemove} />
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-export default ViewSelector;
+export default withRouter(ViewSelector);
