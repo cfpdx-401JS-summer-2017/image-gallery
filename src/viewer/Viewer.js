@@ -29,7 +29,7 @@ export default class Viewer extends Component {
         return (
             <div>
                 {views.map ( v => (
-                    <button disabled={v === currentView} key={v} onClick={() => this.setState({views: v})}>
+                    <button disabled={v === currentView} key={v} onClick={() => history.push({search: `?view=${view}`})}>
                         {v}
                     </button>
                 ))}
