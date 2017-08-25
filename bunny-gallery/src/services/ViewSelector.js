@@ -3,13 +3,13 @@ import ImageList from '../views/ImageList';
 import ImageThumbnail from '../views/ImageThumbnail';
 import ImageGallery from '../views/ImageGallery';
 
-const View = {
+export const View = {
     list: ImageList,
     thumbnail: ImageThumbnail,
     gallery: ImageGallery
 }
 
-const views = Object.keys(View);
+export const views = Object.keys(View);
 
 class ViewSelector extends Component {
 
@@ -19,6 +19,10 @@ class ViewSelector extends Component {
             view: views[1],
             views: views,
         }
+    }
+
+    handleChange = view => { 
+        this.setState({ view })
     }
 
     render() {

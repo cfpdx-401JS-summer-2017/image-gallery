@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewSelector switches to correct view 1`] = `
+<div
+  className="App"
+>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      list
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      thumbnail
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      gallery
+    </button>
+    <ImageThumbnail
+      images={Array []}
+      views={
+        Array [
+          "list",
+          "thumbnail",
+          "gallery",
+        ]
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`ViewSelector switches to correct view 2`] = `
+<div
+  className="App"
+>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      list
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      thumbnail
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      gallery
+    </button>
+    <ImageGallery
+      images={Array []}
+      views={
+        Array [
+          "list",
+          "thumbnail",
+          "gallery",
+        ]
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`ViewSelector switches to correct view 3`] = `
+<div
+  className="App"
+>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      list
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      thumbnail
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      gallery
+    </button>
+    <ImageThumbnail
+      images={Array []}
+      views={
+        Array [
+          "list",
+          "thumbnail",
+          "gallery",
+        ]
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`ViewSelector switches to correct view 4`] = `
+<div
+  className="App"
+>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      list
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      thumbnail
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      gallery
+    </button>
+    <ImageList
+      images={Array []}
+      views={
+        Array [
+          "list",
+          "thumbnail",
+          "gallery",
+        ]
+      }
+    />
+  </div>
+</div>
+`;
