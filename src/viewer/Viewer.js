@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import List from '../list/List';
 import Thumbnail from '../thumbnail/Thumbnail';
 import Gallery from '../gallery/Gallery';
+import qs from 'qs';
 
 const View = {
     gallery: Gallery, 
@@ -22,7 +23,7 @@ export default class Viewer extends Component {
         }
     }
     render() {
-
+        const currentView = qs.parse(location.search.slice(1)).view || 'list';
         const { views, view } = this.state;
         const BunnyView = View[view];
         
