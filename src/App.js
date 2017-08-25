@@ -55,7 +55,7 @@ class App extends PureComponent {
 
   render() {
     const { motoArray, view } = this.state;
-    // const View = view === 'list' ? List : view === 'gallery' ? Gallery : Thumb;
+
     return (
       <Router>
         <div className="App">

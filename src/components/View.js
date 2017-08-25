@@ -22,6 +22,8 @@ export default class View extends Component {
 
   // const {deleteImage, hondas, match,location} = this.props;
   render() {
+
+        // const View = view === 'list' ? List : view === 'gallery' ? Gallery : Thumb;
     // const { match, location } = this.props;
     console.log('props: ', this.props)
 

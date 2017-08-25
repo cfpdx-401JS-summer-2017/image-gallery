@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -16,10 +16,17 @@ export default function ChooseView({ view, onChangeView }) {
           <span>
             {currentView}
           </span>
-          <NavLink to={{
-            pathname:"/",
-            search: "?view="
+          <NavLink
+            to={{
+              pathname: '/view',
+              search: `?view=${currentView}`
+            }}
+            activeStyle={{
+              checked: true
             }}>
+            <Redirect to={{}}>
+
+
             <input
               type="radio"
               className="viewChooser"
@@ -27,6 +34,7 @@ export default function ChooseView({ view, onChangeView }) {
               checked={currentView === view}
               onChange={target => onChangeView({ currentView })}
             />
+            </Redirect>
           </NavLink>
         </div>
       )}
