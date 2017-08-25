@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from './Components/Nav';
+import { bunnyBuild, plusBunny, minusBunny } from './services/bunnies';
 
 import {
   BrowserRouter as Router,
@@ -12,9 +13,36 @@ import Home from './routes/Home';
 import About from './routes/About';
 import { Images } from './routes/Images';
 
-
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+        bunnies: bunnyBuild(),
+        bunnyNum: 0
+    };
+}
 
+addBunny = (title, description, url) => {
+    const oldBunnies = this.state.bunnies;
+    this.setState({
+        bunnies: plusBunny(oldBunnies, title, description, url)
+    });
+}
+
+removeBunny = bunny => {
+    const oldBunnies = this.state.bunnies;
+    this.setState({
+        bunnies: minusBunny(oldBunnies, bunny)
+    });
+}
+
+updateBunny = newNum => {
+    if (newNum === this.state.bunnies.length) newNum = 0;
+    if (newNum === -1) newNum = this.state.bunnies.length - 1;
+    this.setState({
+        bunnyNum: newNum
+    });
+}
   render() {
 
     return (
@@ -27,7 +55,9 @@ class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/images" component={Images} />
+              <Route path="/images" render={props => (
+                <Images {...props} bunnies={this.state.bunnies} onRemove={this.removeBunny} onAdd={this.addBunny} onUpdate={this.updateBunny} bunnyNum={this.state.bunnyNum}
+                />)} />
               <Route path="/about" component={About} />
               <Redirect to="/" /> 
             </Switch>

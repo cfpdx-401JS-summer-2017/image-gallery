@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { bunnyBuild, plusBunny, minusBunny } from '../services/bunnies';
+import AddBunny from '../Components/AddBunny';
 import { List } from '../Components/List';
 import { Thumbs } from '../Components/Thumbs';
 import { Gallery } from '../Components/Gallery';
-import AddBunny from '../Components/AddBunny';
 
 function listView({ bunnies, onRemove }) {
     return <div><h2>List View</h2> <List listArray={bunnies} onRemove={onRemove} /> </div>;
@@ -27,53 +26,29 @@ export class Images extends Component {
     constructor() {
         super();
         this.state = {
-            bunnies: bunnyBuild(),
-            bunnyNum: 0,
             view: viewArray[0],
             views: viewArray
         };
     }
 
-    addBunny = (title, description, url) => {
-        const oldBunnies = this.state.bunnies;
-        this.setState({
-            bunnies: plusBunny(oldBunnies, title, description, url)
-        });
-    }
-
-    removeBunny = bunny => {
-        const oldBunnies = this.state.bunnies;
-        this.setState({
-            bunnies: minusBunny(oldBunnies, bunny)
-        });
-    }
-
-    updateBunny = newNum => {
-        if (newNum === this.state.bunnies.length) newNum = 0;
-        if (newNum === -1) newNum = this.state.bunnies.length - 1;
-        this.setState({
-            bunnyNum: newNum
-        });
-    }
-
     render() {
-        const { bunnies, views, view } = this.state;
-        const ViewWrapper = viewDict[view];
+        const { bunnies, onRemove, onUpdate, bunnyNum, onAdd } = this.props;
+        const ViewWrapper = viewDict[this.state.view];
 
         return (
             <div>
                 <nav>
-                    {views.map(v => (
+                    {this.state.views.map(v => (
                         <button key={v} onClick={() => this.setState({ view: v })}>
                             {v}
                         </button>
                     ))}
                 </nav>
                 <section>
-                    <ViewWrapper bunnies={bunnies} bunnyNum={this.state.bunnyNum} onRemove={this.removeBunny} onUpdate={this.updateBunny} />
+                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} onRemove={onRemove} onUpdate={onUpdate} />
                 </section>
                 <section>
-                    <AddBunny onAdd={this.addBunny} />
+                    <AddBunny onAdd={onAdd} />
                 </section>
             </div>
         );
