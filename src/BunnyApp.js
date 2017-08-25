@@ -45,7 +45,6 @@ class BunnyApp extends Component {
             view: views[1],
             views: views,
             i: 0,
-            visible:false
 
         };
     }
@@ -55,7 +54,6 @@ class BunnyApp extends Component {
         const BunnyView = View[queried.view||'thumbnail'];
         const { bunnies } = this.state;
         let { i } = this.state;
-        let { visible } = this.state;
         const bunny = bunnies[i];
         return (
             <main>
