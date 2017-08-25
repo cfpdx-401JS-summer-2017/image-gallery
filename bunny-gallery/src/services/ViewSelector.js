@@ -3,13 +3,13 @@ import ImageList from '../views/ImageList';
 import ImageThumbnail from '../views/ImageThumbnail';
 import ImageGallery from '../views/ImageGallery';
 
-const View = {
+export const View = {
     list: ImageList,
     thumbnail: ImageThumbnail,
     gallery: ImageGallery
 }
 
-const views = Object.keys(View);
+export const views = Object.keys(View);
 
 class ViewSelector extends Component {
 
@@ -21,8 +21,12 @@ class ViewSelector extends Component {
         }
     }
 
+    handleChange = view => { 
+        this.setState({ view })
+    }
+
     render() {
-        const { images } = this.props;
+        const { images, onRemove } = this.props;
         const { views, view } = this.state;
         const ImageView = View[view];
 
@@ -33,7 +37,7 @@ class ViewSelector extends Component {
                     {views.map(v => (
                         <button key={v} onClick={() => this.setState({ view: v })}>
                             {v}</button>))}
-                    <ImageView images={images} views={views}/>
+                    <ImageView images={images} views={views} onRemove = {onRemove}/>
                 </div>
             </div>
         );

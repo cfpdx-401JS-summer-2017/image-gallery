@@ -11,7 +11,7 @@ export function addImage(images, img) {
     ]
 }
 
-export function removeImages(images, image) {
+export function removeImage(images, image) {
     const index = images.indexOf(image);
     if (index === -1) return images;
 
