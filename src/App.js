@@ -80,7 +80,7 @@ class App extends PureComponent {
               onChangeView={target => this.handleChangeView(target)}
             />
           </div>
-          <ImageSlider hondas={motoArray} onUpdateSlide={target => this.updateSlide(imgIndex)}/>
+          {/* <ImageSlider hondas={motoArray} onUpdateSlide={target => this.updateSlide(imgIndex)}/> */}
           <View
             hondas={motoArray}
             deleteImage={target => this.deleteImage(target)}
