@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
-import images from './images';
+import PropTypes from 'prop-types';
 
-// const View = {
-//     list: ImageList,
-//     thumbnail: ImageThumbnail,
-
-// }
-
-// const views = Object.keys(View);
 
 export default class ImageThumbnail extends Component {
 
+    static propTypes = {
+        images: PropTypes.arrayOf(PropTypes.object)
+    }
     constructor(props) {
         super(props);
-        this.state = {
-            view: views[1],
-        }
     }
 
 
     render() {
+        const { images } = this.props;
+        
         return (
             <div>
                 {images.map((image, index) => {
@@ -30,7 +25,7 @@ export default class ImageThumbnail extends Component {
                             <p>{image.description}</p>
                         </div>
                     )
-                })};
+                })}
             </div>
         )
     }
