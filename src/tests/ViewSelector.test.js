@@ -10,19 +10,5 @@ describe('ViewSelector', () => {
         const wrapper = shallow(<ViewSelector images={[]} />);
         expect(toJSON(wrapper)).toMatchSnapshot();
 
-        const component = wrapper.instance();
-        
-        component.handleChange( 'gallery' );
-        wrapper.update();
-        expect(toJSON(wrapper)).toMatchSnapshot();
-
-        component.handleChange( 'thumbnail' );
-        wrapper.update();
-        expect(toJSON(wrapper)).toMatchSnapshot();
-
-        component.handleChange( 'list' );
-        wrapper.update();
-        expect(toJSON(wrapper)).toMatchSnapshot();
-
     })
 })
