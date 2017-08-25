@@ -5,6 +5,10 @@
   padding: 1rem;
 }
 
+img {
+  vertical-align: middle;
+}
+
 .list-view {
   display: block;
   text-align: left;
