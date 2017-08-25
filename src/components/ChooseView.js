@@ -1,32 +1,41 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import { Link, Route, withRouter } from 'react-router-dom';
+import qs from 'qs';
 import PropTypes from 'prop-types';
 
-export default class ChooseView extends PureComponent {
-  static propTypes = {
+function ChooseView({ match, view, onChangeView }) {
+  ChooseView.propTypes = {
     view: PropTypes.string,
-    onChangeView: PropTypes.func,
-    onSubmitImage: PropTypes.func
+    match: PropTypes.string,
+    onChangeView: PropTypes.func
   };
+  // const urlView = qs.parse(location.search.slice(1)).view || 'gallery';
 
-  render() {
-    const {  onChangeView, view } = this.props;
-    return (
-      <div className="viewChooserWrap">
-        {['list', 'thumb', 'gallery'].map((currentView, i) =>
-          <div key={i} className="view">
-            <span>
-              {currentView}
-            </span>
-            <input
-              type="radio"
-              className="viewChooser"
-              name={currentView}
-              checked={currentView === view}
-              onChange={target => onChangeView({ currentView })}
-            />
+  return (
+    <Route
+      path="/view"
+      render={({ history, location }) => {
+        return (
+          <div className="viewChooserWrap">
+            {['list', 'thumb', 'gallery'].map((currentView, i) =>
+              <div key={i} className="view">
+                <span>
+                  {currentView}
+                </span>
+                <input
+                  type="radio"
+                  className="viewChooser"
+                  name={currentView}
+                  checked={currentView === view}
+                  onChange={target => onChangeView({ currentView })}
+                />
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    );
-  }
+        );
+      }}
+    />
+  );
 }
+
+export default withRouter(ChooseView);
