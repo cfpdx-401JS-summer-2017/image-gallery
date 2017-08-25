@@ -11,10 +11,6 @@ import DeleteEmoji from './images/forms/delete';
 import { createEmoji, deleteEmoji } from './images/services/emoji';
 import nextId from './images/services/nextId';
 
-// {/* <Route exact path="/add" render={(props)
-  // <CurrentView emojis={this.state.emojis} />} />
-  
-
 const views = {
   list: EmojiList,
   thumbnail: EmojiThumbnail,

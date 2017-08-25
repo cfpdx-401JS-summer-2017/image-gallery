@@ -7,7 +7,6 @@ import {
   Link
 } from 'react-router-dom'
 import './App.css';
-import Navigation from './Navigation';
 import Home from './components/home';
 import About from './components/about';
 import Images from './components/images';
@@ -20,10 +19,10 @@ class App extends Component {
         <div className="main">
           <div>
             <h1>emoji-wiki-pedia</h1>
-            <ul>
-              <li><Link to="/home">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/images">Images</Link></li>
+            <ul id="menu">
+              <li><Link to="/home"><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/google/110/house-building_1f3e0.png" />Home</Link></li>
+              <li><Link to="/about"><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/google/110/thinking-face_1f914.png" />About</Link></li>
+              <li><Link to="/images"><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/google/110/frame-with-picture_1f5bc.png" />Images</Link></li>
             </ul>
           </div>
           <Switch>
