@@ -4,6 +4,7 @@ import './App.css';
 import List from './components/List';
 import Gallery from './components/Gallery';
 import Thumb from './components/Thumb';
+import View from './components/View';
 import ChooseView from './components/ChooseView';
 import AddImage from './components/AddImage';
 import hondas from './data/hondas';
@@ -30,6 +31,7 @@ class App extends PureComponent {
   }
 
   handleChangeView(target) {
+    console.log('change: ', target)
     this.setState({ view: target.currentView });
   }
 
@@ -52,8 +54,8 @@ class App extends PureComponent {
   }
 
   render() {
-    const { motoArray, view, imgIndex } = this.state;
-    const View = view === 'list' ? List : view === 'gallery' ? Gallery : Thumb;
+    const { motoArray, view } = this.state;
+    // const View = view === 'list' ? List : view === 'gallery' ? Gallery : Thumb;
     return (
       <Router>
         <div className="App">
@@ -66,22 +68,19 @@ class App extends PureComponent {
           </div>
           <div>
             <div className="functionsHeader">
-              <Route
-                path="/views"
-                render={({match}) => {
-                  return (
-                    <ChooseView
-                    view={view}
-                    onChangeView={target => this.handleChangeView(target)}
-                    />
-                  );
-                }}
+              <ChooseView
+                view={view}
+                onChangeView={target => this.handleChangeView(target)}
               />
               <AddImage onSubmitImage={this.addImage} />
             </div>
-            <View
+            <Route
+              path="/view"
+              render={(match) => <View
               hondas={motoArray}
               deleteImage={target => this.deleteImage(target)}
+              match={match}
+              />}
             />
           </div>
         </div>
