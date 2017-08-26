@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import List from './components/List';
-import Gallery from './components/Gallery';
-import Thumb from './components/Thumb';
 import View from './components/View';
 import ChooseView from './components/ChooseView';
 import AddImage from './components/AddImage';
@@ -75,7 +72,7 @@ class App extends PureComponent {
               <AddImage onSubmitImage={this.addImage} />
             </div>
             <Route
-              path="/view"
+              path="/"
               render={(match) => <View
               hondas={motoArray}
               deleteImage={target => this.deleteImage(target)}
