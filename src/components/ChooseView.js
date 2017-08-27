@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
 
+
 import PropTypes from 'prop-types';
 
 export default function ChooseView({ view, onChangeView }) {
@@ -15,7 +16,7 @@ export default function ChooseView({ view, onChangeView }) {
         <div key={i} className="view">
           <NavLink
             to={{
-              pathname: '/view',
+              pathname: '/',
               search: `?view=${currentView}`
             }}
             activeStyle={{
