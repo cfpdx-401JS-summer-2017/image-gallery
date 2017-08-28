@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
-function ChooseView({ view, onChangeView }) {
+function ChooseView({ view }) {
   ChooseView.propTypes = {
     view: PropTypes.string,
-    onChangeView: PropTypes.func,
     location: PropTypes.object
   };
+
   return (
     <div className="viewChooserWrap">
       {['list', 'thumb', 'gallery'].map((currentView, i) =>
@@ -22,7 +22,7 @@ function ChooseView({ view, onChangeView }) {
             activeStyle={{
               color: '#000000'
             }}>
-            <div onClick={target => onChangeView({ currentView })}>
+            <div>
               {currentView}
             </div>
           </NavLink>

@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import View from './components/View';
-import ChooseView from './components/ChooseView';
-import AddImage from './components/AddImage';
+import Home from './components/Home';
+import About from './components/About';
 import hondas from './data/hondas';
-import {
-  DefaultImages,
-  AddNewImage,
-  DeleteImage
-} from './services/imageService';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { DefaultImages } from './services/imageService';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       motoArray: hondas,
       view: 'gallery'
@@ -25,26 +21,6 @@ class App extends Component {
     const { motoArray, view } = this.state;
     DefaultImages(motoArray);
     this.setState({ view: view });
-  }
-
-  handleChangeView(target) {
-    console.log('in change view: ', target)
-    this.setState({ view: target.currentView });
-  }
-
-
-  addImage = (title, desc, url) => {
-    const { motoArray, view } = this.state;
-    this.setState({ motoArray: hondas, view: view }, () => {
-      AddNewImage(title, desc, url, motoArray)
-  });
-  }
-
-  deleteImage(target) {
-    console.log('in delete: ', target);
-    const { motoArray } = this.state;
-    DeleteImage(motoArray, target);
-    this.setState({ motoArray: hondas });
   }
 
   updateSlide(target) {
@@ -64,23 +40,33 @@ class App extends Component {
               I like to take photos of motorcycles I see, especially classic
               Hondas.
             </span>
+            <div className="navLinks">
+              <span>
+                <a href="/">Home</a>
+              </span>{' '}
+              <span>
+                <a href="/images">Images</a>
+              </span>{' '}
+              <span>
+                <a href="/about">About</a>
+              </span>
+            </div>
           </div>
           <div>
-            <div className="functionsHeader">
-              <ChooseView
-                view={view}
-                onChangeView={target => this.handleChangeView(target)}
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route
+                path="/images"
+                render={match =>
+                  <View
+                    hondas={motoArray}
+                    deleteImage={target => this.deleteImage(target)}
+                    match={match}
+                  />}
               />
-              <AddImage onSubmitImage={this.addImage} />
-            </div>
-            <Route
-              path="/images"
-              render={(match) => <View
-              hondas={motoArray}
-              deleteImage={target => this.deleteImage(target)}
-              match={match}
-              />}
-            />
+              <Route path="/about" component={About} />
+              />
+            </Switch>
           </div>
         </div>
       </Router>
