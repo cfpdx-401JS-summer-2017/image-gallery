@@ -42,7 +42,7 @@ class App extends Component {
       <main>
         <div className="App">
           <header className="App-header">
-            <h1>Steve Pics Dot Com</h1>
+            <h1>Steve Pics Dot Com!</h1>
           </header>
           <section className={view}>
             <StevenView stevens={stevens}/>

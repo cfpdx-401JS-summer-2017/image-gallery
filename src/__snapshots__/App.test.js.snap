@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main>
+  <div
+    className="App"
+  >
+    <header
+      className="App-header"
+    >
+      <h1>
+        Steve Pics Dot Com!
+      </h1>
+    </header>
+    <section
+      className="Detail"
+    >
+      <ul>
+        <li>
+          <div
+            style={
+              Object {
+                "clear": "both",
+                "padding": "10px",
+              }
+            }
+          >
+            <span>
+              <a
+                href="http://www.societyofrock.com/wp-content/uploads/2016/10/Steven-Tyler-Wallpapers-HD.jpg"
+              >
+                Steven Tyler
+              </a>
+            </span>
+            <span>
+              No-frills-all-thrills Steven.
+            </span>
+          </div>
+        </li>
+        <li>
+          <div
+            style={
+              Object {
+                "clear": "both",
+                "padding": "10px",
+              }
+            }
+          >
+            <span>
+              <a
+                href="http://www.theeagle1069.com/wp-content/uploads/2016/06/steven-tyler-engaged.jpg"
+              >
+                Steven Smiler
+              </a>
+            </span>
+            <span>
+              Have a Steven, and a smile.
+            </span>
+          </div>
+        </li>
+        <li>
+          <div
+            style={
+              Object {
+                "clear": "both",
+                "padding": "10px",
+              }
+            }
+          >
+            <span>
+              <a
+                href="http://i.dailymail.co.uk/i/pix/2013/03/11/article-0-188ED1B1000005DC-718_634x319.jpg"
+              >
+                Steven Byeler
+              </a>
+            </span>
+            <span>
+              The Steven that got away. We will miss you, Steven.
+            </span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <button
+        onClick={[Function]}
+      >
+        Detail
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Thumbnail
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Gallery
+      </button>
+    </section>
+    <p
+      className="App-intro"
+    >
+      Thank you for looking at my pictures of Steven.
+    </p>
+  </div>
+</main>
+`;
