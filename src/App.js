@@ -1,63 +1,29 @@
 import React, { Component } from 'react';
-import StevePics from './images/Stevens';
-import StevenList from './StevenList';
-import StevenThumbnail from './StevenThumbnail';
-import StevenGallery from './StevenGallery';
+import {Switch, Link, Route, Redirect} from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Images from './Images';
 import './App.css';
 
-function Detail({stevens}) {
-  return <div>Steven Detail {stevens.length}</div>;
-}
-function Thumbnail({stevens}) {
-  return <div>Steven Thumbnail {stevens.length}</div>
-}
-function Gallery({stevens}) {
-  return <div>Steven Gallery {stevens.length}</div>;
-}
-
-const View = {
-  Detail: StevenList,
-  Thumbnail: StevenThumbnail,
-  Gallery: StevenGallery
-}
-
-const views = Object.keys(View);
-
 class App extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      stevens: StevePics,
-      view: views[0],
-      views: views
-    }
-  }
-
+  
   render() {
-    const {stevens, views, view} = this.state;
-    const StevenView = View[view];
-
     return (
-      <main>
-        <div className="App">
-          <header className="App-header">
-            <h1>Steve Pics Dot Com!</h1>
-          </header>
-          <section className={view}>
-            <StevenView stevens={stevens}/>
-          </section>
-          <section>
-            {views.map(v => (
-              <button key={v} onClick={() => this.setState({view: v})}>
-                {v}
-              </button>
-            ))}
-          </section>
-          <p className="App-intro">
-            Thank you for looking at my pictures of Steven.
-          </p>
-        </div>
+      <main className="App">
+        <header className="App-header">
+          <h1>Steve Pics Dot Com!</h1>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/images">Steve Pics</Link>
+          </nav>
+        </header>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/images" component={Images}/>
+          <Redirect to="/"/>
+        </Switch>
       </main>
     );
   }
