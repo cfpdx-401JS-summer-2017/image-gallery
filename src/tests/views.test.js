@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer'
 
-import EmojiList from '../views/list';
-import EmojiThumbnail from '../views/thumbnail';
-import EmojiGallery from '../views/gallery';
+import EmojiList from '../components/images/views/list';
+import EmojiThumbnail from '../components/images/views/thumbnail';
+import EmojiGallery from '../components/images/views/gallery';
 
 describe('views components', () => {
 

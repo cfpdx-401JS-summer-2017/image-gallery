@@ -8,8 +8,8 @@ import EmojiGallery from './images/views/gallery';
 
 import CreateEmoji from './images/forms/create';
 import DeleteEmoji from './images/forms/delete';
-import { createEmoji, deleteEmoji } from './images/services/emoji';
-import nextId from './images/services/nextId';
+import { createEmoji, deleteEmoji } from '../services/emoji';
+import nextId from '../services/nextId';
 
 const views = {
   list: EmojiList,
