@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddBunny from '../Components/AddBunny';
-import { List } from '../Components/List';
-import { Thumbs } from '../Components/Thumbs';
-import { Gallery } from '../Components/Gallery';
+import AddBunny from '../components/AddBunny';
+import { List } from '../components/List';
+import { Thumbs } from '../components/Thumbs';
+import { Gallery } from '../components/Gallery';
 import { Link } from 'react-router-dom';
 import qs from 'qs';
 

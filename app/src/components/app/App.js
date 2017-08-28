@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Nav from './Components/Nav';
-import { bunnyBuild, plusBunny, minusBunny } from './services/bunnies';
+import Nav from '../Nav';
+import { bunnyBuild, plusBunny, minusBunny } from '../../services/bunnies';
 
 import {
   BrowserRouter as Router,
@@ -9,9 +9,9 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import Home from './routes/Home';
-import About from './routes/About';
-import { Images } from './routes/Images';
+import Home from '../../routes/Home';
+import About from '../../routes/About';
+import { Images } from '../../routes/Images';
 
 class App extends Component {
   constructor() {

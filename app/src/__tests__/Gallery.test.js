@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 
-import { Gallery, GalleryItem } from '../Components/Gallery';
+import { Gallery, GalleryItem } from '../components/Gallery';
 
 const testFunc = function () { }
 
