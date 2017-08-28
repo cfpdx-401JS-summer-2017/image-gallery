@@ -5,7 +5,7 @@ import {
   Redirect,
   Route,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 import './App.css';
 import Home from './components/home';
 import About from './components/about';
@@ -22,7 +22,7 @@ class App extends Component {
             <ul id="menu">
               <li><Link to="/home"><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/google/110/house-building_1f3e0.png" alt="house"/>Home</Link></li>
               <li><Link to="/about"><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/google/110/thinking-face_1f914.png" alt="thinking face"/>About</Link></li>
-              <li><Link to="/images"><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/google/110/frame-with-picture_1f5bc.png" alt="frame with pic" />Images</Link></li>
+              <li><Link to="/images?view=list"><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/google/110/frame-with-picture_1f5bc.png" alt="frame with pic" />Images</Link></li>
             </ul>
           </div>
           <Switch>

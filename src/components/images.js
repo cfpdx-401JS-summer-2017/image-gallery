@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import ViewOptions from './images/views/options';
 import EmojiList from './images/views/list';
 import EmojiThumbnail from './images/views/thumbnail';
 import EmojiGallery from './images/views/gallery';
@@ -84,20 +84,24 @@ export default class Images extends Component {
       this.setState({ emojis });
     }
   }
-
+  
   render() {
-    let CurrentView = views[this.state.view];
+    let selectedView = this.props.location.search.split('=')[1];
+    let CurrentView = views[selectedView];
     
     return (
       <div>
-        <ViewOptions onClick={this.handleViewChange} />
+        <ul>
+          <li><Link to ="?view=list">list</Link></li>
+          <li><Link to ="?view=thumbnail">thumbnail</Link></li>
+          <li><Link to ="?view=gallery">gallery</Link></li>
+        </ul>
         <CurrentView emojis={this.state.emojis} />
         <CreateEmoji handleOnSubmit={this.handleOnSubmitCreateEmoji} />
         <DeleteEmoji emojis={this.state.emojis} handleOnSubmit={this.handleOnSubmitDeleteEmoji} />
       </div>
     );
   }
-
 }
 
 Images.propTypes = {
