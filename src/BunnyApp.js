@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
-import { bootstrapBunnies } from './services/bunnies';
+import { bootstrapBunnies, plusBunny, minusBunny } from './services/bunnies';
 import {Thumbnail, List, Gallery} from './components/viewFormats';
+import AddBunny from './components/AddBunny';
 import qs from 'qs';
 
 function genBunnyList (viewtype, Component) {
-    return function bunnyView({ bunnies }) {
+    return function bunnyView({ bunnies }, onRemove) {
         return <div> 
             <div>Bunny {viewtype} </div> 
             <ul>
                 {bunnies && bunnies.map(bunny => (
                     <li key={bunny.id}>
-                        <Component bunny={bunny}/> 
+                        <Component bunny={bunny} onRemove={onRemove}/> 
                     </li>
                 ))}
             </ul>
         </div>;
     };
 }
-const bunnyDetail = genBunnyList('Detail',List);
-const bunnyThumbnail = genBunnyList('Thumbnail',Thumbnail);
-function bunnyGallery({ bunny } ) {
+const bunnyDetail = genBunnyList('Detail',List,deleteBunny);
+const bunnyThumbnail = genBunnyList('Thumbnail',Thumbnail,deleteBunny);
+function bunnyGallery({ bunny },onRemove) {
     return <div>
         <div>Bunny Gallery </div>
         <ul>
         
-            <Gallery bunny={bunny}/>
+            <Gallery bunny={bunny} onRemove={onRemove}/>
         </ul>
     </div>;
 }
@@ -35,6 +36,14 @@ const View = {
 };
 const views = Object.keys(View);
 const bunnies = bootstrapBunnies();
+function deleteBunny(bunny) {
+    const histBunnies = this.state.bunnies;
+    this.setState({bunnies: minusBunny(histBunnies, bunny)});
+}
+function addBunny(title,description,url) {
+    const histBunnies = this.state.bunnies;
+    this.setState({bunnies: plusBunny(histBunnies, title, description, url)});
+}
 
 class BunnyApp extends Component {
     constructor() {
@@ -82,7 +91,10 @@ class BunnyApp extends Component {
                         </button>
                     </section>
                     }
-                    <BunnyView bunnies={bunnies} bunny={bunny}/>                    
+                    <BunnyView bunnies={bunnies} bunny={bunny} onRemove={this.deleteBunny} onUpdate={this.updateBunny}/>                    
+                </section>
+                <section>
+                    <AddBunny onAdd={this.addBunny}/>
                 </section>
             </main>
         );
