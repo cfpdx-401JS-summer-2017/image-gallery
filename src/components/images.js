@@ -63,7 +63,6 @@ export default class Images extends Component {
         }
       ]
     }
-    console.log('starter data', this.state.emojis);
 
     this.handleViewChange = this.handleViewChange.bind(this);
     this.handleOnSubmitCreateEmoji = this.handleOnSubmitCreateEmoji.bind(this);
