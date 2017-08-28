@@ -14,4 +14,19 @@ describe('images model', () => {
         });
         return image.validate();
     });
+
+    describe('validation failures', () => {
+        
+        it('everything is required', () => {
+            const image = new Image();
+            return image.validate()
+                .then(expectedValidation, 
+                    err => {
+                        const errors = err.errors;
+                        assert.ok(errors.title && errors.title.kind === 'required');
+                        assert.ok(errors.description && errors.description.kind === 'required');
+                        assert.ok(errors.url && errors.url.kind === 'required');
+                    });
+        });
+    });
 });
