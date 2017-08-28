@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   handleChangeView(target) {
+    console.log('in change view: ', target)
     this.setState({ view: target.currentView });
   }
 

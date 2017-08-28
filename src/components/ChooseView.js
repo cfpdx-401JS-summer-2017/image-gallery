@@ -1,28 +1,28 @@
 import React from 'react';
-import { NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 import PropTypes from 'prop-types';
 
-export default function ChooseView({ view, onChangeView }) {
+function ChooseView({ view, onChangeView }) {
   ChooseView.propTypes = {
     view: PropTypes.string,
-    onChangeView: PropTypes.func
+    onChangeView: PropTypes.func,
+    location: PropTypes.object
   };
-
   return (
     <div className="viewChooserWrap">
       {['list', 'thumb', 'gallery'].map((currentView, i) =>
-        <div key={i} className="view">
+        <div key={i} className="view" >
           <NavLink
             to={{
-              pathname: '/images',
-              search: `?view=${currentView}`
+              pathname: "/images",
+              search: `${currentView}`
             }}
             activeStyle={{
               color: '#000000'
             }}>
-            <div>
+            <div onClick={target => onChangeView({ currentView })}>
               {currentView}
             </div>
           </NavLink>
@@ -31,3 +31,5 @@ export default function ChooseView({ view, onChangeView }) {
     </div>
   );
 }
+
+export default ChooseView;

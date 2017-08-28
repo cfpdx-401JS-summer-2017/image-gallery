@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import List from './List';
 import Gallery from './Gallery';
 import Thumb from './Thumb';
-import qs from 'qs';
 
 export default class View extends Component {
   static propTypes = {
@@ -22,13 +21,14 @@ export default class View extends Component {
 
   render() {
     const currentView =
-      qs.parse(this.props.match.location.search.slice(1)).view || 'gallery';
+      this.props.match.location.search.substr(1) || 'gallery';
+
     const View =
       currentView === 'list'
         ? List
         : currentView === 'gallery' ? Gallery : Thumb;
 
-    return (
+        return (
       <div>
         <View hondas={this.props.hondas} deleteImage={target => this.state.deleteImage({target})}/>
       </div>
