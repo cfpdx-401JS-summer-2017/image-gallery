@@ -5,13 +5,15 @@ import Gallery from './Gallery';
 import Thumb from './Thumb';
 import ChooseView from './ChooseView';
 import AddImage from './AddImage';
+import qs from 'qs';
+
 
 
 export default class View extends Component {
   static propTypes = {
     hondas: PropTypes.arrayOf(PropTypes.object).isRequired,
     deleteImage: PropTypes.func,
-    handleChangeView: PropTypes.func,
+    onChangeView: PropTypes.func,
     match: PropTypes.object
   };
 
@@ -19,22 +21,20 @@ export default class View extends Component {
     super(props);
     this.state = {
       deleteImage: this.props.deleteImage,
-      // handleChangeView: this.props.onChangeView,
+      onChangeView: this.props.onChangeView,
       hondas: this.props.hondas
     }
   }
 
-  handleChangeView(target) {
-    this.setState({ view: target.currentView });
-  }
+
 
 
   render() {
 
-    // this.props.match.history.push({state: this.props.match.location})
     console.log('view: ', this.props, this.state);
-    const currentView =
-      this.props.match.location.search.substr(1) || 'gallery';
+    const currentView = qs.parse(this.props.match.location.search.slice(1)).view || 'gallery';
+    // const currentView =
+    //   this.props.match.location.search.substr(1) || 'gallery';
 
     const View =
       currentView === 'list'
@@ -46,7 +46,7 @@ export default class View extends Component {
           <div className="functionsHeader">
           <ChooseView
             view={currentView}
-            onChangeView={target => this.handleChangeView(target)}
+            onChangeView={target => this.props.onChangeView(target)}
           />
           <AddImage onSubmitImage={this.addImage} />
         </div>

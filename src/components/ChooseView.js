@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
-function ChooseView({ view }) {
+function ChooseView({ view, onChangeView }) {
   ChooseView.propTypes = {
     view: PropTypes.string,
+    onChangeView: PropTypes.func,
     location: PropTypes.object
   };
 
@@ -22,7 +23,7 @@ function ChooseView({ view }) {
             activeStyle={{
               color: '#000000'
             }}>
-            <div>
+            <div onClick={target => onChangeView({ currentView })}>
               {currentView}
             </div>
           </NavLink>

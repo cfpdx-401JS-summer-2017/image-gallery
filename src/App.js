@@ -6,7 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import hondas from './data/hondas';
 import { DefaultImages } from './services/imageService';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +22,13 @@ class App extends Component {
     DefaultImages(motoArray);
     this.setState({ view: view });
   }
+
+  handleChangeView(target) {
+    console.log('change: ', target)
+    this.setState({ view: target.currentView });
+  }
+
+
 
   updateSlide(target) {
     // console.log('in this.updateSlide: ', target)
@@ -42,13 +49,29 @@ class App extends Component {
             </span>
             <div className="navLinks">
               <span>
-                <a href="/">Home</a>
+                <Link
+                  to={{
+                    pathname: '/'
+                  }}>
+                  Home
+                </Link>
               </span>{' '}
               <span>
-                <a href="/images">Images</a>
+                <Link
+                  to={{
+                    pathname: '/images',
+                    search: `${view}`
+                  }}>
+                  Images
+                </Link>
               </span>{' '}
               <span>
-                <a href="/about">About</a>
+                <Link
+                  to={{
+                    pathname: '/about'
+                  }}>
+                  About
+                </Link>
               </span>
             </div>
           </div>
@@ -62,6 +85,7 @@ class App extends Component {
                     hondas={motoArray}
                     deleteImage={target => this.deleteImage(target)}
                     match={match}
+                    onChangeView ={this.handleChangeView}
                   />}
               />
               <Route path="/about" component={About} />
