@@ -4,12 +4,14 @@ export function fetchBunnies() {
 
     fetch('/api/bunnies')
         .then(res => res.json())
-        .then(bunny => {
+        .then(bunnies => {
             this.setState({
-                bunnies:[bunny, ...this.state.bunnies],
+                bunnies: bunnies,
+                bunny: bunnies[0],
                 loading: false
             });
-        });
+        })
+        .catch(error => console.log(error));
 
 
 }

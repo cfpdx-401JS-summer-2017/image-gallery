@@ -36,7 +36,7 @@ const View = {
 };
 const views = Object.keys(View);
 //TODO: replace with fetchBunnies
-const bunnies = bootstrapBunnies();
+//const bunnies = fetchBunnies();
 function deleteBunny(bunny) {
     const histBunnies = this.state.bunnies;
     this.setState({bunnies: minusBunny(histBunnies, bunny)});
@@ -46,14 +46,28 @@ class BunnyApp extends Component {
     constructor() {
         super();
         this.state = {
-            bunnies: bunnies,
-            bunny: bunnies[0],
+            bunnies: [],
+            bunny: null,
             view: views[1],
             views: views,
             i: 0,
-            bunnyNum: 0
+            bunnyNum: 0,
+            loading: true
             
         };
+    }
+    handleChange(target) {
+        this.setState({
+            title: target.value
+        });
+    }
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state.title);
+        fetchBunnies(this.state.title);
+    }
+    componentDidMount() {
+        fetchBunnies(this.state.title);
     }
 addBunny = (title,description,url) => {
     const histBunnies = this.state.bunnies;
@@ -70,9 +84,11 @@ render() {
     const { views } = this.state;
     const queried = qs.parse(this.props.location.search.slice(1));
     const BunnyView = View[queried.view||'thumbnail'];
-    const { bunnies } = this.state;
+    const { loading, bunnies } = this.state;
     let { i } = this.state;
     const bunny = bunnies[i];
+    if(loading) return <div>Loading...</div>;
+    
     return (
         <main>
             <header>
