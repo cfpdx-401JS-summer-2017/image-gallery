@@ -8,6 +8,7 @@ export default class AddImage extends PureComponent {
 
   render() {
     const { onSubmitImage } = this.props;
+
     return (
       <div className="addImageForm">
         <form
@@ -15,7 +16,7 @@ export default class AddImage extends PureComponent {
             event.preventDefault();
             const form = event.target;
             const { title, desc, url } = form.elements;
-            onSubmitImage(title.value, desc.value, url.value);
+            onSubmitImage(title.value, desc.value, url.value)
             form.reset();
           }}>
           <button type="submit" name="add image">

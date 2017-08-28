@@ -10,7 +10,6 @@ export default class Gallery extends PureComponent {
 
   render () {
     const {deleteImage, hondas} = this.props;
-    console.log(deleteImage)
     return (
       <div className="galleryView">
       {hondas.map((honda, i) =>

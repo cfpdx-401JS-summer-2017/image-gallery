@@ -16,7 +16,7 @@ export default function ChooseView({ view, onChangeView }) {
         <div key={i} className="view">
           <NavLink
             to={{
-              pathname: '/',
+              pathname: '/images',
               search: `?view=${currentView}`
             }}
             activeStyle={{

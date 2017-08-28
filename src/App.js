@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import View from './components/View';
@@ -12,7 +12,7 @@ import {
 } from './services/imageService';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-class App extends PureComponent {
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -28,15 +28,16 @@ class App extends PureComponent {
   }
 
   handleChangeView(target) {
-    console.log('change: ', target)
     this.setState({ view: target.currentView });
   }
 
+
   addImage = (title, desc, url) => {
-    const { motoArray } = this.state;
-    AddNewImage(title, desc, url, motoArray);
-    this.setState({ motoArray: hondas });
-  };
+    const { motoArray, view } = this.state;
+    this.setState({ motoArray: hondas, view: view }, () => {
+      AddNewImage(title, desc, url, motoArray)
+  });
+  }
 
   deleteImage(target) {
     console.log('in delete: ', target);
@@ -72,7 +73,7 @@ class App extends PureComponent {
               <AddImage onSubmitImage={this.addImage} />
             </div>
             <Route
-              path="/"
+              path="/images"
               render={(match) => <View
               hondas={motoArray}
               deleteImage={target => this.deleteImage(target)}

@@ -17,7 +17,6 @@ export default class View extends Component {
     this.state = {
       deleteImage: this.props.deleteImage,
       hondas: this.props.hondas
-
     }
   }
 
@@ -28,7 +27,6 @@ export default class View extends Component {
       currentView === 'list'
         ? List
         : currentView === 'gallery' ? Gallery : Thumb;
-        console.log(this.props);
 
     return (
       <div>
