@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { bootstrapBunnies, plusBunny, minusBunny } from './services/bunnies';
+import { bootstrapBunnies, plusBunny, minusBunny, fetchBunnies} from './services/bunnies';
 import {Thumbnail, List, Gallery} from './components/viewFormats';
 import AddBunny from './components/AddBunny';
 import qs from 'qs';
@@ -35,6 +35,7 @@ const View = {
     gallery: bunnyGallery
 };
 const views = Object.keys(View);
+//TODO: replace with fetchBunnies
 const bunnies = bootstrapBunnies();
 function deleteBunny(bunny) {
     const histBunnies = this.state.bunnies;

@@ -1,5 +1,18 @@
 let id = 0;
 
+export function fetchBunnies() {
+
+    fetch('/api/bunnies')
+        .then(res => res.json())
+        .then(bunny => {
+            this.setState({
+                bunnies:[bunny, ...this.state.bunnies],
+                loading: false
+            });
+        });
+
+
+}
 export function bootstrapBunnies() {
     return [
         { 

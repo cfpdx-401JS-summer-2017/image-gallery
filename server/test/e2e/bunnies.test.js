@@ -17,28 +17,39 @@ describe('bunnies api', () => {
     });
     let bunbun = {
         title: 'BunBun',
-        discription:'bouncy guy!',
+        description:'bouncy guy!',
         url:'www.fakeWeb.com'
     };
     function saveBunny(bunny) {
-        bunny.id = bunny.id;
         return request
             .post('/api/bunnies')
             .send(bunny)
             .then(res => res.body);
     }
-    // it('roundtrips a new bunny', () => {
-    //     return saveBunny(bunbun)
-    //         .then(saved => {
-    //             assert.ok(saved._id, 'saved has id');
-    //             bunbun = saved;
-    //         })
-    //         .then(() => {
-    //             return request.get(`/api/bunnies/${bunbun.id}`);
-    //         })
-    //         .then( res => res.body)
-    //         .then(bun => {
-    //             bun.title = bun
-    //         })
-    // })
+    it('roundtrips a new bunny', () => {
+        return saveBunny(bunbun)
+            .then(saved => {
+                assert.ok(saved._id, 'saved has id');
+                bunbun = saved;
+            })
+            .then(() => {
+                return request.get(`/api/bunnies/${bunbun._id}`);
+            })
+            .then( res => res.body)
+            .then(got => {
+                assert.deepEqual(got, bunbun);
+            });
+    });
+    it('deletes a bunny', () => {
+        return request.delete(`/api/bunnies/${bunbun._id}`)
+            .then(res => {
+                assert.deepEqual(JSON.parse(res.text), {removed: true});
+            });
+    });
+    it('fails to delete a bunny', () => {
+        return request.delete(`/api/bunnies/${bunbun._id}`)
+            .then(res => {
+                assert.deepEqual(JSON.parse(res.text), {removed: false});
+            });
+    });
 });
