@@ -40,10 +40,6 @@ function deleteBunny(bunny) {
     const histBunnies = this.state.bunnies;
     this.setState({bunnies: minusBunny(histBunnies, bunny)});
 }
-function addBunny(title,description,url) {
-    const histBunnies = this.state.bunnies;
-    this.setState({bunnies: plusBunny(histBunnies, title, description, url)});
-}
 
 class BunnyApp extends Component {
     constructor() {
@@ -54,50 +50,62 @@ class BunnyApp extends Component {
             view: views[1],
             views: views,
             i: 0,
-
+            bunnyNum: 0
+            
         };
     }
-    render() {
-        const { views } = this.state;
-        const queried = qs.parse(this.props.location.search.slice(1));
-        const BunnyView = View[queried.view||'thumbnail'];
-        const { bunnies } = this.state;
-        let { i } = this.state;
-        const bunny = bunnies[i];
-        return (
-            <main>
-                <header>
-                    <h1>Bunny App</h1>
-                </header>
-                <section>
-                    {views.map(v => (
-                        <button key={v} 
-                            onClick={() => {this.props.history.push(`/photos?view=${v}`);}}>
-                            {v}
-                        </button>
-                    ))}
-                    {queried.view === 'gallery' && <section>
-                        <button
-                            onClick={() => this.setState({i:this.state.i-1})}
-                            style={{padding: '10px'}}
-                            disabled={this.state.i === 0}
-                        >previous
-                        </button>
-                        <button 
-                            onClick={() =>  this.setState({i:this.state.i+1})}
-                            style={{padding: '10px'}}
-                            disabled={this.state.i===bunnies.length-1}
-                        >next
-                        </button>
-                    </section>
-                    }
-                    <BunnyView bunnies={bunnies} bunny={bunny} onRemove={this.deleteBunny} onUpdate={this.updateBunny}/>                    
+addBunny = (title,description,url) => {
+    const histBunnies = this.state.bunnies;
+    this.setState({bunnies: plusBunny(histBunnies, title, description, url)});
+};
+updateBunny = newNumb => {
+    if(newNumb === this.state.bunnies.length) newNumb = 0;
+    if(newNumb === -1) newNumb = this.state.bunnies.length - 1;
+    this.setState({
+        bunnyNum: newNumb
+    });
+}
+render() {
+    const { views } = this.state;
+    const queried = qs.parse(this.props.location.search.slice(1));
+    const BunnyView = View[queried.view||'thumbnail'];
+    const { bunnies } = this.state;
+    let { i } = this.state;
+    const bunny = bunnies[i];
+    return (
+        <main>
+            <header>
+                <h1>Bunny App</h1>
+            </header>
+            <section>
+                {views.map(v => (
+                    <button key={v} 
+                        onClick={() => {this.props.history.push(`/photos?view=${v}`);}}>
+                        {v}
+                    </button>
+                ))}
+                {queried.view === 'gallery' && <section>
+                    <button
+                        onClick={() => this.setState({i:this.state.i-1})}
+                        style={{padding: '10px'}}
+                        disabled={this.state.i === 0}
+                    >previous
+                    </button>
+                    <button 
+                        onClick={() =>  this.setState({i:this.state.i+1})}
+                        style={{padding: '10px'}}
+                        disabled={this.state.i===bunnies.length-1}
+                    >next
+                    </button>
                 </section>
-                <section>
-                    <AddBunny onAdd={this.addBunny}/>
-                </section>
-            </main>
-        );
-    }
+                }
+                <BunnyView bunnies={bunnies} bunny={bunny} onRemove={this.deleteBunny} onUpdate={this.updateBunny}/>                    
+            </section>
+            <section>
+                <AddBunny onAdd={this.addBunny}/>
+            </section>
+        </main>
+    );
+}
 }
 export default BunnyApp;

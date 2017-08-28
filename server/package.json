@@ -9,8 +9,8 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "test/unit": "mocha test/unit",
-    "test/e2e": "mocha test/e2e",
+    "unit": "mocha test/unit",
+    "e2e": "mocha test/e2e",
     "start": "nodemon server.js"
   },
   "repository": {
