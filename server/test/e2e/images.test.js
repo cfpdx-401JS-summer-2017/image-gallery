@@ -12,12 +12,6 @@ describe('images api', () => {
         url: 'url'
     };
 
-    let bunnytest = {
-        title: 'bunnytest title',
-        description: 'description',
-        url: 'url'
-    };
-
     function saveBunny(image) {
         return request
             .post('/api/images')
@@ -42,6 +36,22 @@ describe('images api', () => {
         return saveBunny(testbunny)
             .then(saved => {
                 assert.deepEqual(saved, testbunny);
+            });
+    });
+
+    it('deletes a bunny', () => {
+        return request.delete(`/api/images/${testbunny._id}`)
+            .then(res => res.body)
+            .then(result => {
+                assert.isTrue(result.removed);
+            });
+    });
+
+    it('delete an imaginary bunny is removed false', () => {
+        return request.delete(`/api/images/${testbunny._id}`)
+            .then(res => res.body)
+            .then(result => {
+                assert.isFalse(result.removed);
             });
     });
 
