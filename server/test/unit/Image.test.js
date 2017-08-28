@@ -1,6 +1,6 @@
 require('mongoose').Promise = Promise;
 const assert = require('chai').assert;
-const Image = require('../../lib/models/image');
+const Image = require('../../lib/models/Image');
 
 const expectedValidation = () => { throw new Error('expected validation errors'); };
 
