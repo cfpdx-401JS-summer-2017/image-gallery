@@ -5,12 +5,12 @@ import { BrowserRouter as Router,
         Route,
         Link
 } from 'react-router-dom';
-import Home from './home/Home';
-import About from './about/About';
+import Home from '../home/Home';
+import About from '../about/About';
 import './App.css';
-import { images, addImage, removeImage } from './services/images';
-import ViewSelector from './services/ViewSelector';
-import AddImage from './services/AddImage';
+import { images, addImage, removeImage } from '../images/images';
+import ViewSelector from '../images/ViewSelector';
+import AddImage from '../images/AddImage';
 
 class App extends Component {
 
