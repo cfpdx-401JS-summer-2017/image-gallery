@@ -12,7 +12,7 @@ function Thumbnail({stevens}) {
   return <div>Steven Thumbnail {stevens.length}</div>
 }
 function Gallery({stevens}) {
-  return <div>Steven Gallery {stevens}</div>;
+  return <div>Steven Gallery {stevens.length}</div>;
 }
 
 const View = {
@@ -37,7 +37,6 @@ class App extends Component {
   render() {
     const {stevens, views, view} = this.state;
     const StevenView = View[view];
-    console.log(StevenView);
 
     return (
       <main>
@@ -45,7 +44,7 @@ class App extends Component {
           <header className="App-header">
             <h1>Steve Pics Dot Com</h1>
           </header>
-          <section class={view}>
+          <section className={view}>
             <StevenView stevens={stevens}/>
           </section>
           <section>
