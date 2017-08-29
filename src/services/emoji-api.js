@@ -3,13 +3,13 @@ import { request } from './request';
 const URL = '/images';
 
 export default {
-
-  getImages() {
+  getEmojis() {
     return request.get(URL);
   },
-
-  addImage(img) {
+  addEmoji(img) {
     return request.post(URL, img);
+  },
+  removeEmoji(id) {
+    return request.delete(URL, id);
   }
-
 };

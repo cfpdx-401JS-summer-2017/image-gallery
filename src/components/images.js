@@ -8,7 +8,7 @@ import EmojiGallery from './images/views/gallery';
 
 import CreateEmoji from './images/forms/create';
 import DeleteEmoji from './images/forms/delete';
-import { createEmoji, deleteEmoji } from '../services/emoji';
+
 import emojiApi from '../services/emoji-api';
 
 const views = {
@@ -23,7 +23,7 @@ export default class Images extends Component {
     super(props);
 
     this.state = {
-      view: 'list', // key of the views dictionary obj
+      view: 'list',
       emojis: []
     }
 
@@ -33,7 +33,7 @@ export default class Images extends Component {
   }
 
   componentDidMount() {
-    emojiApi.getImages()
+    emojiApi.getEmojis()
       .then(res => {
         this.setState({ emojis: res });
       })
@@ -45,21 +45,22 @@ export default class Images extends Component {
   }
 
   handleOnSubmitCreateEmoji = (title, description, url) => {
-    //TODO: still working on this
-    let emojis = createEmoji(this.state.emojis, title, description, url);
-
-    const newImg = { title: title, description: description, url: url };
+    const existingEmojis = this.state.emojis;
+    const newEmoji = { title: title, description: description, url: url };
     
-    emojiApi.addImage(newImg);
-
-    this.setState({ emojis });
-
+    emojiApi.addEmoji(newEmoji)
+      .then(saved => {
+        this.setState({ emojis: [ ...existingEmojis, saved] });
+      });
   }
   
   handleOnSubmitDeleteEmoji(id) {
     if (id !== 0) {
-      let emojis = deleteEmoji(this.state.emojis, id);
-      this.setState({ emojis });
+      const { emojis } = this.state;
+      let index = emojis.findIndex(emoji => emoji._id === id);
+      const newList = [...emojis.slice(0, index)].concat([...emojis.slice(++index)]);
+
+      this.setState({ emojis: newList });
     }
   }
   
