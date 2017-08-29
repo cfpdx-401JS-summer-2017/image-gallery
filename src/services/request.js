@@ -3,10 +3,7 @@ import superagent from 'superagent';
 export const API_URL= '/api';
 
 const wrapper = cmd => cmd
-  .then(res => {
-    console.log('res.body', res.body);
-    return res.body;
-  },
+  .then(res => res.body,
     ({ response }) => {
       throw response.body.error;
     }

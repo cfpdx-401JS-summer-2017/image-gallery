@@ -34,12 +34,10 @@ export default class Images extends Component {
 
   componentDidMount() {
     emojiApi.getImages()
-      // .then(res => res.json())
       .then(res => {
-        console.log('emojiApi.getImages() returns', res.body);
-        this.setState({ emojis: res.body });
+        this.setState({ emojis: res });
       })
-      .catch(error => console.log('uh-oh! there was an error'));
+      .catch(error => console.log('uh-oh! there was an error')); // TODO: prolly add error handler
   }
 
   handleViewChange(view) {
