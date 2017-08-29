@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from '../Nav';
-import { bunnyBuild, plusBunny, minusBunny } from '../../services/bunnies';
+// import { bunnyBuild, plusBunny, minusBunny } from '../../services/bunnies';
 
 import {
   BrowserRouter as Router,
@@ -14,35 +14,35 @@ import About from '../../routes/About';
 import { Images } from '../../routes/Images';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      bunnies: bunnyBuild(),
-      bunnyNum: 0
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     bunnies: bunnyBuild(),
+  //     bunnyNum: 0
+  //   };
+  // }
 
-  addBunny = (title, description, url) => {
-    const oldBunnies = this.state.bunnies;
-    this.setState({
-      bunnies: plusBunny(oldBunnies, title, description, url)
-    });
-  }
+  // addBunny = (title, description, url) => {
+  //   const oldBunnies = this.state.bunnies;
+  //   this.setState({
+  //     bunnies: plusBunny(oldBunnies, title, description, url)
+  //   });
+  // }
 
-  removeBunny = bunny => {
-    const oldBunnies = this.state.bunnies;
-    this.setState({
-      bunnies: minusBunny(oldBunnies, bunny)
-    });
-  }
+  // removeBunny = bunny => {
+  //   const oldBunnies = this.state.bunnies;
+  //   this.setState({
+  //     bunnies: minusBunny(oldBunnies, bunny)
+  //   });
+  // }
 
-  updateBunny = newNum => {
-    if (newNum === this.state.bunnies.length) newNum = 0;
-    if (newNum === -1) newNum = this.state.bunnies.length - 1;
-    this.setState({
-      bunnyNum: newNum
-    });
-  }
+  // updateBunny = newNum => {
+  //   if (newNum === this.state.bunnies.length) newNum = 0;
+  //   if (newNum === -1) newNum = this.state.bunnies.length - 1;
+  //   this.setState({
+  //     bunnyNum: newNum
+  //   });
+  // }
   render() {
     return (
       <Router>

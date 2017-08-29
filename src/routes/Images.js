@@ -26,8 +26,23 @@ const viewArray = Object.keys(viewDict);
 
 export class Images extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            bunnies: []
+        }
+    }
+
+    componentDidMount() {
+        fetch('/api/images')
+            .then(res => res.json())
+            .then(bunnies => this.setState({ bunnies }))
+            .catch(error => console.log(error));
+    }
+
     render() {
-        const { bunnies, onRemove, onUpdate, bunnyNum, onAdd, match, location } = this.props;
+        const { bunnies } = this.state;
+        const { match, location } = this.props;
         const view = qs.parse(location.search.slice(1)).view;
         const ViewWrapper = viewDict[view];
 
@@ -44,10 +59,10 @@ export class Images extends Component {
                     </ul>
                 </nav>
                 <section>
-                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} onRemove={onRemove} onUpdate={onUpdate} />
+                    <ViewWrapper bunnies={bunnies} />
                 </section>
                 <section>
-                    <AddBunny onAdd={onAdd} />
+                    <AddBunny />
                 </section>
             </div>
         );
