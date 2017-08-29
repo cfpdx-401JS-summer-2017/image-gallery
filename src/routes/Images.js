@@ -40,6 +40,22 @@ export class Images extends Component {
             .catch(error => console.log(error));
     }
 
+    onAdd(title, description, url) {
+        fetch('/api/images', {
+            method: "POST",
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify({ title, description, url })
+        })
+        .then(res => {
+            console.log('res', res);
+            return res.json();
+        })
+        .then(bunnies => this.setState({ bunnies }))
+        .catch(error => console.log(error));
+    }
+
     render() {
         const { bunnies } = this.state;
         const { match, location } = this.props;
@@ -62,7 +78,7 @@ export class Images extends Component {
                     <ViewWrapper bunnies={bunnies} />
                 </section>
                 <section>
-                    <AddBunny />
+                    <AddBunny onAdd={this.onAdd} />
                 </section>
             </div>
         );
