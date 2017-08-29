@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddBunny from '../components/AddBunny';
-import { List } from '../components/List';
-import { Thumbs } from '../components/Thumbs';
-import { Gallery } from '../components/Gallery';
+import AddBunny from '../components/images/AddBunny';
+import { List } from '../components/images/List';
+import { Thumbs } from '../components/images/Thumbs';
+import { Gallery } from '../components/images/Gallery';
 import { Link } from 'react-router-dom';
 import qs from 'qs';
 
@@ -37,7 +37,7 @@ export class Images extends Component {
                     <ul>
                         {
                             viewArray.map(v =>
-                                <li><Link to={`${match.url}?view=${v}`}>
+                                <li key={v}><Link to={`${match.url}?view=${v}`}>
                                     {v}</Link></li>
                             )
                         }
