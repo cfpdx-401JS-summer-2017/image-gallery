@@ -3,35 +3,27 @@ import PropTypes from 'prop-types';
 import List from './List';
 import Gallery from './Gallery';
 import Thumb from './Thumb';
-import ChooseView from './ChooseView';
-import AddImage from './AddImage';
-import qs from 'qs';
+import Detail from './Detail';
+import ChooseView from '../ChooseView';
+import AddImage from '../AddImage';
 
 View.propTypes = {
   hondas: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteImage: PropTypes.func,
   onChangeView: PropTypes.func,
-  match: PropTypes.object,
-  view: PropTypes.string,
-  props: PropTypes.object,
-  onSubmitImage: PropTypes.func
+  view: PropTypes.string
 };
 
 export default function View({
   hondas,
   deleteImage,
-  match,
   onChangeView,
   view
 }) {
-  console.log('view: ', view, match);
-  const currentView =
-    qs.parse(match.location.search.slice(1)).view || 'gallery';
-  // const currentView =
-  //   this.props.match.location.search.substr(1) || 'gallery';
+  const currentView = view || 'gallery';
 
   const View =
-    currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
+    currentView === 'list' ? List : currentView === 'gallery' ? Gallery : currentView === 'detail' ? Detail : Thumb;
 
   return (
     <div>
@@ -40,12 +32,12 @@ export default function View({
           view={currentView}
           onChangeView={target => onChangeView(target)}
         />
-        <AddImage />
+        <AddImage hondas={hondas}/>
       </div>
       <div>
         <View
           hondas={hondas}
-          deleteImage={target => deleteImage({ target })}
+          deleteImage={target => deleteImage( target )}
         />
       </div>
     </div>

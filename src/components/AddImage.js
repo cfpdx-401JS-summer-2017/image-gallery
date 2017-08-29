@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {AddNewImage} from '../services/imageService';
+import { AddNewImage } from '../services/imageService';
 
 AddImage.propTypes = {
-  AddNewImage: PropTypes.func
+  AddNewImage: PropTypes.func,
+  hondas: PropTypes.array
 };
 
-export default function AddImage() {
-
+export default function AddImage({ hondas }) {
   return (
     <div className="addImageForm">
       <form
@@ -15,7 +15,7 @@ export default function AddImage() {
           event.preventDefault();
           const form = event.target;
           const { title, desc, url } = form.elements;
-          AddNewImage(title.value, desc.value, url.value);
+          AddNewImage(title.value, desc.value, url.value, hondas);
           form.reset();
         }}>
         <button type="submit" name="add image">

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './cb750.svg';
 import './App.css';
-import View from './components/View';
+import View from './components/views/View';
 import Home from './components/Home';
 import About from './components/About';
 import hondas from './data/hondas';
-import { DefaultImages } from './services/imageService';
+import { DefaultImages, DeleteImage } from './services/imageService';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 class App extends Component {
@@ -24,8 +24,13 @@ class App extends Component {
   }
 
   handleChangeView(target) {
-    console.log('change: ', target.currentView);
     this.setState({ view: target.currentView });
+  }
+
+  deleteImage({target}) {
+    const { motoArray } = this.state;
+    let imagesAfterDelete = DeleteImage(motoArray, target.i);
+    this.setState({motoArray: imagesAfterDelete});
   }
 
 
@@ -79,11 +84,10 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route
                 path="/images"
-                render={match => (
+                render={() => (
                   <View
                     hondas={motoArray}
-                    deleteImage={target => this.deleteImage(target)}
-                    match={match}
+                    deleteImage={target => this.deleteImage({target})}
                     onChangeView={target => this.handleChangeView(target)}
                     view={view}
                   />
