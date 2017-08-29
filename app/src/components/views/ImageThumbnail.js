@@ -7,10 +7,6 @@ export default class ImageThumbnail extends Component {
     static propTypes = {
         images: PropTypes.arrayOf(PropTypes.object)
     }
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         const { images, onRemove } = this.props;
@@ -23,7 +19,7 @@ export default class ImageThumbnail extends Component {
                 {images.map((image, index) => {
                     return (
                         <div key={index}>
-                            <img src={image.url} width="200" />
+                            <img src={image.url} width="200" alt="bunny" />
                             <p>{image.title}</p>
                             <p>{image.description}</p>
                             <button onClick = {() => onRemove(image)}>Remove</button>

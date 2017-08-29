@@ -8,7 +8,7 @@ import { BrowserRouter as Router,
 import Home from '../home/Home';
 import About from '../about/About';
 import './App.css';
-import { images, addImage, removeImage } from '../images/images';
+// import { images, addImage, removeImage } from '../images/images';
 import ViewSelector from '../images/ViewSelector';
 import AddImage from '../images/AddImage';
 
@@ -21,21 +21,23 @@ class App extends Component {
     }
   }
 
-  addImage = (title, description, url) => {
-    const img = {title, description, url};
-    const oldImages = this.state.images;
-    console.log('img', img);
+  addImage = (image) => {
+    return imagesAPI.add(image)
+    .then(saved => {
     this.setState({
-      images: addImage(oldImages, img)
-    })
-  }
+      images: [...this.state.images, saved]
+    });
+  });
+}
 
-  removeImage = image => {
-    const oldImages = this.state.images;
-    this.setState({
-      images: removeImage(oldImages, image)
-    })
-
+  removeImage = (id, index) => {
+    return imagesAPI.remove(id)
+    .then(() => {
+      const { images } = this.state;
+      this.setState({
+        images: [...images.slice(0, index), ...images.slice(index + 1)]
+      });      
+    });
   }
 
   render() {

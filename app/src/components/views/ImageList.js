@@ -8,6 +8,7 @@ export default class ImageList extends Component {
         images: PropTypes.arrayOf(PropTypes.object)
     }
 
+        
     render() {
         const { images, onRemove } = this.props;
         if(images.length === 0) {
