@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from '../Nav';
-// import { bunnyBuild, plusBunny, minusBunny } from '../../services/bunnies';
 
 import {
   BrowserRouter as Router,
@@ -54,9 +53,7 @@ class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/images" render={props => (
-                <Images {...props} bunnies={this.state.bunnies} onRemove={this.removeBunny} onAdd={this.addBunny} onUpdate={this.updateBunny} bunnyNum={this.state.bunnyNum}
-                />)} />
+              <Route path="/images" component={Images} />
               <Route path="/about" component={About} />
               <Redirect to="/" />
             </Switch>
