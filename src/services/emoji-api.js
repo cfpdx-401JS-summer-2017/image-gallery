@@ -1,15 +1,17 @@
-import { request } from './request';
+// import { request } from './request';
+import superagent from 'superagent';
 
-const URL = '/images';
+const URL = '/api/images';
 
-export default = {
+export default {
 
-  getImage() {
-    return request.get('/api/images');
+  getImages() {
+    console.log('making emoji api call to get all images...');
+    return superagent.get(URL);
   },
 
   addImage(img) {
-    return request.post('/api/images', img);
+    return superagent.post(URL, img);
   }
 
 };

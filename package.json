@@ -1,4 +1,5 @@
 {
+  "proxy": "http://localhost:3001",
   "name": "ship-it-squirrel",
   "version": "0.1.0",
   "private": true,

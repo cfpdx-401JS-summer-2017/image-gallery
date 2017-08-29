@@ -3,11 +3,14 @@ import superagent from 'superagent';
 export const API_URL= '/api';
 
 const wrapper = cmd => cmd
-  .then(res => res.body,
+  .then(res => {
+    console.log('res.body', res.body);
+    return res.body;
+  },
     ({ response }) => {
       throw response.body.error;
     }
-  );
+  )
 
 export const request = {
   get(url) {
