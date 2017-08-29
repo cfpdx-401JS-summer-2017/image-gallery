@@ -1,15 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
-
 import PropTypes from 'prop-types';
 
+ChooseView.propTypes = {
+  view: PropTypes.string,
+  onChangeView: PropTypes.func
+};
+
 function ChooseView({ view, onChangeView }) {
-  ChooseView.propTypes = {
-    view: PropTypes.string,
-    onChangeView: PropTypes.func,
-    location: PropTypes.object
-  };
 
   return (
     <div className="viewChooserWrap">

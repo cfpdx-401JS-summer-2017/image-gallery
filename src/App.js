@@ -24,10 +24,9 @@ class App extends Component {
   }
 
   handleChangeView(target) {
-    console.log('change: ', target)
+    console.log('change: ', target.currentView);
     this.setState({ view: target.currentView });
   }
-
 
 
   updateSlide(target) {
@@ -80,13 +79,15 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route
                 path="/images"
-                render={match =>
+                render={match => (
                   <View
                     hondas={motoArray}
                     deleteImage={target => this.deleteImage(target)}
                     match={match}
-                    onChangeView ={this.handleChangeView}
-                  />}
+                    onChangeView={target => this.handleChangeView(target)}
+                    view={view}
+                  />
+                )}
               />
               <Route path="/about" component={About} />
               />
