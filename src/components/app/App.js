@@ -9,6 +9,7 @@ import Home from '../home/Home';
 import About from '../about/About';
 import './App.css';
 // import { images, addImage, removeImage } from '../images/images';
+import imagesAPI from '../../services/imagesAPI';
 import ViewSelector from '../images/ViewSelector';
 import AddImage from '../images/AddImage';
 
@@ -17,7 +18,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: images
+      images: ''
     }
   }
 
