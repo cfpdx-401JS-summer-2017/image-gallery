@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 
-import App from '../App';
+import App from '../components/app/App';
 
 describe('App works', () => {
   it('renders without crashing', () => {

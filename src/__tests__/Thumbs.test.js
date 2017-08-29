@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 
-import { Thumbs, ThumbItem } from '../components/Thumbs';
+import { Thumbs, ThumbItem } from '../components/images/Thumbs';
 
 const testFunc = function () { }
 
