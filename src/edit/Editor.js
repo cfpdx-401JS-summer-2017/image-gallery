@@ -12,8 +12,8 @@ export default class Editor extends Component {
 
     constructor(props) {
         super(props);
-        const { bunny } = props;
-        this.state = { ...bunny };
+        // const { bunny } = props;
+        this.state = {};
     }
 
     handleChange = (name, value) => {
@@ -23,7 +23,8 @@ export default class Editor extends Component {
     }
 
     handleSubmit = () => {
-        this.props.onAdd(this.state);
+        let { title, description, url } = this.state;
+        this.props.onSave({ title, description, url });
         this.setState({ ...defaultBunny });
     }
 
@@ -44,10 +45,7 @@ export default class Editor extends Component {
                         event.preventDefault();
                         this.handleSubmit();
                     }}
-                    onReset={event => {
-                        event.preventDefault();
-                        this.resetBunny();
-                    }}>
+                    >
                     <label>
                         title:
                     <input name="title" value={title}
@@ -69,7 +67,7 @@ export default class Editor extends Component {
                                 this.handleChange(target.name, target.value)
                             }} />
                     </label>
-                    <button type="reset"> Reset </button>
+                    <button type="reset" > Reset </button>
                     <button type="submit"> Save </button>
                 </form>
             </section>
