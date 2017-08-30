@@ -29,7 +29,11 @@ class App extends Component {
     })
   }
 
-
+  toggleAddForm(){
+    this.setState({
+      addBunny: !this.state.addBunny
+    })
+  }
 
   render() {
     const view = this.state.view;
@@ -49,9 +53,6 @@ class App extends Component {
           <button name="addBunny" onClick={(event) => this.handleClick(event.target.name, true)}>
             Add bunny
           </button>
-          <div>Editor would go Here</div>
-            }
-          }
         </div>
       );
     }
@@ -85,9 +86,10 @@ class App extends Component {
           <div className="Viewer">
             <Gallery bunnies={this.state.bunnies} />
           </div>
-          <button name="addBunny" onClick={(event) => this.handleClick(event.target.name, true)}>
+          <button name="addBunny" onClick={(event) => this.toggleAddForm()}>
             Add bunny
           </button>
+          <Editor addBunny={this.state.addBunny} onSave={this.onAdd}/>
         </div>
       );
     }

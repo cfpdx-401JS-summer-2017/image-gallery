@@ -35,9 +35,9 @@ export default class Editor extends Component {
 
         const { title, description, url } = this.state;
         const { onAdd } = this.props;
-
-        return (
-            <section>
+        if(this.props.addBunny) {
+            return (
+                <section>
                 <h4> Add new bunbun </h4>
                 <form
                     onSubmit={event => {
@@ -72,10 +72,9 @@ export default class Editor extends Component {
                     <button type="reset"> Reset </button>
                     <button type="submit"> Save </button>
                 </form>
-
-
-
             </section>
         )
+    }
+        return <div></div>
     }
 }
