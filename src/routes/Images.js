@@ -13,6 +13,7 @@ function thumbView({ bunnies, onRemove }) {
     return <div><h2>Thumbnail View</h2> <Thumbs thumbArray={bunnies} onRemove={onRemove} /> </div>;
 }
 function galleryView({ bunnies, onRemove, onUpdate, bunnyNum }) {
+    console.log('inside galleryView function bunnies are', bunnies);
     return <div><h2>Gallery View</h2> <Gallery galleryArray={bunnies} bunnyNum={bunnyNum} onRemove={onRemove} onUpdate={onUpdate} /> </div>;
 }
 
@@ -29,9 +30,11 @@ export class Images extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            bunnies: []
+            bunnies: [],
+            bunnyNum: 0
         }
         this.onAdd = this.onAdd.bind(this);
+        // this.onRemove = this.onRemove.bind(this);
     }
 
     componentDidMount() {
@@ -51,14 +54,18 @@ export class Images extends Component {
         })
         .then(res => res.json())
         .then(bunny => {
-            console.log('bunny', [...this.state.bunnies, bunny]);
-            this.setState({ bunnies: [...this.state.bunnies, bunny] });
+            this.setState({ bunnies: [
+                ...this.state.bunnies, 
+                bunny
+            ] });
         })
         .catch(error => console.log(error));
     }
 
+    // onRemove()
+
     render() {
-        const { bunnies } = this.state;
+        const { bunnies, bunnyNum } = this.state;
         const { match, location } = this.props;
         const view = qs.parse(location.search.slice(1)).view;
         const ViewWrapper = viewDict[view];
@@ -76,7 +83,7 @@ export class Images extends Component {
                     </ul>
                 </nav>
                 <section>
-                    <ViewWrapper bunnies={bunnies} />
+                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} />
                 </section>
                 <section>
                     <AddBunny onAdd={this.onAdd} />
