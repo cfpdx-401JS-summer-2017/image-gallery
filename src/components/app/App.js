@@ -18,13 +18,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: ''
+      images: []
     }
   }
 
   addImage = (image) => {
     return imagesAPI.add(image)
     .then(saved => {
+      console.log('addImage', saved);
     this.setState({
       images: [...this.state.images, saved]
     });
