@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       addBunny: false,
       view: 'Gallery',
-      bunnies: Bunnies
+      bunnies: Bunnies,
+      current: 0
     }
   }
 
@@ -23,17 +24,53 @@ class App extends Component {
     })
   }
 
+  cycleView = (value) => {
+    const thisImgIndex = this.state.current;
+    
+    if( value === "Previous" ) {
+        if( thisImgIndex > 0) {
+            this.setState({
+                current: thisImgIndex - 1
+            })
+        } else {
+            this.setState({
+                current: this.state.bunnies.length - 1
+            })
+        }
+    } else {
+        if( thisImgIndex === (this.state.bunnies.length - 1)) {
+            this.setState({
+                current: 0
+            })
+        } else {
+            this.setState({
+                current: thisImgIndex + 1
+            })
+        }
+    }
+  }
+
   onAdd = (bunny) => {
-    console.log('bunny is', bunny);
     this.setState((prevState, props) => { 
 
       const bunniesArray = prevState.bunnies;
-
-      console.log('prevState.bunnies is', prevState.bunnies);
-
       bunniesArray.push(bunny);
 
       return { bunnies: bunniesArray }; 
+    })
+  }
+
+  onRemove = () => {
+    this.setState((prevState, props) => {
+      const index = this.state.current;
+      const bunniesArray = prevState.bunnies;
+      const newBunnies = [
+        ...bunniesArray.slice(0, index),
+        ...bunniesArray.slice(index + 1)
+      ]
+      const newIndex = index === 0 ? 0 : index - 1;
+
+      return { bunnies: newBunnies, current: newIndex };
     })
   }
 
@@ -58,7 +95,7 @@ class App extends Component {
           <div className="Viewer">
             <List bunnies={this.state.bunnies} />
           </div>
-          <button name="addBunny" onClick={(event) => this.handleClick(event.target.name, true)}>
+          <button name="addBunny" onClick={(event) => this.toggleAddForm()}>
             Add bunny
           </button>
           <Editor addBunny={this.state.addBunny} onSave={this.onAdd}/>
@@ -77,7 +114,7 @@ class App extends Component {
           <div className="Viewer">
             <Thumbnail bunnies={this.state.bunnies} />
           </div>
-          <button name="addBunny" onClick={(event) => this.handleClick(event.target.name, true)}>
+          <button name="addBunny" onClick={(event) => this.toggleAddForm()}>
             Add bunny
           </button>
           <Editor addBunny={this.state.addBunny} onSave={this.onAdd}/>
@@ -94,7 +131,12 @@ class App extends Component {
             Thumbnail
           </button>
           <div className="Viewer">
-            <Gallery bunnies={this.state.bunnies} />
+            <Gallery 
+              bunnies={this.state.bunnies} 
+              onDeleteBunny={this.onRemove} 
+              current={this.state.current}
+              cycleView={this.cycleView}
+              />
           </div>
           <button name="addBunny" onClick={(event) => this.toggleAddForm()}>
             Add bunny
