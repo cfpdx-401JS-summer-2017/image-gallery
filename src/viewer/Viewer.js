@@ -23,17 +23,17 @@ export default class Viewer extends Component {
         }
     }
     render() {
-        console.log(this.state);
+        console.log('Viewer.js this.state', this.state);
 
-        const currentView = qs.parse(this.state.location.slice(1)).view || 'list';
+        // const currentView = qs.parse(this.state.location.slice(1)).view || 'list';
         const { views, view } = this.state;
         const BunnyView = View[view];
 
         return (
             <div>
                 {views.map(v => (
-                    <button disabled={v === currentView} key={v} onClick={() => this.state.history.push({ search: `?view=${view}` })}>
-                        {v}
+                    <button disabled={view === BunnyView} key={view} onClick={() => this.state.history.push({ search: `?view=${view}` })}>
+                        {view}
                     </button>
                 ))}
                 <BunnyView props={this.state} />

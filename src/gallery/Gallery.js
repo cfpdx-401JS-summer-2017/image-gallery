@@ -9,7 +9,7 @@ export default class Gallery extends Component {
     }
 
     render() {
-        const bunny = this.props.bunnies[this.props.current];
+        const bunny = this.props.props.bunnies[this.props.props.current];
         return (
             <div>
                 <img src={bunny.url} alt={bunny.title}/>

@@ -86,14 +86,23 @@ class App extends Component {
   }
 
   render() {
-    const view = this.state.view;
-
+    console.log('App.js this.state', this.state);
+    const { addBunny, current, view, bunnies } = this.state;
+    console.log('App.js bunnies', bunnies);
     return (
       <Router>
         <div className="App">
           <Switch>
-            <Route path = "/" render={({match, location, history, bunnies}) => {
-              return <Viewer match={match} location={location} history={history} bunnies={bunnies}/>
+            <Route path = "/" render={({match, location, history}) => {
+              return (
+                <Viewer 
+                  match={match} 
+                  location={location} 
+                  history={history} 
+                  bunnies={bunnies}
+                  addBunny={addBunny}
+                  current={current}
+                  />)
             }}/>
           </Switch>
           <button name="addBunny" onClick={(event) => this.handleClick(event.target.name, true)}>
