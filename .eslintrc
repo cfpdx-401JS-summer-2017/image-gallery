@@ -52,7 +52,7 @@
         "mode": "strict"
       }
     ],
-    // "linebreak-style": ["error", "unix"],
+    "linebreak-style": ["error", "unix"],
     "newline-per-chained-call": [
       "error",
       {
