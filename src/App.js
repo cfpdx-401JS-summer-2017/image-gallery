@@ -23,9 +23,17 @@ class App extends Component {
     })
   }
 
-  onAdd(bunny) {
-    this.setState({
-      bunnies: this.state.bunnies.push(bunny)
+  onAdd = (bunny) => {
+    console.log('bunny is', bunny);
+    this.setState((prevState, props) => { 
+
+      const bunniesArray = prevState.bunnies;
+
+      console.log('prevState.bunnies is', prevState.bunnies);
+
+      bunniesArray.push(bunny);
+
+      return { bunnies: bunniesArray }; 
     })
   }
 
@@ -53,6 +61,7 @@ class App extends Component {
           <button name="addBunny" onClick={(event) => this.handleClick(event.target.name, true)}>
             Add bunny
           </button>
+          <Editor addBunny={this.state.addBunny} onSave={this.onAdd}/>
         </div>
       );
     }
@@ -71,6 +80,7 @@ class App extends Component {
           <button name="addBunny" onClick={(event) => this.handleClick(event.target.name, true)}>
             Add bunny
           </button>
+          <Editor addBunny={this.state.addBunny} onSave={this.onAdd}/>
         </div>
       );
     }

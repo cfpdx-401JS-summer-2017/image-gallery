@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const defaultBunny = {
-    title: '',
-    description: '',
-    url: ''
-};
-
-
 export default class Editor extends Component {
 
     constructor(props) {
         super(props);
-        // const { bunny } = props;
-        this.state = {};
+        this.state = {
+            title: '',
+            description: '',
+            url: ''
+        };
     }
 
     handleChange = (name, value) => {
@@ -25,17 +21,25 @@ export default class Editor extends Component {
     handleSubmit = () => {
         let { title, description, url } = this.state;
         this.props.onSave({ title, description, url });
-        this.setState({ ...defaultBunny });
+        this.setState({
+            title: '',
+            description: '',
+            url: ''
+        })
     }
 
     resetBunny = () => {
-        this.setState({ ...defaultBunny });
+        this.setState({
+            title: '',
+            description: '',
+            url: ''
+        });
     }
 
     render() {
 
         const { title, description, url } = this.state;
-        const { onAdd } = this.props;
+
         if(this.props.addBunny) {
             return (
                 <section>
@@ -44,6 +48,10 @@ export default class Editor extends Component {
                     onSubmit={event => {
                         event.preventDefault();
                         this.handleSubmit();
+                    }}
+                    onReset={event => {
+                        event.preventDefault();
+                        this.resetBunny();
                     }}
                     >
                     <label>

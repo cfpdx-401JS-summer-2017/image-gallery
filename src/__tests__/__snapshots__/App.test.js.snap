@@ -47,6 +47,10 @@ exports[`App loads a view 1`] = `
   >
     Add bunny
   </button>
+  <Editor
+    addBunny={false}
+    onSave={[Function]}
+  />
 </div>
 `;
 
@@ -97,6 +101,10 @@ exports[`App loads a view 2`] = `
   >
     Add bunny
   </button>
+  <Editor
+    addBunny={false}
+    onSave={[Function]}
+  />
 </div>
 `;
 
@@ -147,6 +155,10 @@ exports[`App loads a view 3`] = `
   >
     Add bunny
   </button>
+  <Editor
+    addBunny={false}
+    onSave={[Function]}
+  />
 </div>
 `;
 
@@ -197,5 +209,9 @@ exports[`App loads a view 4`] = `
   >
     Add bunny
   </button>
+  <Editor
+    addBunny={false}
+    onSave={[Function]}
+  />
 </div>
 `;
