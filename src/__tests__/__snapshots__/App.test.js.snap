@@ -5,11 +5,13 @@ exports[`App loads a view 1`] = `
   className="App"
 >
   <button
+    name="view"
     onClick={[Function]}
   >
     List
   </button>
   <button
+    name="view"
     onClick={[Function]}
   >
     Thumbnail
@@ -39,6 +41,12 @@ exports[`App loads a view 1`] = `
       }
     />
   </div>
+  <button
+    name="addBunny"
+    onClick={[Function]}
+  >
+    Add bunny
+  </button>
 </div>
 `;
 
@@ -47,19 +55,21 @@ exports[`App loads a view 2`] = `
   className="App"
 >
   <button
+    name="view"
+    onClick={[Function]}
+  >
+    List
+  </button>
+  <button
+    name="view"
     onClick={[Function]}
   >
     Thumbnail
   </button>
-  <button
-    onClick={[Function]}
-  >
-    Gallery
-  </button>
   <div
     className="Viewer"
   >
-    <List
+    <Gallery
       bunnies={
         Array [
           Object {
@@ -81,6 +91,12 @@ exports[`App loads a view 2`] = `
       }
     />
   </div>
+  <button
+    name="addBunny"
+    onClick={[Function]}
+  >
+    Add bunny
+  </button>
 </div>
 `;
 
@@ -89,19 +105,21 @@ exports[`App loads a view 3`] = `
   className="App"
 >
   <button
+    name="view"
     onClick={[Function]}
   >
     List
   </button>
   <button
+    name="view"
     onClick={[Function]}
   >
-    Gallery
+    Thumbnail
   </button>
   <div
     className="Viewer"
   >
-    <Thumbnail
+    <Gallery
       bunnies={
         Array [
           Object {
@@ -123,6 +141,12 @@ exports[`App loads a view 3`] = `
       }
     />
   </div>
+  <button
+    name="addBunny"
+    onClick={[Function]}
+  >
+    Add bunny
+  </button>
 </div>
 `;
 
@@ -131,19 +155,21 @@ exports[`App loads a view 4`] = `
   className="App"
 >
   <button
+    name="view"
+    onClick={[Function]}
+  >
+    List
+  </button>
+  <button
+    name="view"
     onClick={[Function]}
   >
     Thumbnail
   </button>
-  <button
-    onClick={[Function]}
-  >
-    Gallery
-  </button>
   <div
     className="Viewer"
   >
-    <List
+    <Gallery
       bunnies={
         Array [
           Object {
@@ -165,5 +191,11 @@ exports[`App loads a view 4`] = `
       }
     />
   </div>
+  <button
+    name="addBunny"
+    onClick={[Function]}
+  >
+    Add bunny
+  </button>
 </div>
 `;

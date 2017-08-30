@@ -25,11 +25,11 @@ export default class Gallery extends Component {
                 })
             } else {
                 this.setState({
-                    current: this.state.bunnies.length - 1
+                    current: this.props.bunnies.length - 1
                 })
             }
         } else {
-            if( thisImgIndex === (this.state.bunnies.length - 1)) {
+            if( thisImgIndex === (this.props.bunnies.length - 1)) {
                 this.setState({
                     current: 0
                 })
@@ -42,7 +42,7 @@ export default class Gallery extends Component {
     }
 
     render() {
-        const bunny = this.state.bunnies[this.state.current];
+        const bunny = this.props.bunnies[this.state.current];
         return (
             <div>
                 <img src={bunny.url} alt={bunny.title}/>
