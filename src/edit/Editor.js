@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const defaultBunny = {
-    title: '',
-    description: '',
-    url: ''
-};
-
-
 export default class Editor extends Component {
 
     constructor(props) {
         super(props);
-        const { bunny } = props;
-        this.state = { ...bunny };
+        this.state = {
+            title: '',
+            description: '',
+            url: ''
+        };
     }
 
     handleChange = (name, value) => {
@@ -23,21 +19,30 @@ export default class Editor extends Component {
     }
 
     handleSubmit = () => {
-        this.props.onAdd(this.state);
-        this.setState({ ...defaultBunny });
+        let { title, description, url } = this.state;
+        this.props.onSave({ title, description, url });
+        this.setState({
+            title: '',
+            description: '',
+            url: ''
+        })
     }
 
     resetBunny = () => {
-        this.setState({ ...defaultBunny });
+        this.setState({
+            title: '',
+            description: '',
+            url: ''
+        });
     }
 
     render() {
 
         const { title, description, url } = this.state;
-        const { onAdd } = this.props;
 
-        return (
-            <section>
+        if(this.props.addBunny) {
+            return (
+                <section>
                 <h4> Add new bunbun </h4>
                 <form
                     onSubmit={event => {
@@ -47,7 +52,8 @@ export default class Editor extends Component {
                     onReset={event => {
                         event.preventDefault();
                         this.resetBunny();
-                    }}>
+                    }}
+                    >
                     <label>
                         title:
                     <input name="title" value={title}
@@ -69,13 +75,12 @@ export default class Editor extends Component {
                                 this.handleChange(target.name, target.value)
                             }} />
                     </label>
-                    <button type="reset"> Reset </button>
+                    <button type="reset" > Reset </button>
                     <button type="submit"> Save </button>
                 </form>
-
-
-
             </section>
         )
+    }
+        return <div></div>
     }
 }
