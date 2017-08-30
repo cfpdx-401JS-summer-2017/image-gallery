@@ -31,6 +31,7 @@ export class Images extends Component {
         this.state = {
             bunnies: []
         }
+        this.onAdd = this.onAdd.bind(this);
     }
 
     componentDidMount() {
@@ -48,11 +49,11 @@ export class Images extends Component {
             }),
             body: JSON.stringify({ title, description, url })
         })
-        .then(res => {
-            console.log('res', res);
-            return res.json();
+        .then(res => res.json())
+        .then(bunny => {
+            console.log('bunny', [...this.state.bunnies, bunny]);
+            this.setState({ bunnies: [...this.state.bunnies, bunny] });
         })
-        .then(bunnies => this.setState({ bunnies }))
         .catch(error => console.log(error));
     }
 
