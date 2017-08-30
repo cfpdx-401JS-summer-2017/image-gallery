@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './cb750.svg';
 import './App.css';
 import View from './components/views/View';
+import Detail from './components/views/Detail';
 import Home from './components/Home';
 import About from './components/About';
 import hondas from './data/hondas';
@@ -83,7 +84,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route
-                path="/images"
+                exact path="/images"
                 render={() => (
                   <View
                     hondas={motoArray}
@@ -93,6 +94,7 @@ class App extends Component {
                   />
                 )}
               />
+              <Route path="/images/detail/" component={Detail} />
               <Route path="/about" component={About} />
               />
             </Switch>

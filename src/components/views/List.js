@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 List.propTypes = {
-  hondas: PropTypes.arrayOf(PropTypes.object).isRequired,
-  deleteImage: PropTypes.func
+  hondas: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default function List({ hondas, deleteImages }) {
+export default function List({ hondas }) {
   return (
     <div className="listView">
       <ul>
@@ -14,9 +14,16 @@ export default function List({ hondas, deleteImages }) {
           <li key={i}>
             <span className="title">{honda.title}</span>
             <span>{honda.description}</span>
-            <span role="img" aria-label="">
-              <a href={`/images?detail/${i}`}>&#128279;</a>
-            </span>
+            <Link
+              to={{
+                pathname: '/images/detail/',
+                search: `${i}`,
+                params: {honda}
+              }}>
+              <span role="img" aria-label="linktodetailpage">
+                &#128279;
+              </span>
+            </Link>
           </li>
         ))}
       </ul>
