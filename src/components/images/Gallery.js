@@ -29,7 +29,6 @@ export class Gallery extends Component {
     
     render() {
         const { galleryArray, onRemove, onUpdate, bunnyNum } = this.props;
-        console.log('onUpdate = ', onUpdate);
         const bunnyGallery = galleryArray.map((bunny, i) => (
             <GalleryItem key={i} bunny={bunny} title={bunny.title} description={bunny.description} url={bunny.url} onRemove={onRemove} onUpdate={onUpdate} />
         ));

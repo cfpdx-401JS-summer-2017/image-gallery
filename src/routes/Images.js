@@ -33,7 +33,7 @@ export class Images extends Component {
             bunnyNum: 0
         }
         this.onAdd = this.onAdd.bind(this);
-        // this.onRemove = this.onRemove.bind(this);
+        this.onRemove = this.onRemove.bind(this);
         this.onUpdate = this.onUpdate.bind(this);
     }
 
@@ -62,9 +62,21 @@ export class Images extends Component {
         .catch(error => console.log(error));
     }
 
-    // onRemove() {
-
-    // }
+    onRemove(bunny) {
+        const bunnyId = bunny._id;
+        const bunnies = this.state.bunnies;
+        fetch(`/api/images/${bunnyId}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            const index = bunnies.indexOf(bunny);
+            this.setState({ bunnies: 
+                [...bunnies.slice(0, index),
+                ...bunnies.slice(index+1)]
+            })
+        })
+        .catch(error => console.log(error));
+    }
 
     onUpdate(incr) {
         const bunnyCount = this.state.bunnies.length;
@@ -93,7 +105,7 @@ export class Images extends Component {
                     </ul>
                 </nav>
                 <section>
-                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} onUpdate={this.onUpdate} />
+                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} onUpdate={this.onUpdate} onRemove={this.onRemove} />
                 </section>
                 <section>
                     <AddBunny onAdd={this.onAdd} />
