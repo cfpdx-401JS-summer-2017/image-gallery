@@ -4,9 +4,9 @@ import { shallow, mount, render } from 'enzyme';
 import App from '../App';
 import renderer from 'react-test-renderer';
 import toJSON from 'enzyme-to-json';
-import Gallery from '../components/Gallery';
-import List from '../components/List';
-import Thumb from '../components/Thumb';
+import Gallery from '../components/views/Gallery';
+import List from '../components/views/List';
+import Thumb from '../components/views/Thumb';
 import hondas from '../data/hondas-for-testing'
 
 it('renders without crashing', () => {
@@ -31,20 +31,17 @@ it('renders a snapshot in thumb view', () => {
 
 it('deletes an image', () => {
   const wrapper = shallow(<App />);
-  // expect(wrapper.state().playerRoom.key === 'westHall')
-  // expect(wrapper.state().princRoom.key === 'office')
+
 });
 
 it('adds an image', () => {
   const wrapper = shallow(<App />);
-  // expect(wrapper.state().playerRoom.key === 'westHall')
-  // expect(wrapper.state().princRoom.key === 'office')
+
 });
 
 it('loads default images', () => {
   const wrapper = shallow(<App />);
-  // expect(wrapper.state().playerRoom.key === 'westHall')
-  // expect(wrapper.state().princRoom.key === 'office')
+
 });
 
 // You also need to snapshot test:
