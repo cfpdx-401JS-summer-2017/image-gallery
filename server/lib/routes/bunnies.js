@@ -8,6 +8,7 @@ router
             .lean()
             .select('title description url')
             .then(bunnies => res.send(bunnies))
+            .then(bunnies => console.log('===========>',bunnies))
             .catch(next);
     })
     .get('/:id', (req, res, next) => {

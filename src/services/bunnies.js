@@ -1,17 +1,13 @@
 let id = 0;
+const wrapper = cmd => cmd
+    .then(res => res.body,
+        ({response}) => {
+            throw response.body.error;
+        });
 
 export function fetchBunnies() {
-
-    fetch('/api/bunnies')
-        .then(res => res.json())
-        .then(bunnies => {
-            this.setState({
-                bunnies: bunnies,
-                bunny: bunnies[0],
-                loading: false
-            });
-        })
-        .catch(error => console.log(error));
+    return fetch('/api/bunnies/')
+        .then(res => res.json());
 
 
 }

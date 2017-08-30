@@ -26,7 +26,7 @@ const BasicExample = () => (
 
             <Route exact path="/" component={Home}/>
             <Route exact path="/about" component={About}/>
-            <Route path="/photos" component={BunnyApp}/>
+            <Route path="/photos" component={BunnyApp} onSubmit={this.handleSubmit}/>
         </div>
     </Router>
 );

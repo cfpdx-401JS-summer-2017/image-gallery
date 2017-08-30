@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { bootstrapBunnies, plusBunny, minusBunny, fetchBunnies} from './services/bunnies';
+import { bootstrapBunnies, plusBunny, minusBunny, fetchBunnies,requestBunnies} from './services/bunnies';
 import {Thumbnail, List, Gallery} from './components/viewFormats';
 import AddBunny from './components/AddBunny';
 import qs from 'qs';
@@ -35,8 +35,6 @@ const View = {
     gallery: bunnyGallery
 };
 const views = Object.keys(View);
-//TODO: replace with fetchBunnies
-//const bunnies = fetchBunnies();
 function deleteBunny(bunny) {
     const histBunnies = this.state.bunnies;
     this.setState({bunnies: minusBunny(histBunnies, bunny)});
@@ -61,13 +59,23 @@ class BunnyApp extends Component {
             title: target.value
         });
     }
-    handleSubmit(event) {
-        event.preventDefault();
-        console.log(this.state.title);
-        fetchBunnies(this.state.title);
-    }
     componentDidMount() {
-        fetchBunnies(this.state.title);
+        fetchBunnies()
+            .then(res => {
+                console.log(res);
+                //need to add an anonymous function?
+                this.setState(() => ({
+                    bunnies: res,
+                    loading: false
+                }));
+            })
+            .then(res => {
+                this.setState(() => ({
+                    bunny: res[0]
+                }));
+            })
+            
+            .catch(error => console.log(error));
     }
 addBunny = (title,description,url) => {
     const histBunnies = this.state.bunnies;
@@ -81,13 +89,14 @@ updateBunny = newNumb => {
     });
 }
 render() {
+    const { loading } = this.state;
+    if(loading) return <div>Loading...</div>;
+    const { bunnies } =this.state;
     const { views } = this.state;
     const queried = qs.parse(this.props.location.search.slice(1));
     const BunnyView = View[queried.view||'thumbnail'];
-    const { loading, bunnies } = this.state;
     let { i } = this.state;
     const bunny = bunnies[i];
-    if(loading) return <div>Loading...</div>;
     
     return (
         <main>
