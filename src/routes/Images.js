@@ -57,7 +57,9 @@ export class Images extends Component {
             this.setState({ bunnies: [
                 ...this.state.bunnies, 
                 bunny
-            ] });
+            ],
+            bunnyNum: this.state.bunnies.length
+        });
         })
         .catch(error => console.log(error));
     }
@@ -69,11 +71,12 @@ export class Images extends Component {
             method: "DELETE"
         })
         .then(() => {
-            const index = bunnies.indexOf(bunny);
+            const index = bunnies.indexOf(bunny);    
             this.setState({ bunnies: 
                 [...bunnies.slice(0, index),
-                ...bunnies.slice(index+1)]
+                ...bunnies.slice(index+1)],
             })
+            if (index === bunnies.length-1) this.setState({ bunnyNum: index-1})
         })
         .catch(error => console.log(error));
     }

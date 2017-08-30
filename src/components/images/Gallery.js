@@ -34,9 +34,11 @@ export class Gallery extends Component {
         ));
         return (
             <div>
+                <nav id="galleryNav">
+                    <button onClick={() => onUpdate(-1)}>&laquo; Previous</button> <button onClick={() => onUpdate(1)}>Next &raquo;</button>
+                    <p id="bunnyCounter">Bunny {bunnyNum + 1} of {bunnyGallery.length}</p>
+                </nav>
                 {bunnyGallery[bunnyNum]}
-                <button onClick={() => onUpdate(-1)}>Previous Bunny</button>
-                <button onClick={() => onUpdate(1)}>Next Bunny</button>
             </div>
         );
     }

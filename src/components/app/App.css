@@ -62,10 +62,10 @@ section ul {
   max-height: 100px;
 }
 .thumbView p { font-size: .8em; }
-.thumbView button {
+.thumbView button, .galleryView button {
   position: absolute;
   top: -5px;
-  right: -5px;
+  left: -5px;
   font-weight: bold;
   background: #c00;
   border: none;
@@ -78,8 +78,39 @@ section ul {
   clear: both;
 }
 
+.galleryView {
+  width: 600px;
+  position: relative;
+  box-shadow: 0 0 4px 2px rgba(0,0,0,.2);
+  padding: 10px;
+}
+.galleryView h3 {
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0 5px;
+}
+.galleryView p {
+  font-size: .8em;
+  font-style: italic;
+  text-align: center;
+}
 .galleryView img {
-  max-width: 600px;
+  width: 600px;
+  border: 1px solid #ccc;
+}
+.galleryView button {font-size: 1em;}
+
+#galleryNav {
+  margin-bottom: 2em;
+  text-align: center;
+  width: 620px;
+}
+#galleryNav button {
+  font-size: 1em;
+}
+#bunnyCounter {
+  margin-top: 10px;
+  font-size: .8em;
 }
 
 form input {
