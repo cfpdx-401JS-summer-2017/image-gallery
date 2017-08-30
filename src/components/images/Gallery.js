@@ -29,14 +29,15 @@ export class Gallery extends Component {
     
     render() {
         const { galleryArray, onRemove, onUpdate, bunnyNum } = this.props;
+        console.log('onUpdate = ', onUpdate);
         const bunnyGallery = galleryArray.map((bunny, i) => (
             <GalleryItem key={i} bunny={bunny} title={bunny.title} description={bunny.description} url={bunny.url} onRemove={onRemove} onUpdate={onUpdate} />
         ));
         return (
             <div>
                 {bunnyGallery[bunnyNum]}
-                <button onClick={() => onUpdate(bunnyNum - 1)}>Previous Bunny</button>
-                <button onClick={() => onUpdate(bunnyNum + 1)}>Next Bunny</button>
+                <button onClick={() => onUpdate(-1)}>Previous Bunny</button>
+                <button onClick={() => onUpdate(1)}>Next Bunny</button>
             </div>
         );
     }

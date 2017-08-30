@@ -13,7 +13,6 @@ function thumbView({ bunnies, onRemove }) {
     return <div><h2>Thumbnail View</h2> <Thumbs thumbArray={bunnies} onRemove={onRemove} /> </div>;
 }
 function galleryView({ bunnies, onRemove, onUpdate, bunnyNum }) {
-    console.log('inside galleryView function bunnies are', bunnies);
     return <div><h2>Gallery View</h2> <Gallery galleryArray={bunnies} bunnyNum={bunnyNum} onRemove={onRemove} onUpdate={onUpdate} /> </div>;
 }
 
@@ -35,6 +34,7 @@ export class Images extends Component {
         }
         this.onAdd = this.onAdd.bind(this);
         // this.onRemove = this.onRemove.bind(this);
+        this.onUpdate = this.onUpdate.bind(this);
     }
 
     componentDidMount() {
@@ -62,7 +62,17 @@ export class Images extends Component {
         .catch(error => console.log(error));
     }
 
-    // onRemove()
+    // onRemove() {
+
+    // }
+
+    onUpdate(incr) {
+        const bunnyCount = this.state.bunnies.length;
+        let newBunny = this.state.bunnyNum + incr;
+        if (newBunny === bunnyCount) newBunny = 0;
+        else if (newBunny === -1) newBunny = bunnyCount-1;
+        this.setState ({ bunnyNum: newBunny });
+    }
 
     render() {
         const { bunnies, bunnyNum } = this.state;
@@ -83,7 +93,7 @@ export class Images extends Component {
                     </ul>
                 </nav>
                 <section>
-                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} />
+                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} onUpdate={this.onUpdate} />
                 </section>
                 <section>
                     <AddBunny onAdd={this.onAdd} />
