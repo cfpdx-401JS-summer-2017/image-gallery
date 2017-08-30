@@ -16,7 +16,7 @@ export default function List({ hondas }) {
             <span>{honda.description}</span>
             <Link
               to={{
-                pathname: '/images/detail/',
+                pathname: '/images/detail',
                 search: `${i}`,
                 params: {honda}
               }}>

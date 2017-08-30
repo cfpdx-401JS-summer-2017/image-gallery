@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import List from './List';
 import Gallery from './Gallery';
 import Thumb from './Thumb';
-// import Detail from './Detail';
 import ChooseView from '../ChooseView';
 import AddImage from '../AddImage';
 

@@ -16,7 +16,7 @@ export default function Gallery({hondas, deleteImage}) {
             value={i}
             className="galleryImg"
             alt={honda.alt}
-            src={honda.url}
+            src={`./images/detail/${honda.url}`}
           />
         </div>
       ))}
