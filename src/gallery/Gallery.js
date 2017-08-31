@@ -5,28 +5,31 @@ import PropTypes from 'prop-types';
 export default class Gallery extends Component {
 
     static propTypes = {
-        bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
+        props: {
+            bunnies: PropTypes.arrayOf(PropTypes.object).isRequired
+        }
     }
 
     render() {
-        const bunny = this.props.props.bunnies[this.props.props.current];
+        const { props } = this.props;
+        const bunny = props.bunnies[props.current];
         return (
             <div>
                 <img src={bunny.url} alt={bunny.title}/>
                 <h5>{bunny.title}</h5>
                 <button 
                     value="Previous"   
-                    onClick={(event) => this.props.cycleView(event.target.value)}>
+                    onClick={(event) => props.cycleView(event.target.value)}>
                     Previous
                 </button>
                 <button 
                     value="Next" 
-                    onClick={(event) => this.props.cycleView(event.target.value)}>
+                    onClick={(event) => props.cycleView(event.target.value)}>
                     Next
                 </button>
                 <br></br>
                 <button 
-                    onClick={(event) => this.props.onDeleteBunny()} >
+                    onClick={(event) => props.onDeleteBunny()} >
                     Remove this Bunny
                 </button>
             </div>

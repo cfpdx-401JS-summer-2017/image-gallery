@@ -87,7 +87,18 @@ class App extends Component {
 
   render() {
     console.log('App.js this.state', this.state);
-    const { addBunny, current, view, bunnies } = this.state;
+    const { 
+      addBunny, 
+      current, 
+      view, 
+      bunnies, 
+      handleClick, 
+      cycleView, 
+      onAdd,
+      onRemove,
+      toggleAddForm 
+    } = this.state;
+
     console.log('App.js bunnies', bunnies);
     return (
       <Router>
@@ -102,6 +113,11 @@ class App extends Component {
                   bunnies={bunnies}
                   addBunny={addBunny}
                   current={current}
+                  handleClick={handleClick}
+                  cycleView={cycleView}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                  toggleAddForm={toggleAddForm}
                   />)
             }}/>
           </Switch>
