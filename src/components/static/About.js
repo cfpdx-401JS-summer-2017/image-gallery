@@ -8,5 +8,5 @@ About.propTypes = {
 };
 
 export default function About({ match, location, history }) {
-  return <div>Welcome to the About page!</div>
+  return <div>Welcome to the About page!</div>;
 }

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import List from './List';
 import Gallery from './Gallery';
 import Thumb from './Thumb';
-import ChooseView from '../ChooseView';
-import AddImage from '../AddImage';
+import ChooseView from './ChooseView';
+import AddImage from '../images/AddImage';
 
 View.propTypes = {
   hondas: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -15,8 +15,9 @@ View.propTypes = {
 
 export default function View({ hondas, deleteImage, onChangeView, view }) {
   const currentView = view || 'gallery';
-  console.log(currentView)
-  const View = currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
+  console.log(currentView);
+  const View =
+    currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
 
   return (
     <div>

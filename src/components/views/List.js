@@ -18,7 +18,7 @@ export default function List({ hondas }) {
               to={{
                 pathname: '/images/detail',
                 search: `${i}`,
-                params: {honda}
+                params: { honda }
               }}>
               <span role="img" aria-label="linktodetailpage">
                 &#128279;

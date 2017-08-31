@@ -7,6 +7,5 @@ Home.propTypes = {
   history: PropTypes.object
 };
 export default function Home({ match, location, history }) {
-
-  return <div>Welcome home!</div>
+  return <div>Welcome home!</div>;
 }

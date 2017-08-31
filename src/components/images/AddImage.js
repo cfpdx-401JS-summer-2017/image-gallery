@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AddNewImage } from '../services/imageService';
+import { AddNewImage } from '../../services/imageService';
 
 AddImage.propTypes = {
   AddNewImage: PropTypes.func,

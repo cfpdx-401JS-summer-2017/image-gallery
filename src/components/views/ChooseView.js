@@ -8,14 +8,13 @@ ChooseView.propTypes = {
 };
 
 function ChooseView({ view, onChangeView }) {
-
   return (
     <div className="viewChooserWrap">
-      {['list', 'thumb', 'gallery'].map((currentView, i) =>
-        <div key={i} className="view" >
+      {['list', 'thumb', 'gallery'].map((currentView, i) => (
+        <div key={i} className="view">
           <NavLink
             to={{
-              pathname: "/images",
+              pathname: '/images',
               search: `${currentView}`
             }}
             activeStyle={{
@@ -26,7 +25,7 @@ function ChooseView({ view, onChangeView }) {
             </div>
           </NavLink>
         </div>
-      )}
+      ))}
     </div>
   );
 }

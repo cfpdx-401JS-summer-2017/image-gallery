@@ -12,7 +12,12 @@ export default function Thumb({ hondas, deleteImage }) {
       {hondas.map((honda, i) => (
         <div key={i}>
           <input type="checkbox" onChange={target => deleteImage(i)} />
-          <img value={i} className="thumbImg" alt={honda.alt} src={`./images/detail/${honda.url}`} />
+          <img
+            value={i}
+            className="thumbImg"
+            alt={honda.alt}
+            src={`./images/detail/${honda.url}`}
+          />
           <div className="title" key={honda.title}>
             {honda.title}
           </div>

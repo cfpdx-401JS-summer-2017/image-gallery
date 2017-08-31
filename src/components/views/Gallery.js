@@ -6,7 +6,7 @@ Gallery.propTypes = {
   deleteImage: PropTypes.func
 };
 
-export default function Gallery({hondas, deleteImage}) {
+export default function Gallery({ hondas, deleteImage }) {
   return (
     <div className="galleryView">
       {hondas.map((honda, i) => (
