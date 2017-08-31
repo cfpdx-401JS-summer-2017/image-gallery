@@ -9,7 +9,7 @@ import hondas from './data/hondas';
 import { DefaultImages, DeleteImage } from './services/imageService';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
