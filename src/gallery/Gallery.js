@@ -9,7 +9,9 @@ export default class Gallery extends Component {
     }
 
     render() {
+        console.log(this.props);
         const bunny = this.props.bunnies[this.props.current];
+        console.log(bunny)
         return (
             <div>
                 <img src={bunny.url} alt={bunny.title}/>

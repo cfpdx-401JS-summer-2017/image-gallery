@@ -39,6 +39,9 @@ exports[`App loads a view 1`] = `
           },
         ]
       }
+      current={0}
+      cycleView={[Function]}
+      onDeleteBunny={[Function]}
     />
   </div>
   <button
@@ -93,6 +96,9 @@ exports[`App loads a view 2`] = `
           },
         ]
       }
+      current={0}
+      cycleView={[Function]}
+      onDeleteBunny={[Function]}
     />
   </div>
   <button
@@ -147,6 +153,9 @@ exports[`App loads a view 3`] = `
           },
         ]
       }
+      current={0}
+      cycleView={[Function]}
+      onDeleteBunny={[Function]}
     />
   </div>
   <button
@@ -201,6 +210,9 @@ exports[`App loads a view 4`] = `
           },
         ]
       }
+      current={0}
+      cycleView={[Function]}
+      onDeleteBunny={[Function]}
     />
   </div>
   <button
