@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function AddBunny({ onAdd }) {
+export function AddBunny({ onAdd }) {
     return (
         <div>
             <h2>Add a new bunny!</h2>
@@ -21,4 +21,19 @@ export default function AddBunny({ onAdd }) {
             </form>
         </div>
     );
+}
+export function DeleteBunny({ onDelete }) {
+    return (
+        <button 
+            onClick={onDelete}>
+        Delete</button>
+    );
+}
+export function eliminateBunny(bunnies, bunny) {
+    const index = bunnies.indexOf(bunny);
+    if(index === -1) return bunnies;
+    return [
+        ...bunnies.slice(0,index),
+        ...bunnies.slice(index+1)
+    ];
 }

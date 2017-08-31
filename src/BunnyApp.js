@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { bootstrapBunnies, plusBunny, minusBunny, fetchBunnies,requestBunnies} from './services/bunnies';
+import { plusBunny, minusBunny, fetchBunnies} from './services/bunnies';
 import {Thumbnail, List, Gallery} from './components/viewFormats';
-import AddBunny from './components/AddBunny';
+import {AddBunny, eliminateBunny, DeleteBunny} from './components/addRemoveBunny';
 import qs from 'qs';
 
 function genBunnyList (viewtype, Component) {
@@ -46,21 +46,6 @@ const View = {
     gallery: bunnyGallery
 };
 const views = Object.keys(View);
-function DeleteBunny({ onDelete }) {
-    return (
-        <button 
-            onClick={onDelete}>
-        Delete</button>
-    );
-}
-function removeBunny(bunnies, bunny) {
-    const index = bunnies.indexOf(bunny);
-    if(index === -1) return bunnies;
-    return [
-        ...bunnies.slice(0,index),
-        ...bunnies.slice(index+1)
-    ];
-}
 class BunnyApp extends Component {
     constructor() {
         super();
@@ -78,13 +63,12 @@ class BunnyApp extends Component {
         minusBunny(bunny._id)
             .then(() => {
                 this.setState(prevState => ({ 
-                    bunnies:removeBunny(prevState.bunnies, bunny)
+                    bunnies:eliminateBunny(prevState.bunnies, bunny)
                 }));
 
             });
     }
     addBunny = (title,description,url) => {
-        const histBunnies = this.state.bunnies;
         plusBunny(title, description, url)
             .then((res) => {
                 this.setState(prevState =>({
@@ -100,21 +84,12 @@ class BunnyApp extends Component {
     componentDidMount() {
         fetchBunnies()
             .then(res => {
-                console.log(res);
-                //need to add an anonymous function?
                 this.setState(() => ({
                     bunnies: res,
                     loading: false
                 }));
             })            
             .catch(error => console.log(error));
-    }
-    updateBunny = newNumb => {
-        if(newNumb === this.state.bunnies.length) newNumb = 0;
-        if(newNumb === -1) newNumb = this.state.bunnies.length - 1;
-        this.setState({
-            bunnyNum: newNumb
-        });
     }
     render() {
         const { loading } = this.state;

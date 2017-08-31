@@ -14,3 +14,5 @@ it('renders a snapshot', () => {
     const tree = renderer.create(<BunnyApp/>).toJSON();
     expect(tree).toMatchSnapshot();
 });
+
+
