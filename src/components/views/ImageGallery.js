@@ -27,9 +27,9 @@ export default class ImageGallery extends Component {
                 <button disabled={this.state.index === 0} onClick={() => this.setState({index: this.state.index - 1})}>Previous</button>
                 <img key={currentImg.id} src={currentImg.url} width="400" alt="bunny" />
                 <p>{currentImg.title}</p>
-                <p>{currentImg.id}</p>
                 <p>{currentImg.description}</p>
-                <button onClick = {() => onRemove(currentImg)}>Remove</button>
+                <p>{JSON.stringify(currentImg)}</p>
+                <button onClick = {() => onRemove(currentImg, this.state.index)}>Remove</button>
                 <button disabled={this.state.index === images.length - 1} onClick={() => this.setState({index: this.state.index + 1})}>Next</button>
 
             </div>
