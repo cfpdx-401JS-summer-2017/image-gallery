@@ -43,13 +43,8 @@ describe('bunnies api', () => {
     it('deletes a bunny', () => {
         return request.delete(`/api/bunnies/${bunbun._id}`)
             .then(res => {
-                assert.deepEqual(JSON.parse(res.text), {removed: true});
+                assert.deepEqual(JSON.parse(res.text), bunbun);
             });
     });
-    it('fails to delete a bunny', () => {
-        return request.delete(`/api/bunnies/${bunbun._id}`)
-            .then(res => {
-                assert.deepEqual(JSON.parse(res.text), {removed: false});
-            });
-    });
+    
 });

@@ -6,9 +6,8 @@ router
     .get('/', (req, res, next) => {
         Bunny.find()
             .lean()
-            .select('title description url')
+            .select('_id title description url')
             .then(bunnies => res.send(bunnies))
-            .then(bunnies => console.log('===========>',bunnies))
             .catch(next);
     })
     .get('/:id', (req, res, next) => {
@@ -29,7 +28,7 @@ router
     })
     .delete('/:id', (req, res, next) => {
         Bunny.findByIdAndRemove(req.params.id)
-            .then(bunny => res.send( { removed: bunny !==null }))
+            .then(bunny => res.send(bunny))
             .catch(next);
     });
 

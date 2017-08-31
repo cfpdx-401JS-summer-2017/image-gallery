@@ -1,9 +1,5 @@
+import request from 'superagent';
 let id = 0;
-const wrapper = cmd => cmd
-    .then(res => res.body,
-        ({response}) => {
-            throw response.body.error;
-        });
 
 export function fetchBunnies() {
     return fetch('/api/bunnies/')
@@ -36,17 +32,11 @@ export function bootstrapBunnies() {
 
 export function plusBunny(bunnies, title, description, url) {
     const bunny = {title, description, url};
-    return [
-        ...bunnies,
-        bunny
-    ];
+    return request
+        .post('/api/bunnies')
+        .send(bunny);
 }
 
-export function minusBunny(bunnies, bunny) {
-    const index = bunnies.indexOf(bunny);
-    if(index === -1) return bunnies;
-    return [
-        ...bunnies.slice(0,index),
-        ...bunnies.slice(index+1)
-    ];
+export function minusBunny(bunnyId) {
+    return request.delete(`/api/bunnies/${bunnyId}`);
 }
