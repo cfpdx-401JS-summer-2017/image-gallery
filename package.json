@@ -6,11 +6,13 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.0",
-    "react-scripts": "1.0.11"
+    "react-scripts": "1.0.11",
+    "superagent": "^3.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run copy",
+    "copy": "rm -rf ../server/public && cp -R ./build ../server/public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -19,5 +21,6 @@
     "enzyme-to-json": "^1.5.1",
     "jest": "^20.0.4",
     "react-test-renderer": "^15.6.1"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

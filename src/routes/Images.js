@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddBunny from '../Components/AddBunny';
-import { List } from '../Components/List';
-import { Thumbs } from '../Components/Thumbs';
-import { Gallery } from '../Components/Gallery';
+import AddBunny from '../components/images/AddBunny';
+import { List } from '../components/images/List';
+import { Thumbs } from '../components/images/Thumbs';
+import { Gallery } from '../components/images/Gallery';
 import { Link } from 'react-router-dom';
 import qs from 'qs';
 
@@ -26,8 +26,72 @@ const viewArray = Object.keys(viewDict);
 
 export class Images extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            bunnies: [],
+            bunnyNum: 0
+        }
+        this.onAdd = this.onAdd.bind(this);
+        this.onRemove = this.onRemove.bind(this);
+        this.onUpdate = this.onUpdate.bind(this);
+    }
+
+    componentDidMount() {
+        fetch('/api/images')
+            .then(res => res.json())
+            .then(bunnies => this.setState({ bunnies }))
+            .catch(error => console.log(error));
+    }
+
+    onAdd(title, description, url) {
+        fetch('/api/images', {
+            method: "POST",
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify({ title, description, url })
+        })
+        .then(res => res.json())
+        .then(bunny => {
+            this.setState({ bunnies: [
+                ...this.state.bunnies, 
+                bunny
+            ],
+            bunnyNum: this.state.bunnies.length
+        });
+        })
+        .catch(error => console.log(error));
+    }
+
+    onRemove(bunny) {
+        const bunnyId = bunny._id;
+        const bunnies = this.state.bunnies;
+        fetch(`/api/images/${bunnyId}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            const index = bunnies.indexOf(bunny);    
+            this.setState({ bunnies: 
+                [...bunnies.slice(0, index),
+                ...bunnies.slice(index+1)],
+            })
+            if (index === bunnies.length-1) this.setState({ bunnyNum: index-1})
+        })
+        .catch(error => console.log(error));
+    }
+
+    onUpdate(incr) {
+        const bunnyCount = this.state.bunnies.length;
+        let newBunny = this.state.bunnyNum + incr;
+        if (newBunny === bunnyCount) newBunny = 0;
+        else if (newBunny === -1) newBunny = bunnyCount-1;
+        this.setState ({ bunnyNum: newBunny });
+    }
+
     render() {
-        const { bunnies, onRemove, onUpdate, bunnyNum, onAdd, match, location } = this.props;
+        const { bunnies, bunnyNum } = this.state;
+        const { match, location } = this.props;
         const view = qs.parse(location.search.slice(1)).view;
         const ViewWrapper = viewDict[view];
 
@@ -37,17 +101,17 @@ export class Images extends Component {
                     <ul>
                         {
                             viewArray.map(v =>
-                                <li><Link to={`${match.url}?view=${v}`}>
+                                <li key={v}><Link to={`${match.url}?view=${v}`}>
                                     {v}</Link></li>
                             )
                         }
                     </ul>
                 </nav>
                 <section>
-                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} onRemove={onRemove} onUpdate={onUpdate} />
+                    <ViewWrapper bunnies={bunnies} bunnyNum={bunnyNum} onUpdate={this.onUpdate} onRemove={this.onRemove} />
                 </section>
                 <section>
-                    <AddBunny onAdd={onAdd} />
+                    <AddBunny onAdd={this.onAdd} />
                 </section>
             </div>
         );
