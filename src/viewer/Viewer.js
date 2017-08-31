@@ -4,8 +4,9 @@ import Thumbnail from '../thumbnail/Thumbnail';
 import Gallery from '../gallery/Gallery';
 import qs from 'qs';
 import { NavLink } from 'react-router-dom';
-import Bunnies from '../images/bunnies';
+// import Bunnies from '../images/bunnies';
 import Editor from '../edit/Editor';
+// import bunniesApi from '../services/bunniesApi';
 
 const View = {
     gallery: Gallery,
@@ -22,12 +23,18 @@ export default class Viewer extends Component {
         this.state = {
             ...props,
             addBunny: false,
-            bunnies: Bunnies,
+            bunnies: [],
             current: 0,
             views: views
         }
     }
 
+    componentDidMount() {
+        fetch('/api/bunnies')
+            .then(res => res.json())
+            .then(bunnies =>this.setState({ bunnies }))
+            .catch(error => console.log(error));
+    }
 
     handleClick(name, value) {
         this.setState({
