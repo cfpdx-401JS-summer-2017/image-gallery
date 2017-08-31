@@ -93,12 +93,10 @@ export default class Viewer extends Component {
 
 
     render() {
-        console.log('Viewer.js this.state', this.state);
 
         const currentView = qs.parse(this.props.location.search.slice(1)).view || 'list';
         const BunnyView = View[currentView];
-        console.log('currentView', currentView)
-
+        
         return (
             <div>
                 <ViewSelector views={this.state.views} />
@@ -110,7 +108,10 @@ export default class Viewer extends Component {
                     onRemove={this.onRemove}
                     toggleAddForm={this.toggleAddForm}
                 />
-                <Editor onAdd={this.onAdd}/>
+                <button name="addBunny" onClick={(event) => this.toggleAddForm()}>
+                Add bunny
+                </button>
+                <Editor addBunny={this.state.addBunny} onSave={this.onAdd}/>
             </div>
         )
 
