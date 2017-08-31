@@ -8,7 +8,7 @@ export default class EmojiList extends Component {
     return (
       <div className="list-view">
         {emojis.map((emoji, index) => (
-          <div key={emoji.id} >
+          <div key={emoji._id} >
             <h2>{emoji.title}</h2>
             <img src={emoji.url} alt={emoji.title}/>
             <p>{emoji.description}</p>

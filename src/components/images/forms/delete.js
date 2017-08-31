@@ -33,7 +33,7 @@ export default class DeleteEmoji extends Component {
           <select value={this.state.selectedId} onChange={this.handleOnChange}>
             <option value="0">--- pick one ---</option>
             {emojis.map(emoji => {
-              return <option key={emoji.id} value={emoji.id}>{emoji.title}</option>
+              return <option key={emoji._id} value={emoji._id}>{emoji.title}</option>
             })}
           </select>
           <br/>
