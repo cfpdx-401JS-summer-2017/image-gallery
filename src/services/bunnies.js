@@ -30,7 +30,7 @@ export function bootstrapBunnies() {
     ];
 }
 
-export function plusBunny(bunnies, title, description, url) {
+export function plusBunny(title, description, url) {
     const bunny = {title, description, url};
     return request
         .post('/api/bunnies')

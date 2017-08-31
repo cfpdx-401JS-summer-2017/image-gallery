@@ -83,6 +83,15 @@ class BunnyApp extends Component {
 
             });
     }
+    addBunny = (title,description,url) => {
+        const histBunnies = this.state.bunnies;
+        plusBunny(title, description, url)
+            .then((res) => {
+                this.setState(prevState =>({
+                    bunnies:[...prevState.bunnies,res.body]
+                }));
+            });
+    }
     handleChange(target) {
         this.setState({
             title: target.value
@@ -99,10 +108,6 @@ class BunnyApp extends Component {
                 }));
             })            
             .catch(error => console.log(error));
-    }
-    addBunny = (title,description,url) => {
-        const histBunnies = this.state.bunnies;
-        this.setState({bunnies: plusBunny(histBunnies, title, description, url)});
     }
     updateBunny = newNumb => {
         if(newNumb === this.state.bunnies.length) newNumb = 0;
