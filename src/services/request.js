@@ -6,7 +6,7 @@ const wrap = cmd => cmd
 	.then(
 		r => r.body,
 		({ response }) => {
-			throw response.body.error;
+			throw response.error;
 		}
 	);
     
@@ -18,7 +18,7 @@ export const request = {
 		return wrap(superagent.post(`${API_URL}${url}`).send(data));
 	},
 	delete(id) {
-		return wrap(superagent.post(`${API_URL}${id}`));
+		return wrap(superagent.delete(`${API_URL}${id}`));
 	},
         
 };

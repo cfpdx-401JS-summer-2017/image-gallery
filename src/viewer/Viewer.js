@@ -6,7 +6,7 @@ import qs from 'qs';
 import { NavLink } from 'react-router-dom';
 // import Bunnies from '../images/bunnies';
 import Editor from '../edit/Editor';
-// import bunniesApi from '../services/bunniesApi';
+import bunniesApi from '../services/bunniesApi';
 
 const View = {
     gallery: Gallery,
@@ -32,7 +32,8 @@ export default class Viewer extends Component {
     componentDidMount() {
         fetch('/api/bunnies')
             .then(res => res.json())
-            .then(bunnies =>this.setState({ bunnies }))
+            .then(bunnies =>this.setState({ bunnies })
+)
             .catch(error => console.log(error));
     }
 
@@ -69,27 +70,37 @@ export default class Viewer extends Component {
     }
 
     onAdd = (bunny) => {
-        this.setState((prevState, props) => {
+        return bunniesApi.add(bunny)
+            .then( saved => {
+                this.setState((prevState, props) => {
+        
+                    const bunniesArray = prevState.bunnies;
+                    bunniesArray.push(bunny);
+        
+                    return { bunnies: bunniesArray };
+                })
+            .catch( console.log );
 
-            const bunniesArray = prevState.bunnies;
-            bunniesArray.push(bunny);
-
-            return { bunnies: bunniesArray };
-        })
+            })
     }
 
-    onRemove = () => {
-        this.setState((prevState, props) => {
-            const index = this.state.current;
-            const bunniesArray = prevState.bunnies;
-            const newBunnies = [
-                ...bunniesArray.slice(0, index),
-                ...bunniesArray.slice(index + 1)
-            ]
-            const newIndex = index === 0 ? 0 : index - 1;
-
-            return { bunnies: newBunnies, current: newIndex };
-        })
+    onRemove = (id) => {
+        return bunniesApi.remove(id)
+            .then( response => {
+                this.setState((prevState, props) => {
+                    const index = this.state.current;
+                    const bunniesArray = prevState.bunnies;
+                    const newBunnies = [
+                        ...bunniesArray.slice(0, index),
+                        ...bunniesArray.slice(index + 1)
+                    ]
+                    const newIndex = index === 0 ? 0 : index - 1;
+                    
+                    return { bunnies: newBunnies, current: newIndex };
+                })
+                
+            })
+            .catch(console.log);
     }
 
     toggleAddForm() {
