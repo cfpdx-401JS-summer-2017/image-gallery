@@ -22,7 +22,7 @@ export default class ImageThumbnail extends Component {
                             <img src={image.url} width="200" alt="bunny" />
                             <p>{image.title}</p>
                             <p>{image.description}</p>
-                            <button onClick = {() => onRemove(image)}>Remove</button>
+                            <button onClick = {() => onRemove(image, index)}>Remove</button>
                         </div>
                     )
                 })}

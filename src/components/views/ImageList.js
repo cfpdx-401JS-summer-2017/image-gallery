@@ -20,7 +20,7 @@ export default class ImageList extends Component {
                 {this.props.images.map((image, index) => {
                     return (<li key={index}> <a href={image.url}> {image.title}</a>
                         <p>{image.description}</p>
-                        <button onClick = {() => onRemove(image)}>Remove</button>
+                        <button onClick = {() => onRemove(image, index)}>Remove</button>
                     </li>
                     )
                 })}
