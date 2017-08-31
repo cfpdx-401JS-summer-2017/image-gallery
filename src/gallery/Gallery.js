@@ -27,7 +27,7 @@ export default class Gallery extends Component {
                 </button>
                 <br></br>
                 <button 
-                    onClick={(event) => this.props.onRemove()} >
+                    onClick={(event) => this.props.onRemove(bunny._id)} >
                     Remove this Bunny
                 </button>
             </div>

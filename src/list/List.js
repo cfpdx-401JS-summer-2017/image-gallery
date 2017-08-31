@@ -18,9 +18,9 @@ export default class List extends Component {
 	
 		return (
 			<ul className="list">
-				{ this.props.bunnies.map( (bunny, index) => {
+				{ this.props.bunnies.map( (bunny) => {
 					return (
-						<li key={index}>
+						<li key={bunny._id}>
 						<a href={bunny.url}>{bunny.title}</a>
 						<p>{bunny.description}</p>
 						</li>)

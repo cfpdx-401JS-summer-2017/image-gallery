@@ -10,9 +10,9 @@ export default class Thumbnail extends Component {
     render() {
         return (
             <div className="thumbnails">
-                { this.props.bunnies.map( ( bunny, index ) => {
+                { this.props.bunnies.map( ( bunny ) => {
                     return (
-                        <div key={index}>
+                        <div key={bunny._id}>
                             <img src={bunny.url} alt={bunny.title}/>
                             <h6>{bunny.title}</h6>
                         </div>
