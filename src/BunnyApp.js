@@ -128,7 +128,7 @@ class BunnyApp extends Component {
                         </button>
                     </section>
                     }
-                    <BunnyView bunnies={bunnies} bunny={bunny} onUpdate={this.updateBunny} onDelete={this.removeBunny}/>                    
+                    <BunnyView bunnies={bunnies} bunny={bunny} onDelete={this.removeBunny}/>                    
                 </section>
                 <section>
                     <AddBunny onAdd={this.addBunny}/>

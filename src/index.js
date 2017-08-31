@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './BunnyApp';
-import BasicExample from'./routing';
+import TopBar from'./routing';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<BasicExample />, document.getElementById('root'));
+ReactDOM.render(<TopBar />, document.getElementById('root'));
 registerServiceWorker();

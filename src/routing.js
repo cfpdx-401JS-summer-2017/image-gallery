@@ -13,22 +13,21 @@ const About = () => (
         <h2>About</h2>
     </div>
 );
-const BasicExample = () => (
-    <Router>
-        <div>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/photos">photos</Link></li>
-            </ul>
+export const TopBar = () => (
+    
+    <div>
+        <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/photos">photos</Link></li>
+        </ul>
 
-            <hr/>
+        <hr/>
 
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/about" component={About}/>
-            <Route path="/photos" component={BunnyApp} onSubmit={this.handleSubmit}/>
-        </div>
-    </Router>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/about" component={About}/>
+        <Route path="/photos" component={BunnyApp} />
+    </div>
 );
 
-export default BasicExample;
+export default () => <Router><TopBar/></Router>;
