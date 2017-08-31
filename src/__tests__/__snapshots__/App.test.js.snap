@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App loads a view 1`] = `
+<div
+  className="App"
+>
+  <button
+    name="view"
+    onClick={[Function]}
+  >
+    List
+  </button>
+  <button
+    name="view"
+    onClick={[Function]}
+  >
+    Thumbnail
+  </button>
+  <div
+    className="Viewer"
+  >
+    <Gallery
+      bunnies={
+        Array [
+          Object {
+            "description": "Speckle bunny is so cute!",
+            "title": "Cute Bunny",
+            "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+          },
+          Object {
+            "description": "Help I've fallen and need cuddles to get up.",
+            "title": "Cuter Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg",
+          },
+          Object {
+            "description": "I'm a snowball but not cold.",
+            "title": "Cutest Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg",
+          },
+        ]
+      }
+      current={0}
+      cycleView={[Function]}
+      onDeleteBunny={[Function]}
+    />
+  </div>
+  <button
+    name="addBunny"
+    onClick={[Function]}
+  >
+    Add bunny
+  </button>
+  <Editor
+    addBunny={false}
+    onSave={[Function]}
+  />
+</div>
+`;
+
+exports[`App loads a view 2`] = `
+<div
+  className="App"
+>
+  <button
+    name="view"
+    onClick={[Function]}
+  >
+    List
+  </button>
+  <button
+    name="view"
+    onClick={[Function]}
+  >
+    Thumbnail
+  </button>
+  <div
+    className="Viewer"
+  >
+    <Gallery
+      bunnies={
+        Array [
+          Object {
+            "description": "Speckle bunny is so cute!",
+            "title": "Cute Bunny",
+            "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+          },
+          Object {
+            "description": "Help I've fallen and need cuddles to get up.",
+            "title": "Cuter Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg",
+          },
+          Object {
+            "description": "I'm a snowball but not cold.",
+            "title": "Cutest Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg",
+          },
+        ]
+      }
+      current={0}
+      cycleView={[Function]}
+      onDeleteBunny={[Function]}
+    />
+  </div>
+  <button
+    name="addBunny"
+    onClick={[Function]}
+  >
+    Add bunny
+  </button>
+  <Editor
+    addBunny={false}
+    onSave={[Function]}
+  />
+</div>
+`;
+
+exports[`App loads a view 3`] = `
+<div
+  className="App"
+>
+  <button
+    name="view"
+    onClick={[Function]}
+  >
+    List
+  </button>
+  <button
+    name="view"
+    onClick={[Function]}
+  >
+    Thumbnail
+  </button>
+  <div
+    className="Viewer"
+  >
+    <Gallery
+      bunnies={
+        Array [
+          Object {
+            "description": "Speckle bunny is so cute!",
+            "title": "Cute Bunny",
+            "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+          },
+          Object {
+            "description": "Help I've fallen and need cuddles to get up.",
+            "title": "Cuter Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg",
+          },
+          Object {
+            "description": "I'm a snowball but not cold.",
+            "title": "Cutest Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg",
+          },
+        ]
+      }
+      current={0}
+      cycleView={[Function]}
+      onDeleteBunny={[Function]}
+    />
+  </div>
+  <button
+    name="addBunny"
+    onClick={[Function]}
+  >
+    Add bunny
+  </button>
+  <Editor
+    addBunny={false}
+    onSave={[Function]}
+  />
+</div>
+`;
+
+exports[`App loads a view 4`] = `
+<div
+  className="App"
+>
+  <button
+    name="view"
+    onClick={[Function]}
+  >
+    List
+  </button>
+  <button
+    name="view"
+    onClick={[Function]}
+  >
+    Thumbnail
+  </button>
+  <div
+    className="Viewer"
+  >
+    <Gallery
+      bunnies={
+        Array [
+          Object {
+            "description": "Speckle bunny is so cute!",
+            "title": "Cute Bunny",
+            "url": "http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg",
+          },
+          Object {
+            "description": "Help I've fallen and need cuddles to get up.",
+            "title": "Cuter Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg",
+          },
+          Object {
+            "description": "I'm a snowball but not cold.",
+            "title": "Cutest Bunny",
+            "url": "http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg",
+          },
+        ]
+      }
+      current={0}
+      cycleView={[Function]}
+      onDeleteBunny={[Function]}
+    />
+  </div>
+  <button
+    name="addBunny"
+    onClick={[Function]}
+  >
+    Add bunny
+  </button>
+  <Editor
+    addBunny={false}
+    onSave={[Function]}
+  />
+</div>
+`;
