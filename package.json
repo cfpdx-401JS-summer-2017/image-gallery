@@ -1,0 +1,35 @@
+{
+  "proxy":"http://localhost:3001",
+  "name": "image-gallery",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Alchemy Code Lab image-gallery stuff to show of my react skills",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.11",
+    "superagent": "^3.6.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomson42/image-gallery.git"
+  },
+  "author": "Wendy Beck, Stephanie Fitzgerald, Christopher Thomson",
+  "bugs": {
+    "url": "https://github.com/Thomson42/image-gallery/issues"
+  },
+  "homepage": "https://github.com/Thomson42/image-gallery#readme",
+  "devDependencies": {
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "jest": "^20.1.0-alpha.3",
+    "react-test-renderer": "^15.6.1"
+  }
+}

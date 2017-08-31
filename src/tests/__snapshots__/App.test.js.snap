@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BunnyApp shows detail 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`BunnyApp shows gallery 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`BunnyApp shows thumbnail 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`renders a snapshot 1`] = `
+<div>
+  Loading...
+</div>
+`;
