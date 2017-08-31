@@ -58,14 +58,14 @@ div {
 }
 
 .addImageForm {
-  width: 60%;
+  width: 50%;
   display: inline-block;
   float: left;
   margin: 0 0 0 25px;
 }
 
 .addImageTextInput {
-  width: 80%;
+  width: 60%;
   height: 20px;
   border-radius: 10px;
   border: 1px solid darkgrey;
@@ -162,3 +162,42 @@ button:hover {
   margin: 0 10px 0 0;
   font-weight: bold;
 }
+
+
+.slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  height: 300px;
+}
+
+.slides {
+  transition: left 2s;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.slides li {
+  float: left;
+  background: #ccc;
+  list-style-type: none;
+  height: 300px;
+}
+
+.pagers {
+  text-align: center;
+  top: -50px;
+  z-index: 1000;
+  position: relative;
+}
+
+.pagers li {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #fff;
+  display: inline-block;
+  border-radius: 20px;
+  margin-right: 8px;
+}
+

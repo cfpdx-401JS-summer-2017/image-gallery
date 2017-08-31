@@ -6,7 +6,7 @@
 
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 10s linear;
   height: 80px;
   padding: 10px;
   border: 0;
@@ -14,11 +14,12 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #fff;
   height: 10%;
   padding: 20px;
   color: white;
   margin: 0 0 25px 0;
+  border-bottom: 1px solid darkgrey;
 }
 
 .App-header span {

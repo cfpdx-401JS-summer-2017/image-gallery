@@ -1,32 +1,34 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default class ChooseView extends PureComponent {
-  static propTypes = {
-    view: PropTypes.string,
-    onChangeView: PropTypes.func,
-    onSubmitImage: PropTypes.func
-  };
+ChooseView.propTypes = {
+  view: PropTypes.string,
+  onChangeView: PropTypes.func
+};
 
-  render() {
-    const {  onChangeView, view } = this.props;
-    return (
-      <div className="viewChooserWrap">
-        {['list', 'thumb', 'gallery'].map((currentView, i) =>
-          <div key={i} className="view">
-            <span>
+function ChooseView({ view, onChangeView }) {
+
+  return (
+    <div className="viewChooserWrap">
+      {['list', 'thumb', 'gallery'].map((currentView, i) =>
+        <div key={i} className="view" >
+          <NavLink
+            to={{
+              pathname: "/images",
+              search: `${currentView}`
+            }}
+            activeStyle={{
+              color: '#000000'
+            }}>
+            <div onClick={target => onChangeView({ currentView })}>
               {currentView}
-            </span>
-            <input
-              type="radio"
-              className="viewChooser"
-              name={currentView}
-              checked={currentView === view}
-              onChange={target => onChangeView({ currentView })}
-            />
-          </div>
-        )}
-      </div>
-    );
-  }
+            </div>
+          </NavLink>
+        </div>
+      )}
+    </div>
+  );
 }
+
+export default ChooseView;
