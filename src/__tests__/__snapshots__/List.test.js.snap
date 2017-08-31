@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List lists bunnies 1`] = `
+<ul
+  className="list"
+>
+  <li>
+    <a
+      href="http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg"
+    >
+      Cute Bunny
+    </a>
+    <p>
+      Speckle bunny is so cute!
+    </p>
+  </li>
+  <li>
+    <a
+      href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-25__605.jpg"
+    >
+      Cuter Bunny
+    </a>
+    <p>
+      Help I've fallen and need cuddles to get up.
+    </p>
+  </li>
+  <li>
+    <a
+      href="http://static.boredpanda.com/blog/wp-content/uploads/2015/09/cute-bunnies-110__605.jpg"
+    >
+      Cutest Bunny
+    </a>
+    <p>
+      I'm a snowball but not cold.
+    </p>
+  </li>
+</ul>
+`;

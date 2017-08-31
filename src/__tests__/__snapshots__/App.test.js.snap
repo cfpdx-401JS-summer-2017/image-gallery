@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App loads a view 1`] = `
+<BrowserRouter>
+  <div
+    className="App"
+  >
+    <h2>
+      This is a vanilla React App
+    </h2>
+    <withRouter(Navigation) />
+  </div>
+</BrowserRouter>
+`;
+
+exports[`App loads a view 2`] = `
+<BrowserRouter>
+  <div
+    className="App"
+  >
+    <h2>
+      This is a vanilla React App
+    </h2>
+    <withRouter(Navigation) />
+  </div>
+</BrowserRouter>
+`;
+
+exports[`App loads a view 3`] = `
+<BrowserRouter>
+  <div
+    className="App"
+  >
+    <h2>
+      This is a vanilla React App
+    </h2>
+    <withRouter(Navigation) />
+  </div>
+</BrowserRouter>
+`;
+
+exports[`App loads a view 4`] = `
+<BrowserRouter>
+  <div
+    className="App"
+  >
+    <h2>
+      This is a vanilla React App
+    </h2>
+    <withRouter(Navigation) />
+  </div>
+</BrowserRouter>
+`;
