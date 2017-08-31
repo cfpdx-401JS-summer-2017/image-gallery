@@ -5,18 +5,10 @@ exports[`App loads a view 1`] = `
   <div
     className="App"
   >
-    <Switch>
-      <Route
-        path="/"
-        render={[Function]}
-      />
-    </Switch>
-    <button
-      name="addBunny"
-      onClick={[Function]}
-    >
-      Add bunny
-    </button>
+    <h2>
+      This is a vanilla React App
+    </h2>
+    <withRouter(Navigation) />
   </div>
 </BrowserRouter>
 `;
@@ -26,18 +18,10 @@ exports[`App loads a view 2`] = `
   <div
     className="App"
   >
-    <Switch>
-      <Route
-        path="/"
-        render={[Function]}
-      />
-    </Switch>
-    <button
-      name="addBunny"
-      onClick={[Function]}
-    >
-      Add bunny
-    </button>
+    <h2>
+      This is a vanilla React App
+    </h2>
+    <withRouter(Navigation) />
   </div>
 </BrowserRouter>
 `;
@@ -47,18 +31,10 @@ exports[`App loads a view 3`] = `
   <div
     className="App"
   >
-    <Switch>
-      <Route
-        path="/"
-        render={[Function]}
-      />
-    </Switch>
-    <button
-      name="addBunny"
-      onClick={[Function]}
-    >
-      Add bunny
-    </button>
+    <h2>
+      This is a vanilla React App
+    </h2>
+    <withRouter(Navigation) />
   </div>
 </BrowserRouter>
 `;
@@ -68,18 +44,10 @@ exports[`App loads a view 4`] = `
   <div
     className="App"
   >
-    <Switch>
-      <Route
-        path="/"
-        render={[Function]}
-      />
-    </Switch>
-    <button
-      name="addBunny"
-      onClick={[Function]}
-    >
-      Add bunny
-    </button>
+    <h2>
+      This is a vanilla React App
+    </h2>
+    <withRouter(Navigation) />
   </div>
 </BrowserRouter>
 `;

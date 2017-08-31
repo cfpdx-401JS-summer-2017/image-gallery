@@ -21,5 +21,11 @@ exports[`Gallery displays bunnies in a gallery 1`] = `
   >
     Next
   </button>
+  <br />
+  <button
+    onClick={[Function]}
+  >
+    Remove this Bunny
+  </button>
 </div>
 `;

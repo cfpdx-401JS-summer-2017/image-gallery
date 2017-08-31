@@ -9,7 +9,7 @@ import Gallery from '../gallery/Gallery';
 describe( 'Gallery', () => {
 
     it( 'displays bunnies in a gallery', () => {
-        const wrapper = shallow(<Gallery bunnies={Bunnies}/>);
+        const wrapper = shallow(<Gallery bunnies={Bunnies} current={0}/>);
         expect(toJSON(wrapper)).toMatchSnapshot();
     });
 
