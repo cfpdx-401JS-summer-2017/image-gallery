@@ -15,11 +15,10 @@ export default class List extends Component {
 
 	render () {
 		
-		const { props } = this.props;
-		
+	
 		return (
 			<ul className="list">
-				{ props.bunnies.map( (bunny, index) => {
+				{ this.props.bunnies.map( (bunny, index) => {
 					return (
 						<li key={index}>
 						<a href={bunny.url}>{bunny.title}</a>

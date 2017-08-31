@@ -5,6 +5,7 @@ import Gallery from '../gallery/Gallery';
 import qs from 'qs';
 import { NavLink } from 'react-router-dom';
 import Bunnies from '../images/bunnies';
+import Editor from '../edit/Editor';
 
 const View = {
     gallery: Gallery,
@@ -101,7 +102,15 @@ export default class Viewer extends Component {
         return (
             <div>
                 <ViewSelector views={this.state.views} />
-                <BunnyView props={this.state} />
+                <BunnyView 
+                    bunnies={this.state.bunnies}
+                    current={this.state.current}
+                    handleClick={this.handleClick}
+                    cycleView={this.cycleView}
+                    onRemove={this.onRemove}
+                    toggleAddForm={this.toggleAddForm}
+                />
+                <Editor onAdd={this.onAdd}/>
             </div>
         )
 
