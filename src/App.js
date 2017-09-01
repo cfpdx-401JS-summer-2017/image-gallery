@@ -6,7 +6,7 @@ import Detail from './components/views/Detail';
 import Home from '../src/components/static/Home';
 import About from '../src/components/static/About';
 import hondas from './data/hondas';
-import { DefaultImages, DeleteImage } from './services/imageService';
+import { populateDB, DeleteImage } from './services/imageService';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 export default class App extends Component {
@@ -20,7 +20,7 @@ export default class App extends Component {
 
   componentDidMount() {
     const { motoArray, view } = this.state;
-    DefaultImages(motoArray);
+    populateDB();
     this.setState({ view: view });
   }
 

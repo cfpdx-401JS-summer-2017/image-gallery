@@ -43,9 +43,3 @@ it('loads default images', () => {
   const wrapper = shallow(<App />);
 
 });
-
-// You also need to snapshot test:
-// * your imaging viewing components
-// * the wrapper component (in each view state)
-// Unit test:
-// * Data edit actions
