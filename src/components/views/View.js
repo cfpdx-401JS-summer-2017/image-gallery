@@ -15,7 +15,6 @@ View.propTypes = {
 
 export default function View({ hondas, deleteImage, onChangeView, view }) {
   const currentView = view || 'gallery';
-  console.log(currentView);
   const View =
     currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
 

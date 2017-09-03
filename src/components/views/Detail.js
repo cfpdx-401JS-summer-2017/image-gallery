@@ -6,9 +6,7 @@ Detail.propTypes = {
 };
 
 export default function Detail({ location }) {
-  console.log('detail: ', location.pathname);
   let honda = location.params.honda;
-  console.log(location.pathname, honda.url);
   return (
     <div className="detailView">
       <div>

@@ -5,21 +5,21 @@ import View from '../src/components/views/View';
 import Detail from './components/views/Detail';
 import Home from '../src/components/static/Home';
 import About from '../src/components/static/About';
-import hondas from './data/hondas';
+// import hondas from './data/hondas';
 import { populateDB, DeleteImage } from './services/imageService';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+require('dotenv').config();
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      motoArray: hondas,
       view: 'gallery'
     };
   }
 
   componentDidMount() {
-    const { motoArray, view } = this.state;
+    const { view } = this.state;
     populateDB();
     this.setState({ view: view });
   }
@@ -35,8 +35,7 @@ export default class App extends Component {
   }
 
   updateSlide(target) {
-    // console.log('in this.updateSlide: ', target) this.setState({ imgIndex: target
-    // });
+
   }
 
   render() {
@@ -68,7 +67,7 @@ export default class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route
+              {/* <Route
                 exact
                 path="/images"
                 render={() => (
@@ -79,7 +78,7 @@ export default class App extends Component {
                     view={view}
                   />
                 )}
-              />
+              /> */}
               <Route path="/images/detail/" component={Detail} />
               <Route path="/about" component={About} /> />
             </Switch>
