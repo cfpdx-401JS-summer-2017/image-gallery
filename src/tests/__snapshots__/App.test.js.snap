@@ -28,42 +28,7 @@ exports[`renders a snapshot in gallery view 1`] = `
   <div
     className="galleryView"
   >
-    <div>
-      <input
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <img
-        alt="honda!"
-        className="galleryImg"
-        src="./images/detail/./images/01-honda-CB450-1986.jpg"
-        value={0}
-      />
-    </div>
-    <div>
-      <input
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <img
-        alt="honda!"
-        className="galleryImg"
-        src="./images/detail/./images/02-honda-CB1100F.jpg"
-        value={1}
-      />
-    </div>
-    <div>
-      <input
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <img
-        alt="honda!"
-        className="galleryImg"
-        src="./images/detail/./images/03-honda.jpg"
-        value={2}
-      />
-    </div>
+    Gallery!
   </div>
 </Gallery>
 `;

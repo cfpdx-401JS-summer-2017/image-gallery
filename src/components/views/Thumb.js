@@ -2,24 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 Thumb.propTypes = {
-  hondas: PropTypes.arrayOf(PropTypes.object).isRequired,
-  deleteImage: PropTypes.func
+  deleteImage: PropTypes.func,
+  imagesFromParent: PropTypes.func
 };
 
-export default function Thumb({ hondas, deleteImage }) {
+export default function Thumb({ deleteImage, imagesFromParent }) {
+  const imageArray = imagesFromParent();
+
   return (
-    <div className="thumbView">
-      {hondas.map((honda, i) => (
+    <div className="thumbView">Thumb!
+      {imageArray.map((image, i) => (
         <div key={i}>
           <input type="checkbox" onChange={target => deleteImage(i)} />
           <img
             value={i}
             className="thumbImg"
-            alt={honda.alt}
-            src={`./images/detail/${honda.url}`}
+            alt={image.alt}
+            src={`./images/detail/${image.url}`}
           />
-          <div className="title" key={honda.title}>
-            {honda.title}
+          <div className="title" key={image.title}>
+            {image.title}
           </div>
         </div>
       ))}

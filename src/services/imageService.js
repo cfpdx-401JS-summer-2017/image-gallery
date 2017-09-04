@@ -14,6 +14,7 @@ export const populateDB = async () => {
     };
     const savedImage = await superagent.post(`${apiURL}/images`).send(photo);
     postResponses.push(savedImage.text);
+    return postResponses;
   });
   return postResponses;
 };
@@ -26,14 +27,14 @@ export const populateDB = async () => {
 // })
 
 export function AddNewImage(title, desc, url, hondas) {
-  //   const newImage = { title: title, description: desc, url: url };
-  //   return hondas.push(newImage);
+//   //   const newImage = { title: title, description: desc, url: url };
+//   //   return hondas.push(newImage);
 }
 
-export function DefaultImages(hondas, selectedIndex) {}
+// export function DefaultImages(hondas, selectedIndex) {}
 
 export function DeleteImage(hondas, selectedIndex) {
-  // const index = hondas.indexOf(hondas[selectedIndex]);
-  // if (index === -1) return hondas;
-  // return [...hondas.slice(0, index), ...hondas.slice(index + 1)];
+//   // const index = hondas.indexOf(hondas[selectedIndex]);
+//   // if (index === -1) return hondas;
+//   // return [...hondas.slice(0, index), ...hondas.slice(index + 1)];
 }

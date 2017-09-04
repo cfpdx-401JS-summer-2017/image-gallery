@@ -2,21 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 Gallery.propTypes = {
-  hondas: PropTypes.arrayOf(PropTypes.object).isRequired,
-  deleteImage: PropTypes.func
+  imageArray: PropTypes.array,
+  deleteImage: PropTypes.func,
+  imagesFromParent: PropTypes.func
 };
 
-export default function Gallery({ hondas, deleteImage }) {
+export default function Gallery({ deleteImage, imagesFromParent }) {
+  const imageArray = imagesFromParent();
+
   return (
-    <div className="galleryView">
-      {hondas.map((honda, i) => (
+    <div className="galleryView">Gallery!
+      {imageArray.map((image, i) => (
         <div key={i}>
           <input type="checkbox" onChange={target => deleteImage({ i })} />
           <img
             value={i}
             className="galleryImg"
-            alt={honda.alt}
-            src={`./images/detail/${honda.url}`}
+            alt={image.alt}
+            src={image.url}
           />
         </div>
       ))}

@@ -3,22 +3,24 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 List.propTypes = {
-  hondas: PropTypes.arrayOf(PropTypes.object).isRequired
+  imagesFromParent: PropTypes.func
 };
 
-export default function List({ hondas }) {
+export default function List({ imagesFromParent }) {
+  const imageArray = imagesFromParent();
+
   return (
-    <div className="listView">
+    <div className="listView">List!
       <ul>
-        {hondas.map((honda, i) => (
+        {imageArray.map((image, i) => (
           <li key={i}>
-            <span className="title">{honda.title}</span>
-            <span>{honda.description}</span>
+            <span className="title">{image.title}</span>
+            <span>{image.description}</span>
             <Link
               to={{
                 pathname: '/images/detail',
                 search: `${i}`,
-                params: { honda }
+                params: { image }
               }}>
               <span role="img" aria-label="linktodetailpage">
                 &#128279;

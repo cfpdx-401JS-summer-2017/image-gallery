@@ -5,42 +5,47 @@ import View from '../src/components/views/View';
 import Detail from './components/views/Detail';
 import Home from '../src/components/static/Home';
 import About from '../src/components/static/About';
-// import hondas from './data/hondas';
 import { populateDB, DeleteImage } from './services/imageService';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
 require('dotenv').config();
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'gallery'
+      view: '',
+      imageArray: []
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { view } = this.state;
-    populateDB();
-    this.setState({ view: view });
+    const initImages = await populateDB();
+    this.setState({ imageArray: initImages, view: 'gallery' });
   }
 
   handleChangeView(target) {
-    this.setState({ view: target.currentView });
+    console.log(target)
+    this.setState({ view: target.view });
   }
 
   deleteImage({ target }) {
-    const { motoArray } = this.state;
-    let imagesAfterDelete = DeleteImage(motoArray, target.i);
-    this.setState({ motoArray: imagesAfterDelete });
+    const { imageArray } = this.state;
+    let imagesAfterDelete = DeleteImage(imageArray, target.i);
+    this.setState({ imageArray: imagesAfterDelete });
   }
 
   updateSlide(target) {
 
   }
+  getImagesFromParent = () => {
+    return this.state.imageArray;
+  }
 
   render() {
-    const { motoArray, view } = this.state;
-
+    const { view, imageArray } = this.state;
+    const {match, location} = this.props;
+    console.log('in app: ', imageArray, match, location )
     return (
       <Router>
         <div className="App">
@@ -52,33 +57,34 @@ export default class App extends Component {
             </span>
             <div className="navLinks">
               <span>
-                <Link to={{ pathname: '/' }}>Home</Link>
+                <NavLink to={{ pathname: '/' }}>Home</NavLink>
               </span>{' '}
               <span>
-                <Link to={{ pathname: '/images', search: `${view}` }}>
+                <NavLink  to={{ pathname: '/images', search: `${view}`, imagesFromParent:`${this.getImagesFromParent}` }}>
                   Images
-                </Link>
+                </NavLink>
               </span>{' '}
               <span>
-                <Link to={{ pathname: '/about' }}>About</Link>
+                <NavLink to={{ pathname: '/about' }}>About</NavLink>
               </span>
             </div>
           </div>
           <div>
             <Switch>
               <Route exact path="/" component={Home} />
-              {/* <Route
-                exact
-                path="/images"
-                render={() => (
+              <Route
+                exact render={() => (
                   <View
-                    hondas={motoArray}
                     deleteImage={target => this.deleteImage({ target })}
                     onChangeView={target => this.handleChangeView(target)}
                     view={view}
+                    imageArray={imageArray}
+                    match={match}
+                    location={location}
+                    imagesFromParent={this.getImagesFromParent}
                   />
                 )}
-              /> */}
+              />
               <Route path="/images/detail/" component={Detail} />
               <Route path="/about" component={About} /> />
             </Switch>
