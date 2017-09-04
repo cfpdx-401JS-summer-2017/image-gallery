@@ -14,7 +14,6 @@ View.propTypes = {
 };
 
 export default function View({ imageArray, deleteImage, onChangeView, view, imagesFromParent }) {
-  console.log('in view: ', imageArray, imagesFromParent)
   const currentView = view || 'gallery';
   const View =
     currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
@@ -26,13 +25,12 @@ export default function View({ imageArray, deleteImage, onChangeView, view, imag
         <ChooseView
           view={currentView}
           onChangeView={target => onChangeView(target)}
-          imageArray={imageArray}
           imagesFromParent={imagesFromParent}
         />
         <AddImage imageArray={imageArray} />
       </div>
       <div>
-        <View imagesFromParent={imagesFromParent} deleteImage={target => deleteImage(target)} />
+        <View imagesFromParent={imagesFromParent} view={currentView} deleteImage={target => deleteImage(target)} />
       </div>
     </div>
   );

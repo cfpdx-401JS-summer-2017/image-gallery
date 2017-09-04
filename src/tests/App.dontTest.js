@@ -15,7 +15,7 @@ it('renders without crashing', () => {
 });
 
 it('renders a snapshot in gallery view', () => {
-  const wrapper = mount(<Gallery hondas={hondas} />);
+  const wrapper = mount(<Gallery view="gallery" imagesFromParent={()=>{}}/>);
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 

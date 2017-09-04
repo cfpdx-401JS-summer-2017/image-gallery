@@ -6,8 +6,8 @@ Thumb.propTypes = {
   imagesFromParent: PropTypes.func
 };
 
-export default function Thumb({ deleteImage, imagesFromParent }) {
-  const imageArray = imagesFromParent();
+export default function Thumb({ deleteImage, imagesFromParent, view }) {
+  const {imageArray} = imagesFromParent();
 
   return (
     <div className="thumbView">Thumb!

@@ -2,21 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 Detail.propTypes = {
-  location: PropTypes.object
+  imagesFromParent: PropTypes.func
 };
 
-export default function Detail({ location }) {
-  let honda = location.params.honda;
+export default function Detail({ i, image }) {
+
+  console.log(i, image)
   return (
     <div className="detailView">
       <div>
         <img
           className="detailImage"
-          alt={honda.alt}
-          src={`${location.pathname}/${honda.url}`}
+          alt={image.alt}
+          src={`${image.url}`}
         />
-        <div className="title">{honda.title} </div>
-        <div className="description">{honda.description}</div>
+        <div className="title">{image.title} </div>
+        <div className="description">{image.description}</div>
       </div>
     </div>
   );

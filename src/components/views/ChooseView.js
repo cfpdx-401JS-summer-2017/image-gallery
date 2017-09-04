@@ -3,14 +3,13 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 ChooseView.propTypes = {
-  view: PropTypes.string,
-  imageArray: PropTypes.array,
-  onChangeView: PropTypes.func
+  currentView: PropTypes.string,
+  onChangeView: PropTypes.func,
+  imagesFromParent: PropTypes.func
 };
 
-function ChooseView({ location, match, imageArray, view, onChangeView , imagesFromParent}) {
-  console.log('in choose: ', imageArray, imagesFromParent);
-
+function ChooseView({ onChangeView, imagesFromParent }) {
+console.log(imagesFromParent, typeof imagesFromParent)
   return (
     <div className="viewChooserWrap">
       {['list', 'thumb', 'gallery'].map((currentView, i) => (
@@ -19,11 +18,7 @@ function ChooseView({ location, match, imageArray, view, onChangeView , imagesFr
             to={{
               pathname: '/images',
               search: `${currentView}`,
-              imageArray: `${imageArray}`,
-              location: `${location}`,
-              match: `${match}`,
-              imagesFromParent: `${imagesFromParent}`,
-              dataFromChild: `${imageArray}`
+              imagesFromParent: `${imagesFromParent}`
             }}
             activeStyle={{
               color: '#000000'

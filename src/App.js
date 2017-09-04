@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './cb750.svg';
 import './App.css';
 import View from '../src/components/views/View';
-import Detail from './components/views/Detail';
 import Home from '../src/components/static/Home';
 import About from '../src/components/static/About';
 import { populateDB, DeleteImage } from './services/imageService';
@@ -19,14 +18,12 @@ export default class App extends Component {
   }
 
   async componentDidMount() {
-    const { view } = this.state;
     const initImages = await populateDB();
-    this.setState({ imageArray: initImages, view: 'gallery' });
+    this.setState({ imageArray: initImages});
   }
 
   handleChangeView(target) {
-    console.log(target)
-    this.setState({ view: target.view });
+    this.setState({ view: target.currentView });
   }
 
   deleteImage({ target }) {
@@ -39,13 +36,11 @@ export default class App extends Component {
 
   }
   getImagesFromParent = () => {
-    return this.state.imageArray;
+    return {imageArray: this.state.imageArray, view: this.state.view};
   }
 
   render() {
-    const { view, imageArray } = this.state;
-    const {match, location} = this.props;
-    console.log('in app: ', imageArray, match, location )
+    const { view, imageArray, getImagesFromParent } = this.state;
     return (
       <Router>
         <div className="App">
@@ -60,7 +55,7 @@ export default class App extends Component {
                 <NavLink to={{ pathname: '/' }}>Home</NavLink>
               </span>{' '}
               <span>
-                <NavLink  to={{ pathname: '/images', search: `${view}`, imagesFromParent:`${this.getImagesFromParent}` }}>
+                <NavLink  to={{ pathname: '/images', search: `${view}`, imagesFromParent:`${getImagesFromParent}` }}>
                   Images
                 </NavLink>
               </span>{' '}
@@ -79,13 +74,10 @@ export default class App extends Component {
                     onChangeView={target => this.handleChangeView(target)}
                     view={view}
                     imageArray={imageArray}
-                    match={match}
-                    location={location}
                     imagesFromParent={this.getImagesFromParent}
                   />
                 )}
               />
-              <Route path="/images/detail/" component={Detail} />
               <Route path="/about" component={About} /> />
             </Switch>
           </div>
