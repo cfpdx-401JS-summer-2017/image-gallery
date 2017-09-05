@@ -18,7 +18,6 @@ export default function View({ imageArray, deleteImage, onChangeView, view, imag
   const View =
     currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
 
-
     return (
     <div>
       <div className="functionsHeader">

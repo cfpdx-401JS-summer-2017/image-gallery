@@ -8,7 +8,6 @@ Gallery.propTypes = {
 };
 
 export default function Gallery({ deleteImage, imagesFromParent }) {
-  console.log(imagesFromParent, typeof imagesFromParent)
 
   const {imageArray} = imagesFromParent();
 

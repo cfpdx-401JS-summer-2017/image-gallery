@@ -19,13 +19,6 @@ export const populateDB = async () => {
   return postResponses;
 };
 
-// export buildImageArray( async (req, res, next) => {
-//   await connect();
-//   const image = new Image(req.body);
-//   const response = await image.save(image);
-//   res.send(response);
-// })
-
 export function AddNewImage(title, desc, url, hondas) {
 //   //   const newImage = { title: title, description: desc, url: url };
 //   //   return hondas.push(newImage);

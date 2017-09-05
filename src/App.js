@@ -74,7 +74,7 @@ export default class App extends Component {
                     onChangeView={target => this.handleChangeView(target)}
                     view={view}
                     imageArray={imageArray}
-                    imagesFromParent={this.getImagesFromParent}
+                    imagesFromParent={getImagesFromParent}
                   />
                 )}
               />

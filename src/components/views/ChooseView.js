@@ -9,7 +9,6 @@ ChooseView.propTypes = {
 };
 
 function ChooseView({ onChangeView, imagesFromParent }) {
-console.log(imagesFromParent, typeof imagesFromParent)
   return (
     <div className="viewChooserWrap">
       {['list', 'thumb', 'gallery'].map((currentView, i) => (
