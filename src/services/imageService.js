@@ -1,5 +1,4 @@
 require('dotenv').config();
-const apiURL = process.env.REACT_APP_API_URL;
 const superagent = require('superagent');
 const photos = require('./imageurls.json');
 
@@ -12,7 +11,7 @@ export const populateDB = async () => {
       alt: 'alt text',
       description: 'description'
     };
-    const savedImage = await superagent.post(`${apiURL}/images`).send(photo);
+    const savedImage = await superagent.post('/api/images').send(photo);
     postResponses.push(savedImage.text);
     return postResponses;
   });
@@ -28,7 +27,7 @@ export const AddNewImage = async (title, desc, url) => {
     "description": desc
   };
 
-  const savedImage = await superagent.post(`${apiURL}/images`).send(newPhoto);
+  const savedImage = await superagent.post(`/api/images`).send(newPhoto);
   console.log('savedImage: ', savedImage)
 //   //   const newImage = { title: title, description: desc, url: url };
 //   //   return hondas.push(newImage);
