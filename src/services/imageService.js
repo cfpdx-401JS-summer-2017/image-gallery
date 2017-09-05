@@ -18,14 +18,14 @@ export const populateDB = async () => {
   return postResponses;
 };
 
-export const AddNewImage = async (newPhoto) => {
+export const AddNewImage = async newPhoto => {
   const savedImage = await superagent.post(`/api/images`).send(newPhoto);
   return savedImage;
-}
+};
 
-
-export function DeleteImage(hondas, selectedIndex) {
-//   // const index = hondas.indexOf(hondas[selectedIndex]);
-//   // if (index === -1) return hondas;
-//   // return [...hondas.slice(0, index), ...hondas.slice(index + 1)];
-}
+export const DeleteImage = async selectedIndex => {
+  const deletedImage = await superagent
+    .delete(`/api/images`)
+    .query({ _id: selectedIndex });
+  return deletedImage;
+};

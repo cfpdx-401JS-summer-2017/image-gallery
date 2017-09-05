@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import logo from './cb750.svg';
 import './App.css';
@@ -6,60 +5,56 @@ import View from '../src/components/views/View';
 import Home from '../src/components/static/Home';
 import About from '../src/components/static/About';
 import { populateDB, DeleteImage, AddNewImage } from './services/imageService';
-import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
-const superagent = require('superagent');
-require('dotenv').config();
-const apiURL = process.env.REACT_APP_API_URL;
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink
+} from 'react-router-dom';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       view: '',
-      imageArray: []
+      images: []
     };
   }
 
   async componentDidMount() {
     const initImages = await populateDB();
-    this.setState({ imageArray: initImages});
+    this.setState({ images: initImages });
   }
 
   handleChangeView(target) {
     this.setState({ view: target.currentView });
   }
 
-  deleteImage({ target }) {
-    const { imageArray } = this.state;
-    let imagesAfterDelete = DeleteImage(imageArray, target.i);
-    this.setState({ imageArray: imagesAfterDelete });
+  async deleteImage({ target }) {
+    const { images } = this.state;
+    const index = target.i;
+    const del = await DeleteImage(index);
+    if (del.status !== 200) return
+      this.setState({ images: [...images.slice(0, index), ...images.slice(index + 1)]});
   }
 
-
-  async addImage( {title, desc, url}) {
-
+  async addImage({ title, desc, url }) {
     const newPhoto = {
-       "title": title,
-       "url": url,
-       "alt": 'alt text',
-       "description": desc
-     }
+      title: title,
+      url: url,
+      alt: 'alt text',
+      description: desc
+    };
     const addedImage = await AddNewImage(newPhoto);
-    console.log('added: ', addedImage );
-    // const { imageArray } = this.state;
-    // let imagesAfterDelete = DeleteImage(imageArray, target.i);
-    // this.setState({ imageArray: imagesAfterDelete });
+    const { images } = this.state;
+    images.push(addedImage.text);
+    this.setState({ images: images });
   }
 
-  updateSlide(target) {
-
-  }
-  getImagesFromParent = () => {
-    return {imageArray: this.state.imageArray, view: this.state.view};
-  }
+  updateSlide(target) {}
 
   render() {
-    const { view, imageArray} = this.state;
+    const { view, images } = this.state;
 
     return (
       <Router>
@@ -75,7 +70,12 @@ export default class App extends Component {
                 <NavLink to={{ pathname: '/' }}>Home</NavLink>
               </span>{' '}
               <span>
-                <NavLink  to={{ pathname: '/images', search: `${view}`, imagesFromParent:`${this.getImagesFromParent}` }}>
+                <NavLink
+                  to={{
+                    pathname: '/images',
+                    search: `${view}`,
+                    imagesFromParent: `${this.getImagesFromParent}`
+                  }}>
                   Images
                 </NavLink>
               </span>{' '}
@@ -88,13 +88,14 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route
-                exact render={() => (
+                exact
+                render={() => (
                   <View
                     deleteImage={target => this.deleteImage({ target })}
                     onChangeView={target => this.handleChangeView(target)}
                     addImage={image => this.addImage(image)}
                     view={view}
-                    images={imageArray}
+                    images={images}
                   />
                 )}
               />
