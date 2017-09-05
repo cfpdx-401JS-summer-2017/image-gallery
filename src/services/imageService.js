@@ -18,19 +18,9 @@ export const populateDB = async () => {
   return postResponses;
 };
 
-export const AddNewImage = async (title, desc, url) => {
-  console.log('in addnewimage: ', title, desc, url);
-  const newPhoto = {
-    "title": title,
-    "url": url,
-    "alt": 'alt text',
-    "description": desc
-  };
-
+export const AddNewImage = async (newPhoto) => {
   const savedImage = await superagent.post(`/api/images`).send(newPhoto);
-  console.log('savedImage: ', savedImage)
-//   //   const newImage = { title: title, description: desc, url: url };
-//   //   return hondas.push(newImage);
+  return savedImage;
 }
 
 

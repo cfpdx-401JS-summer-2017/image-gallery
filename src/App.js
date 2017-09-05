@@ -37,18 +37,15 @@ export default class App extends Component {
 
 
   async addImage( {title, desc, url}) {
-    console.log('in add image in App.js: ', title, desc, url, AddNewImage)
 
-    // const {title, url, desc} = target;
-    // console.log('hmmm: ', title, url, desc)
-    // const newPhoto = {
-    //    "title": title,
-    //    "url": url,
-    //    "desc": desc,
-    //    "alt": 'alt text'
-    //  }
-    // const addedImage = await superagent.post(`${apiURL}/images`).send(newPhoto);
-    // console.log('added: ', addedImage );
+    const newPhoto = {
+       "title": title,
+       "url": url,
+       "alt": 'alt text',
+       "description": desc
+     }
+    const addedImage = await AddNewImage(newPhoto);
+    console.log('added: ', addedImage );
     // const { imageArray } = this.state;
     // let imagesAfterDelete = DeleteImage(imageArray, target.i);
     // this.setState({ imageArray: imagesAfterDelete });

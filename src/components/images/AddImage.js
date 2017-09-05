@@ -6,7 +6,6 @@ AddImage.propTypes = {
 };
 
 export default function AddImage({ addImage }) {
-  console.log('in AddImage: ', addImage)
   return (
     <div className="addImageForm">
       <form
