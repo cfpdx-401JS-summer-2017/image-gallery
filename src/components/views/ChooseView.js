@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 
 ChooseView.propTypes = {
   currentView: PropTypes.string,
-  onChangeView: PropTypes.func,
-  imagesFromParent: PropTypes.func
+  onChangeView: PropTypes.func
 };
 
 function ChooseView({ onChangeView, imagesFromParent }) {
@@ -16,8 +15,7 @@ function ChooseView({ onChangeView, imagesFromParent }) {
           <NavLink
             to={{
               pathname: '/images',
-              search: `${currentView}`,
-              imagesFromParent: `${imagesFromParent}`
+              search: `${currentView}`
             }}
             activeStyle={{
               color: '#000000'

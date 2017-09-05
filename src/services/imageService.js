@@ -19,12 +19,21 @@ export const populateDB = async () => {
   return postResponses;
 };
 
-export function AddNewImage(title, desc, url, hondas) {
+export const AddNewImage = async (title, desc, url) => {
+  console.log('in addnewimage: ', title, desc, url);
+  const newPhoto = {
+    "title": title,
+    "url": url,
+    "alt": 'alt text',
+    "description": desc
+  };
+
+  const savedImage = await superagent.post(`${apiURL}/images`).send(newPhoto);
+  console.log('savedImage: ', savedImage)
 //   //   const newImage = { title: title, description: desc, url: url };
 //   //   return hondas.push(newImage);
 }
 
-// export function DefaultImages(hondas, selectedIndex) {}
 
 export function DeleteImage(hondas, selectedIndex) {
 //   // const index = hondas.indexOf(hondas[selectedIndex]);

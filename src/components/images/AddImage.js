@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AddNewImage } from '../../services/imageService';
 
 AddImage.propTypes = {
-  AddNewImage: PropTypes.func,
-  hondas: PropTypes.array
+  addImage: PropTypes.func
 };
 
-export default function AddImage({ hondas }) {
+export default function AddImage({ addImage }) {
+  console.log('in AddImage: ', addImage)
   return (
     <div className="addImageForm">
       <form
@@ -15,7 +14,7 @@ export default function AddImage({ hondas }) {
           event.preventDefault();
           const form = event.target;
           const { title, desc, url } = form.elements;
-          AddNewImage(title.value, desc.value, url.value, hondas);
+          addImage({title:title.value, desc:desc.value, url:url.value });
           form.reset();
         }}>
         <button type="submit" name="add image">
@@ -28,7 +27,7 @@ export default function AddImage({ hondas }) {
           placeholder="enter a title for your image"
         />
         <input
-          type="textarea"
+          type="text"
           className="addImageTextInput"
           name="desc"
           placeholder="enter a description for your image"

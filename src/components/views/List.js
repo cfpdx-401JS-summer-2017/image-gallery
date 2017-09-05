@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 List.propTypes = {
-  imagesFromParent: PropTypes.func
+  images: PropTypes.array,
+  view: PropTypes.string
 };
 
-export default function List({ imagesFromParent, view }) {
-  const {imageArray} = imagesFromParent();
+export default function List({ images }) {
 
   return (
-    <div className="listView">List!
+    <div className="listView">
       <ul>
-        {imageArray.map((image, i) => (
+        {images.map((image, i) => (
           <li key={i}>
             <span className="title">{image.title}</span>
             <span>{image.description}</span>

@@ -7,29 +7,38 @@ import ChooseView from './ChooseView';
 import AddImage from '../images/AddImage';
 
 View.propTypes = {
-  imageArray: PropTypes.array,
+  images: PropTypes.array,
   deleteImage: PropTypes.func,
   onChangeView: PropTypes.func,
+  addImage: PropTypes.func,
   view: PropTypes.string
 };
 
-export default function View({ imageArray, deleteImage, onChangeView, view, imagesFromParent }) {
+export default function View({
+  deleteImage,
+  onChangeView,
+  view,
+  images,
+  addImage
+}) {
   const currentView = view || 'gallery';
   const View =
     currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
 
-    return (
+  return (
     <div>
       <div className="functionsHeader">
         <ChooseView
           view={currentView}
           onChangeView={target => onChangeView(target)}
-          imagesFromParent={imagesFromParent}
         />
-        <AddImage imageArray={imageArray} />
+        <AddImage addImage={addImage} />
       </div>
       <div>
-        <View imagesFromParent={imagesFromParent} view={currentView} deleteImage={target => deleteImage(target)} />
+        <View
+          images={images}
+          deleteImage={target => deleteImage(target)}
+        />
       </div>
     </div>
   );

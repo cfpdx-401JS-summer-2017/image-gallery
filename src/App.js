@@ -1,12 +1,15 @@
+
 import React, { Component } from 'react';
 import logo from './cb750.svg';
 import './App.css';
 import View from '../src/components/views/View';
 import Home from '../src/components/static/Home';
 import About from '../src/components/static/About';
-import { populateDB, DeleteImage } from './services/imageService';
+import { populateDB, DeleteImage, AddNewImage } from './services/imageService';
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
+const superagent = require('superagent');
 require('dotenv').config();
+const apiURL = process.env.REACT_APP_API_URL;
 
 export default class App extends Component {
   constructor(props) {
@@ -32,6 +35,25 @@ export default class App extends Component {
     this.setState({ imageArray: imagesAfterDelete });
   }
 
+
+  async addImage( {title, desc, url}) {
+    console.log('in add image in App.js: ', title, desc, url, AddNewImage)
+
+    // const {title, url, desc} = target;
+    // console.log('hmmm: ', title, url, desc)
+    // const newPhoto = {
+    //    "title": title,
+    //    "url": url,
+    //    "desc": desc,
+    //    "alt": 'alt text'
+    //  }
+    // const addedImage = await superagent.post(`${apiURL}/images`).send(newPhoto);
+    // console.log('added: ', addedImage );
+    // const { imageArray } = this.state;
+    // let imagesAfterDelete = DeleteImage(imageArray, target.i);
+    // this.setState({ imageArray: imagesAfterDelete });
+  }
+
   updateSlide(target) {
 
   }
@@ -40,7 +62,8 @@ export default class App extends Component {
   }
 
   render() {
-    const { view, imageArray, getImagesFromParent } = this.state;
+    const { view, imageArray} = this.state;
+
     return (
       <Router>
         <div className="App">
@@ -55,7 +78,7 @@ export default class App extends Component {
                 <NavLink to={{ pathname: '/' }}>Home</NavLink>
               </span>{' '}
               <span>
-                <NavLink  to={{ pathname: '/images', search: `${view}`, imagesFromParent:`${getImagesFromParent}` }}>
+                <NavLink  to={{ pathname: '/images', search: `${view}`, imagesFromParent:`${this.getImagesFromParent}` }}>
                   Images
                 </NavLink>
               </span>{' '}
@@ -72,9 +95,9 @@ export default class App extends Component {
                   <View
                     deleteImage={target => this.deleteImage({ target })}
                     onChangeView={target => this.handleChangeView(target)}
+                    addImage={image => this.addImage(image)}
                     view={view}
-                    imageArray={imageArray}
-                    imagesFromParent={getImagesFromParent}
+                    images={imageArray}
                   />
                 )}
               />

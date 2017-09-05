@@ -15,7 +15,7 @@ it('renders without crashing', () => {
 });
 
 // it('renders a snapshot in gallery view', () => {
-//   const wrapper = mount(<Gallery />);
+//   const wrapper = shallow(<Gallery />);
 //   expect(toJSON(wrapper)).toMatchSnapshot();
 // });
 
