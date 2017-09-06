@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot in gallery view 1`] = `
+<div
+  className="galleryView"
+>
+  <div>
+    <input
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      className="galleryImg"
+      src="./images/01-honda-CB450-1986.jpg"
+      value={0}
+    />
+  </div>
+  <div>
+    <input
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      className="galleryImg"
+      src="./images/02-honda-CB1100F.jpg"
+      value={1}
+    />
+  </div>
+  <div>
+    <input
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      className="galleryImg"
+      src="./images/03-honda.jpg"
+      value={2}
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a snapshot in list view 1`] = `
+<div
+  className="listView"
+>
+  <ul>
+    <li>
+      <span
+        className="title"
+      >
+        CB450 1986
+      </span>
+      <span>
+        My first motorcycle. I still regret selling it.
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        CB1100F
+      </span>
+      <span>
+        Photo taken in San Francisco.
+      </span>
+    </li>
+    <li>
+      <span
+        className="title"
+      >
+        Avocado green Honda
+      </span>
+      <span>
+        Photo taken in San Francisco.
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders a snapshot in thumb view 1`] = `
+<div
+  class="thumbView"
+>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/01-honda-CB450-1986.jpg"
+      value="0"
+    />
+    <div
+      class="title"
+    >
+      CB450 1986
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/02-honda-CB1100F.jpg"
+      value="1"
+    />
+    <div
+      class="title"
+    >
+      CB1100F
+    </div>
+  </div>
+  <div>
+    <input
+      type="checkbox"
+    />
+    <img
+      alt="honda!"
+      class="thumbImg"
+      src="./images/03-honda.jpg"
+      value="2"
+    />
+    <div
+      class="title"
+    >
+      Avocado green Honda
+    </div>
+  </div>
+</div>
+`;

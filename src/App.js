@@ -78,8 +78,7 @@ export default class App extends Component {
                 <NavLink
                   to={{
                     pathname: '/images',
-                    search: `${view}`,
-                    imagesFromParent: `${this.getImagesFromParent}`
+                    search: `${view}`
                   }}>
                   Images
                 </NavLink>
