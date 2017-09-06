@@ -37,7 +37,7 @@ export default function View({
       <div>
         <View
           images={images}
-          deleteImage={target => deleteImage(target)}
+          deleteImage={deleteImage}
         />
       </div>
     </div>

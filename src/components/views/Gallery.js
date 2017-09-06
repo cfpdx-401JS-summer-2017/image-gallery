@@ -8,12 +8,11 @@ Gallery.propTypes = {
 
 export default function Gallery({ deleteImage, images }) {
 
-
   return (
     <div className="galleryView">
       {images.map((image, i) => (
         <div key={i}>
-          <input type="checkbox" onChange={target => deleteImage({ i })} />
+          <input type="checkbox" onChange={() => deleteImage(image)} />
           <img
             value={i}
             className="galleryImg"

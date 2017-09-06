@@ -30,12 +30,17 @@ export default class App extends Component {
     this.setState({ view: target.currentView });
   }
 
-  async deleteImage({ target }) {
+  async deleteImage(image) {
+    const { _id } = image;
     const { images } = this.state;
-    const index = target.i;
-    const del = await DeleteImage(index);
-    if (del.status !== 200) return
-      this.setState({ images: [...images.slice(0, index), ...images.slice(index + 1)]});
+    const del = await DeleteImage(_id);
+    if (del.status !== 200) return;
+    let newImages = [];
+    images.map(ele => {
+      if (ele._id !== _id) newImages.push(ele);
+      return newImages;
+    });
+    this.setState({ images: newImages });
   }
 
   async addImage({ title, desc, url }) {
@@ -91,7 +96,7 @@ export default class App extends Component {
                 exact
                 render={() => (
                   <View
-                    deleteImage={target => this.deleteImage({ target })}
+                    deleteImage={image => this.deleteImage(image)}
                     onChangeView={target => this.handleChangeView(target)}
                     addImage={image => this.addImage(image)}
                     view={view}

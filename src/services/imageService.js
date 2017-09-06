@@ -12,7 +12,7 @@ export const populateDB = async () => {
       description: 'description'
     };
     const savedImage = await superagent.post('/api/images').send(photo);
-    postResponses.push(savedImage.text);
+    postResponses.push(savedImage.body);
     return postResponses;
   });
   return postResponses;
@@ -23,9 +23,9 @@ export const AddNewImage = async newPhoto => {
   return savedImage;
 };
 
-export const DeleteImage = async selectedIndex => {
+export const DeleteImage = async imageId => {
   const deletedImage = await superagent
     .delete(`/api/images`)
-    .query({ _id: selectedIndex });
+    .query({ _id: imageId });
   return deletedImage;
 };

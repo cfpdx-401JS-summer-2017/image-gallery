@@ -12,7 +12,7 @@ export default function Thumb({ deleteImage, images }) {
     <div className="thumbView">
       {images.map((image, i) => (
         <div key={i}>
-          <input type="checkbox" onChange={target => deleteImage(i)} />
+          <input type="checkbox" onChange={() => deleteImage(image)} />
           <img
             value={i}
             className="thumbImg"
