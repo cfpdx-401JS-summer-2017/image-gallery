@@ -3,20 +3,27 @@ import PropTypes from 'prop-types';
 import List from './List';
 import Gallery from './Gallery';
 import Thumb from './Thumb';
-import ChooseView from '../ChooseView';
-import AddImage from '../AddImage';
+import ChooseView from './ChooseView';
+import AddImage from '../images/AddImage';
 
 View.propTypes = {
-  hondas: PropTypes.arrayOf(PropTypes.object).isRequired,
+  images: PropTypes.array,
   deleteImage: PropTypes.func,
   onChangeView: PropTypes.func,
+  addImage: PropTypes.func,
   view: PropTypes.string
 };
 
-export default function View({ hondas, deleteImage, onChangeView, view }) {
+export default function View({
+  deleteImage,
+  onChangeView,
+  view,
+  images,
+  addImage
+}) {
   const currentView = view || 'gallery';
-  console.log(currentView)
-  const View = currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
+  const View =
+    currentView === 'list' ? List : currentView === 'gallery' ? Gallery : Thumb;
 
   return (
     <div>
@@ -25,10 +32,13 @@ export default function View({ hondas, deleteImage, onChangeView, view }) {
           view={currentView}
           onChangeView={target => onChangeView(target)}
         />
-        <AddImage hondas={hondas} />
+        <AddImage addImage={addImage} />
       </div>
       <div>
-        <View hondas={hondas} deleteImage={target => deleteImage(target)} />
+        <View
+          images={images}
+          deleteImage={deleteImage}
+        />
       </div>
     </div>
   );

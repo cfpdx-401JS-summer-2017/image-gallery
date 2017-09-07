@@ -43,12 +43,10 @@ li {
 span {
   padding: 0;
   margin: 0 0 0 10px;
-  }
+}
 
 input {
   float: left;
-}
-div {
 }
 
 .functionsHeader {
@@ -70,7 +68,7 @@ div {
   border-radius: 10px;
   border: 1px solid darkgrey;
   padding: 5px;
-  font-size: .75rem;
+  font-size: 0.75rem;
   box-shadow: lightgrey 2px 2px 1px;
 }
 button {
@@ -163,7 +161,6 @@ button:hover {
   font-weight: bold;
 }
 
-
 .slider-wrapper {
   overflow: hidden;
   width: 100%;
@@ -200,4 +197,3 @@ button:hover {
   border-radius: 20px;
   margin-right: 8px;
 }
-

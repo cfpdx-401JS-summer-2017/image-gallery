@@ -22,7 +22,6 @@ Images.propTypes = {
 export default function ImageSlider({ hondas, onUpdateSlide }) {
   let active = 0;
 
-  console.log('imgslider: ', hondas.length, onUpdateSlide)
   return (
     <div>
       <Images hondas={hondas} useImages={true} active={active} onClick={target => onUpdateSlide(target)}/>
@@ -31,7 +30,6 @@ export default function ImageSlider({ hondas, onUpdateSlide }) {
 }
 
 export function Images({ hondas, active, onUpdateSlide }) {
-  console.log('images: ', hondas.length, active)
   let width = { width: 100 / hondas.length + '%' };
   let divStyle = { left: active * -100 + '%', width: 4 * 100 + '%' };
   return (
@@ -49,7 +47,6 @@ export function Images({ hondas, active, onUpdateSlide }) {
 
 // export function Pagers({ hondas, onUpdateSlide }) {
 //   let width = { width: 100 / hondas.length + '%' };
-//   console.log('pagers: ', hondas)
 //   return (
 //     <div>
 //       <ul className="pagers">

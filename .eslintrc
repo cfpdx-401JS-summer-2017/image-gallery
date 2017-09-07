@@ -25,7 +25,6 @@
     "no-unused-vars": "warn",
     "constructor-super": "warn",
     "valid-typeof": "warn",
-
     "block-spacing": ["error", "always"],
     "space-before-function-paren": ["error", "always"],
     "brace-style": [
@@ -44,6 +43,7 @@
     ],
     "curly": ["warn", "multi"],
     "indent": ["error", 2],
+    "jsx-quotes": ["error", "prefer-single"],
     "key-spacing": [
       "error",
       {
@@ -56,7 +56,7 @@
     "newline-per-chained-call": [
       "error",
       {
-        "ignoreChainWithDepth": 2
+        "ignoreChainWithDepth": 4
       }
     ],
     "no-console": "off",
@@ -73,32 +73,32 @@
         "skipBlankLines": false
       }
     ],
-    "no-var": "warn",
+    "no-var": "error",
     "nonblock-statement-body-position": ["warn", "beside"],
-    "object-curly-newline": ["warn", "always"],
-    "padding-line-between-statements": [
-      "error",
-      {
-        "blankLine": "always",
-        "next": "block",
-        "prev": "*"
-      },
-      {
-        "blankLine": "always",
-        "next": "block-like",
-        "prev": "*"
-      },
-      {
-        "blankLine": "always",
-        "next": "function",
-        "prev": "*"
-      },
-      {
-        "blankLine": "never",
-        "next": "return",
-        "prev": "*"
-      }
-    ],
+    "object-curly-newline": ["error", { "multiline": true }],
+    // "padding-line-between-statements": [
+    //   "error",
+    //   {
+    //     "blankLine": "always",
+    //     "next": "block",
+    //     "prev": "*"
+    //   },
+    //   {
+    //     "blankLine": "always",
+    //     "next": "block-like",
+    //     "prev": "*"
+    //   },
+    //   {
+    //     "blankLine": "always",
+    //     "next": "function",
+    //     "prev": "*"
+    //   },
+    //   {
+    //     "blankLine": "never",
+    //     "next": "return",
+    //     "prev": "*"
+    //   }
+    // ],
     "prefer-arrow-callback": [
       "warn",
       {
@@ -115,6 +115,7 @@
         "enforceForRenamedProperties": false
       }
     ],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "sort-keys": [
